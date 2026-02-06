@@ -116,10 +116,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">
-                            <i class="bi bi-plug me-1"></i>Endpoint ID <small class="text-secondary">(可选)</small>
+                            <i class="bi bi-plug me-1"></i>Endpoint ID <small class="text-danger">(必填)</small>
                         </label>
-                        <input type="text" class="form-control" id="doubao-endpoint" placeholder="模型推理接入点 ID">
-                        <div class="form-text text-secondary">在火山方舟控制台创建的接入点 ID，不填则使用默认模型</div>
+                        <input type="text" class="form-control" id="doubao-endpoint"
+                            placeholder="例如: ep-20240206000000-xxxxx">
+                        <div class="form-text text-secondary">请前往火山方舟控制台创建在线推理接入点，并复制接入点 ID (以 ep- 开头)</div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label">
@@ -321,6 +322,10 @@
 
             if (!apiKey) {
                 showNotification('请填写 API Key', 'error');
+                return;
+            }
+            if (!endpoint) {
+                showNotification('请填写 Endpoint ID', 'error');
                 return;
             }
 

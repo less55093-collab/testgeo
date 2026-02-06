@@ -98,6 +98,41 @@ class JobManager:
         self._save_metadata(job_name, metadata)
         logger.info(f"Updated run '{run_id}' status to '{status}'")
 
+    def save_keyword_result(
+        self,
+        job_name: str,
+        run_id: str,
+        keyword: str,
+        success: bool,
+        content: str = "",
+        rankings: list = None,
+        sources: list = None,
+        error: str = None,
+    ) -> None:
+        """Save keyword processing result to JSONL"""
+        if rankings is None:
+            rankings = []
+        if sources is None:
+            sources = []
+
+        run_dir = self.jobs_dir / job_name / "runs" / run_id
+        jsonl_path = run_dir / "results.jsonl"
+
+        result = {
+            "keyword": keyword,
+            "timestamp": datetime.now().isoformat(),
+            "success": success,
+            "error_message": error,
+            "content": content,
+            "num_sources": len(sources),
+            "num_rankings": len(rankings),
+            "rankings": rankings,
+            "sources": sources,
+        }
+
+        with open(jsonl_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
+
     def get_unprocessed_keywords(self, job_name: str, run_id: str) -> list[str]:
         """Get keywords not yet processed in JSONL"""
         metadata = self.load_job(job_name)

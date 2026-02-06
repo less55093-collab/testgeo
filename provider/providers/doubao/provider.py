@@ -48,13 +48,6 @@ class DoubaoRateLimiter:
 class Doubao:
     """Doubao AI provider using Volcengine Ark API with web search capability"""
 
-    # Doubao models with web search capability
-    MODELS = {
-        "doubao-pro-32k": "doubao-pro-32k",
-        "doubao-pro-128k": "doubao-pro-128k", 
-        "doubao-lite-32k": "doubao-lite-32k",
-    }
-
     def __init__(self, config_path: str = "config.json"):
         """
         Initialize Doubao provider from config file.
@@ -82,7 +75,11 @@ class Doubao:
         self.api_key = accounts[0]["api_key"]
         self.model = provider_config.get("model", "doubao-pro-32k")
         self.endpoint_id = provider_config.get("endpoint_id", "")
-        self.base_url = provider_config.get("base_url", "https://ark.cn-beijing.volces.com/api/v3")
+        
+        if not self.endpoint_id:
+            raise ValueError("Doubao Endpoint ID (接入点 ID) is required. Please configure it in settings.")
+            
+        self.base_url = provider_config.get("base_url", "https://ark.cn-beijing.volces.com/api/v3/")
         
         # Rate limiter
         rate_limit_data = provider_config.get("rate_limit", {})
@@ -94,17 +91,11 @@ class Doubao:
         # Create LLM wrapper for parsing rankings
         self.llm_wrapper = create_random_llm_wrapper(config_path)
         
-        logger.info(f"Doubao provider initialized with model: {self.model}")
+        logger.info(f"Doubao provider initialized with endpoint: {self.endpoint_id}")
 
     async def call(self, params: CallParams) -> CallResult:
         """
         Make API call to Doubao with web search enabled.
-
-        Args:
-            params: Call parameters including messages and search settings
-
-        Returns:
-            Call result with content, sources and parsed rankings
         """
         await self.rate_limiter.wait_for_slot()
         
@@ -124,7 +115,11 @@ class Doubao:
         }
         
         # Enable web search if requested
-        if params.enable_search:
+        # Note: If using a specific Bot (endpoint_id starts with 'bot-'), it likely handles search internally.
+        # We should not inject tools in that case to avoid conflicts.
+        is_bot = str(self.endpoint_id).startswith("bot-") or "/bots" in self.base_url
+        
+        if params.enable_search and not is_bot:
             payload["tools"] = [
                 {
                     "type": "web_search",
@@ -143,10 +138,12 @@ class Doubao:
         try:
             async with httpx.AsyncClient(timeout=120.0) as client:
                 response = await client.post(
-                    f"{self.base_url}/chat/completions",
+                    f"{self.base_url.rstrip('/')}/chat/completions",
                     json=payload,
                     headers=headers,
                 )
+                if response.status_code != 200:
+                    logger.error(f"Doubao Error: {response.text}")
                 response.raise_for_status()
                 result = response.json()
             
@@ -172,6 +169,16 @@ class Doubao:
         if choices:
             message = choices[0].get("message", {})
             content = message.get("content", "")
+            
+            # Check for Bot API references (top-level 'references' field)
+            references = raw_response.get("references", [])
+            for ref in references:
+                sources.append({
+                    "title": ref.get("title", ""),
+                    "url": ref.get("url", ""),
+                    "snippet": ref.get("content", "") or ref.get("snippet", ""), 
+                    "source": "doubao_bot"
+                })
             
             # Check for tool calls (web search results)
             tool_calls = message.get("tool_calls", [])

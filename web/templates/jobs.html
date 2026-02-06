@@ -164,7 +164,8 @@
             return;
         }
 
-        const keywords = keywordsText.split('\n').map(k => k.trim()).filter(k => k);
+        // Split by newline, English comma, or Chinese comma
+        const keywords = keywordsText.split(/[\n,，]/).map(k => k.trim()).filter(k => k);
         if (keywords.length === 0) {
             alert('请输入至少一个关键词');
             return;

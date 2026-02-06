@@ -30,6 +30,86 @@
       "status": "completed",
       "processed_keywords": 17,
       "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_184731",
+      "started_at": "2026-02-06T18:47:31.739511",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_184739",
+      "started_at": "2026-02-06T18:47:39.988460",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191035",
+      "started_at": "2026-02-06T19:10:35.772048",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191756",
+      "started_at": "2026-02-06T19:17:56.680744",
+      "completed_at": "2026-02-06T19:17:57.682327",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191806",
+      "started_at": "2026-02-06T19:18:06.973430",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191820",
+      "started_at": "2026-02-06T19:18:20.228717",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191945",
+      "started_at": "2026-02-06T19:19:45.200643",
+      "completed_at": "2026-02-06T19:19:46.134015",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_191947",
+      "started_at": "2026-02-06T19:19:47.913104",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_193700",
+      "started_at": "2026-02-06T19:37:00.721631",
+      "completed_at": "2026-02-06T19:37:01.705522",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_193703",
+      "started_at": "2026-02-06T19:37:03.864024",
+      "completed_at": null,
+      "status": "paused",
+      "processed_keywords": 0,
+      "failed_keywords": 0
     }
   ]
 }

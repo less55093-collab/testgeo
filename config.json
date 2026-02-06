@@ -15,6 +15,20 @@
       },
       "token_storage_path": "data/deepseek_tokens.json",
       "wasm_path": "sha3_wasm_bg.7b9ca65ddd.wasm"
+    },
+    "doubao": {
+      "accounts": [
+        {
+          "api_key": "dc10fd52-7ebc-49fe-9de3-8fee6f35ed81"
+        }
+      ],
+      "model": "bot-20260206203351-hknwt",
+      "endpoint_id": "bot-20260206203351-hknwt",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3/bots",
+      "rate_limit": {
+        "max_requests_per_period": 4,
+        "period_seconds": 60
+      }
     }
   },
   "llm": [

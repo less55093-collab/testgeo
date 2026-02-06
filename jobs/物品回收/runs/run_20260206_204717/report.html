@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI排名分析报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #666;
+            margin-top: 20px;
+        }
+        .overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        canvas {
+            max-height: 400px;
+        }
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .toggle-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        .toggle-btn {
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-btn.active {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        .toggle-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .toggle-btn.active:hover {
+            background-color: #45a049;
+        }
+        .view-content {
+            display: none;
+        }
+        .view-content.active {
+            display: block;
+        }
+        .section-tabs {
+            display: flex;
+            gap: 5px;
+            margin: 20px 0 10px 0;
+            border-bottom: 2px solid #ddd;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover {
+            background-color: #f0f0f0;
+        }
+        .tab-btn.active {
+            border-bottom-color: #4CAF50;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .target-highlight {
+            background-color: #fff9c4;
+            padding: 20px;
+            border-left: 4px solid #ffd54f;
+            margin: 20px 0;
+        }
+        .raw-data-table {
+            font-size: 13px;
+        }
+        .raw-data-table td {
+            max-width: 400px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="report-title">AI排名分析报告</h1>
+        <p class="info-text"><strong>生成时间：</strong><span id="analyzed-at"></span></p>
+        <p class="info-text"><strong>运行ID：</strong><span id="run-id"></span></p>
+
+        <h2>总览</h2>
+        <div class="overview" id="overview-metrics"></div>
+
+        <!-- Target Product Section -->
+        <div id="target-product-section"></div>
+
+        <!-- Source Statistics -->
+        <h2>来源网站分析</h2>
+        <div class="section-tabs">
+            <button class="tab-btn active" onclick="switchSourceTab('rank1')">排名第一</button>
+            <button class="tab-btn" onclick="switchSourceTab('top2')">前两名</button>
+            <button class="tab-btn" onclick="switchSourceTab('top3')">前三名</button>
+            <button class="tab-btn" onclick="switchSourceTab('all')">所有</button>
+        </div>
+        <div id="source-rank1-tab" class="tab-content active">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('source-rank1', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('source-rank1', 'table')">表格</button>
+            </div>
+            <div id="source-rank1-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="sourceRank1Chart"></canvas>
+                </div>
+            </div>
+            <div id="source-rank1-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>域名</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="source-rank1-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="source-top2-tab" class="tab-content">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('source-top2', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('source-top2', 'table')">表格</button>
+            </div>
+            <div id="source-top2-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="sourceTop2Chart"></canvas>
+                </div>
+            </div>
+            <div id="source-top2-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>域名</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="source-top2-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="source-top3-tab" class="tab-content">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('source-top3', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('source-top3', 'table')">表格</button>
+            </div>
+            <div id="source-top3-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="sourceTop3Chart"></canvas>
+                </div>
+            </div>
+            <div id="source-top3-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>域名</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="source-top3-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="source-all-tab" class="tab-content">
+            <h3>被大模型引用的源</h3>
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('source-all-cited', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('source-all-cited', 'table')">表格</button>
+            </div>
+            <div id="source-all-cited-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="sourceAllCitedChart"></canvas>
+                </div>
+            </div>
+            <div id="source-all-cited-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>域名</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="source-all-cited-tbody"></tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-top: 40px;">搜索结果中的所有源</h3>
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('source-all-search', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('source-all-search', 'table')">表格</button>
+            </div>
+            <div id="source-all-search-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="sourceAllSearchChart"></canvas>
+                </div>
+            </div>
+            <div id="source-all-search-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>网站名称</th>
+                            <th>域名</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="source-all-search-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Product Statistics -->
+        <h2>产品/平台分析</h2>
+        <div class="section-tabs">
+            <button class="tab-btn active" onclick="switchProductTab('rank1')">排名第一</button>
+            <button class="tab-btn" onclick="switchProductTab('top2')">前两名</button>
+            <button class="tab-btn" onclick="switchProductTab('top3')">前三名</button>
+            <button class="tab-btn" onclick="switchProductTab('all')">所有</button>
+        </div>
+        <div id="product-rank1-tab" class="tab-content active">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('product-rank1', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('product-rank1', 'table')">表格</button>
+            </div>
+            <div id="product-rank1-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="productRank1Chart"></canvas>
+                </div>
+            </div>
+            <div id="product-rank1-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品/平台名称</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-rank1-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="product-top2-tab" class="tab-content">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('product-top2', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('product-top2', 'table')">表格</button>
+            </div>
+            <div id="product-top2-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="productTop2Chart"></canvas>
+                </div>
+            </div>
+            <div id="product-top2-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品/平台名称</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-top2-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="product-top3-tab" class="tab-content">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('product-top3', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('product-top3', 'table')">表格</button>
+            </div>
+            <div id="product-top3-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="productTop3Chart"></canvas>
+                </div>
+            </div>
+            <div id="product-top3-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品/平台名称</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-top3-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="product-all-tab" class="tab-content">
+            <h3>所有展现的产品/平台</h3>
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="toggleView('product-all', 'chart')">图表</button>
+                <button class="toggle-btn" onclick="toggleView('product-all', 'table')">表格</button>
+            </div>
+            <div id="product-all-chart" class="view-content active">
+                <div class="chart-container">
+                    <canvas id="productAllChart"></canvas>
+                </div>
+            </div>
+            <div id="product-all-table" class="view-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品/平台名称</th>
+                            <th>出现次数</th>
+                            <th>占比</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-all-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Raw Data Section -->
+        <h2>原始数据</h2>
+        <div id="raw-data-section"></div>
+    </div>
+
+    <script>
+        // Data will be injected here
+        const REPORT_DATA = {
+  "job_name": "物品回收",
+  "run_id": "run_20260206_204717",
+  "analyzed_at": "2026-02-06T20:47:43.661299",
+  "total_keywords": 2,
+  "successful_queries": 2,
+  "failed_keywords": 0,
+  "source_rank1_chart": {
+    "labels": [],
+    "data": []
+  },
+  "source_top2_chart": {
+    "labels": [],
+    "data": []
+  },
+  "source_top3_chart": {
+    "labels": [],
+    "data": []
+  },
+  "all_cited_sources_chart": {
+    "labels": [],
+    "data": []
+  },
+  "all_cited_sources_table": [],
+  "all_search_sources_chart": {
+    "labels": [
+      "huangjinjiage.cn",
+      "finance.people.com.cn",
+      "cj.sina.com.cn",
+      "news.cnnb.com.cn",
+      "finance.china.com.cn",
+      "m.baike.com",
+      "m.cnfin.com",
+      "m.toutiao.com",
+      "fashion.ce.cn",
+      "gold.hexun.com"
+    ],
+    "data": [
+      7,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "all_search_sources_table": [
+    {
+      "site_name": "huangjinjiage.cn",
+      "domain": "huangjinjiage.cn",
+      "count": 7,
+      "percentage": "350.0%"
+    },
+    {
+      "site_name": "finance.people.com.cn",
+      "domain": "finance.people.com.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "cj.sina.com.cn",
+      "domain": "cj.sina.com.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "news.cnnb.com.cn",
+      "domain": "news.cnnb.com.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "finance.china.com.cn",
+      "domain": "finance.china.com.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "m.baike.com",
+      "domain": "m.baike.com",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "m.cnfin.com",
+      "domain": "m.cnfin.com",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "m.toutiao.com",
+      "domain": "m.toutiao.com",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "fashion.ce.cn",
+      "domain": "fashion.ce.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "gold.hexun.com",
+      "domain": "gold.hexun.com",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "m.sohu.com",
+      "domain": "m.sohu.com",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "cj.sina.cn",
+      "domain": "cj.sina.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "jinrijinjia.vip",
+      "domain": "jinrijinjia.vip",
+      "count": 1,
+      "percentage": "50.0%"
+    },
+    {
+      "site_name": "k.sina.cn",
+      "domain": "k.sina.cn",
+      "count": 1,
+      "percentage": "50.0%"
+    }
+  ],
+  "product_rank1_chart": {
+    "labels": [],
+    "data": []
+  },
+  "product_top2_chart": {
+    "labels": [],
+    "data": []
+  },
+  "product_top3_chart": {
+    "labels": [],
+    "data": []
+  },
+  "all_products_chart": {
+    "labels": [],
+    "data": []
+  },
+  "all_products_table": [],
+  "sources_rank1_table": [],
+  "sources_top2_table": [],
+  "sources_top3_table": [],
+  "products_rank1_table": [],
+  "products_top2_table": [],
+  "products_top3_table": [],
+  "target_product": null,
+  "target_product_sources": null,
+  "target_product_raw_data": null,
+  "all_keywords_raw_data": [
+    {
+      "keyword": "黄金回收",
+      "success": true,
+      "rankings": []
+    },
+    {
+      "keyword": "白银回收",
+      "success": true,
+      "rankings": []
+    }
+  ]
+};
+
+        // Helper functions
+        function toggleView(section, view) {
+            const chartBtn = document.querySelector(`#${section}-${view === 'chart' ? 'chart' : 'table'}`).parentElement.querySelector('.toggle-btn:first-child');
+            const tableBtn = document.querySelector(`#${section}-${view === 'chart' ? 'chart' : 'table'}`).parentElement.querySelector('.toggle-btn:last-child');
+            const chartView = document.getElementById(`${section}-chart`);
+            const tableView = document.getElementById(`${section}-table`);
+
+            if (view === 'chart') {
+                chartBtn.classList.add('active');
+                tableBtn.classList.remove('active');
+                chartView.classList.add('active');
+                tableView.classList.remove('active');
+            } else {
+                chartBtn.classList.remove('active');
+                tableBtn.classList.add('active');
+                chartView.classList.remove('active');
+                tableView.classList.add('active');
+            }
+        }
+
+        function switchSourceTab(tab) {
+            ['rank1', 'top2', 'top3', 'all'].forEach(t => {
+                const tabContent = document.getElementById(`source-${t}-tab`);
+                const tabBtn = document.querySelector(`.section-tabs button[onclick="switchSourceTab('${t}')"]`);
+                if (t === tab) {
+                    tabContent.classList.add('active');
+                    tabBtn.classList.add('active');
+                } else {
+                    tabContent.classList.remove('active');
+                    tabBtn.classList.remove('active');
+                }
+            });
+        }
+
+        function switchProductTab(tab) {
+            ['rank1', 'top2', 'top3', 'all'].forEach(t => {
+                const tabContent = document.getElementById(`product-${t}-tab`);
+                const tabBtn = document.querySelector(`.section-tabs button[onclick="switchProductTab('${t}')"]`);
+                if (t === tab) {
+                    tabContent.classList.add('active');
+                    tabBtn.classList.add('active');
+                } else {
+                    tabContent.classList.remove('active');
+                    tabBtn.classList.remove('active');
+                }
+            });
+        }
+
+        // Generate consistent color for a given string using hash
+        function stringToColor(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            // Generate HSL color with good saturation and lightness
+            const hue = Math.abs(hash) % 360;
+            const saturation = 65 + (Math.abs(hash >> 8) % 20); // 65-85%
+            const lightness = 50 + (Math.abs(hash >> 16) % 15);  // 50-65%
+
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        function createPieChart(canvasId, chartData, title) {
+            if (chartData.labels.length === 0) return;
+
+            // Generate consistent colors based on labels
+            const colors = chartData.labels.map(label => stringToColor(label));
+
+            new Chart(document.getElementById(canvasId), {
+                type: 'pie',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        data: chartData.data,
+                        backgroundColor: colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { position: 'right' },
+                        title: { display: true, text: title }
+                    }
+                }
+            });
+        }
+
+        function populateTable(tbodyId, rows, type) {
+            const tbody = document.getElementById(tbodyId);
+            rows.forEach(row => {
+                const tr = document.createElement('tr');
+                if (type === 'source') {
+                    tr.innerHTML = `
+                        <td>${row.site_name}</td>
+                        <td>${row.domain}</td>
+                        <td>${row.count}</td>
+                        <td>${row.percentage}</td>
+                    `;
+                } else {
+                    tr.innerHTML = `
+                        <td>${row.product}</td>
+                        <td>${row.count}</td>
+                        <td>${row.percentage}</td>
+                    `;
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Populate report header
+        document.getElementById('report-title').textContent = `AI排名分析报告：${REPORT_DATA.job_name}`;
+        document.getElementById('analyzed-at').textContent = REPORT_DATA.analyzed_at;
+        document.getElementById('run-id').textContent = REPORT_DATA.run_id;
+
+        // Populate overview metrics
+        const overviewMetrics = [
+            { label: '总关键词数', value: REPORT_DATA.total_keywords },
+            { label: '成功查询', value: REPORT_DATA.successful_queries },
+            { label: '失败查询', value: REPORT_DATA.failed_keywords },
+            {
+                label: '成功率',
+                value: REPORT_DATA.total_keywords > 0
+                    ? `${(REPORT_DATA.successful_queries / REPORT_DATA.total_keywords * 100).toFixed(1)}%`
+                    : '0.0%'
+            }
+        ];
+
+        const overviewContainer = document.getElementById('overview-metrics');
+        overviewMetrics.forEach(metric => {
+            const metricDiv = document.createElement('div');
+            metricDiv.className = 'metric';
+            metricDiv.innerHTML = `
+                <div class="metric-label">${metric.label}</div>
+                <div class="metric-value">${metric.value}</div>
+            `;
+            overviewContainer.appendChild(metricDiv);
+        });
+
+        // Populate target product section
+        if (REPORT_DATA.target_product) {
+            const t = REPORT_DATA.target_product;
+            const targetSection = document.getElementById('target-product-section');
+
+            let html = `
+                <h2>目标产品分析</h2>
+                <div class="target-highlight">
+                    <h3>${t.target_name}</h3>
+                    <table style="margin: 20px 0; max-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>指标</th>
+                                <th>次数</th>
+                                <th>比率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>排名第一</strong></td>
+                                <td>${t.rank1_count}</td>
+                                <td>${t.rank1_rate}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>前二名</strong></td>
+                                <td>${t.top2_count}</td>
+                                <td>${t.top2_rate}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>前三名</strong></td>
+                                <td>${t.top3_count}</td>
+                                <td>${t.top3_rate}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>展现</strong></td>
+                                <td>${t.total_appearances}</td>
+                                <td>${t.appearance_rate}%</td>
+                            </tr>
+                            <tr style="background-color: #f0f0f0;">
+                                <td><strong>平均排名</strong></td>
+                                <td colspan="2" style="text-align: center;">${t.average_rank}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            if (REPORT_DATA.target_product_sources) {
+                html += `
+                    <h3>目标产品的引用来源分布</h3>
+                    <div class="toggle-buttons">
+                        <button class="toggle-btn active" onclick="toggleView('target-sources', 'chart')">图表</button>
+                        <button class="toggle-btn" onclick="toggleView('target-sources', 'table')">表格</button>
+                    </div>
+                    <div id="target-sources-chart" class="view-content active">
+                        <div class="chart-container">
+                            <canvas id="targetSourcesChart"></canvas>
+                        </div>
+                    </div>
+                    <div id="target-sources-table" class="view-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>网站名称</th>
+                                    <th>域名</th>
+                                    <th>引用次数</th>
+                                </tr>
+                            </thead>
+                            <tbody id="target-sources-tbody"></tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            targetSection.innerHTML = html;
+
+            // Create target product sources chart
+            if (REPORT_DATA.target_product_sources) {
+                createPieChart('targetSourcesChart', REPORT_DATA.target_product_sources.chart, '目标产品引用来源');
+                const tbody = document.getElementById('target-sources-tbody');
+                REPORT_DATA.target_product_sources.table.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${row.site_name}</td>
+                        <td>${row.domain}</td>
+                        <td>${row.count}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+        }
+
+        // Create source charts
+        createPieChart('sourceRank1Chart', REPORT_DATA.source_rank1_chart, '排名第一的来源网站');
+        createPieChart('sourceTop2Chart', REPORT_DATA.source_top2_chart, '前两名的来源网站');
+        createPieChart('sourceTop3Chart', REPORT_DATA.source_top3_chart, '前三名的来源网站');
+        createPieChart('sourceAllCitedChart', REPORT_DATA.all_cited_sources_chart, '被大模型引用的所有源');
+        createPieChart('sourceAllSearchChart', REPORT_DATA.all_search_sources_chart, '搜索结果中的所有源');
+
+        // Create product charts
+        createPieChart('productRank1Chart', REPORT_DATA.product_rank1_chart, '排名第一的产品/平台');
+        createPieChart('productTop2Chart', REPORT_DATA.product_top2_chart, '前两名的产品/平台');
+        createPieChart('productTop3Chart', REPORT_DATA.product_top3_chart, '前三名的产品/平台');
+        createPieChart('productAllChart', REPORT_DATA.all_products_chart, '所有展现的产品/平台');
+
+        // Populate tables
+        populateTable('source-rank1-tbody', REPORT_DATA.sources_rank1_table, 'source');
+        populateTable('source-top2-tbody', REPORT_DATA.sources_top2_table, 'source');
+        populateTable('source-top3-tbody', REPORT_DATA.sources_top3_table, 'source');
+        populateTable('source-all-cited-tbody', REPORT_DATA.all_cited_sources_table, 'source');
+        populateTable('source-all-search-tbody', REPORT_DATA.all_search_sources_table, 'source');
+        populateTable('product-rank1-tbody', REPORT_DATA.products_rank1_table, 'product');
+        populateTable('product-top2-tbody', REPORT_DATA.products_top2_table, 'product');
+        populateTable('product-top3-tbody', REPORT_DATA.products_top3_table, 'product');
+        populateTable('product-all-tbody', REPORT_DATA.all_products_table, 'product');
+
+        // Populate raw data section
+        const rawDataSection = document.getElementById('raw-data-section');
+
+        // Target product raw data
+        if (REPORT_DATA.target_product_raw_data && REPORT_DATA.target_product_raw_data.length > 0) {
+            let html = `
+                <h3>目标产品关键词详情</h3>
+                <table class="raw-data-table">
+                    <thead>
+                        <tr>
+                            <th>关键词</th>
+                            <th>排名</th>
+                            <th>引用来源</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            REPORT_DATA.target_product_raw_data.forEach(row => {
+                const rankStyle = (row.rank === '未出现' || row.rank === '查询失败') ? 'color: #999; font-style: italic;' : '';
+                html += `
+                    <tr>
+                        <td>${row.keyword}</td>
+                        <td style="${rankStyle}">${row.rank}</td>
+                        <td style="${rankStyle}">${row.sources}</td>
+                    </tr>
+                `;
+            });
+            html += '</tbody></table>';
+            rawDataSection.innerHTML += html;
+        }
+
+        // All keywords raw data
+        if (REPORT_DATA.all_keywords_raw_data && REPORT_DATA.all_keywords_raw_data.length > 0) {
+            let html = '<h3>所有关键词搜索结果</h3>';
+            REPORT_DATA.all_keywords_raw_data.forEach(keywordData => {
+                html += `<h4>关键词：${keywordData.keyword}</h4>`;
+                if (!keywordData.success) {
+                    html += '<p style="color: red;">查询失败</p>';
+                } else if (keywordData.rankings.length === 0) {
+                    html += '<p>无排名结果</p>';
+                } else {
+                    html += `
+                        <table class="raw-data-table">
+                            <thead>
+                                <tr>
+                                    <th>排名</th>
+                                    <th>产品/平台</th>
+                                    <th>引用来源</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    keywordData.rankings.forEach(ranking => {
+                        html += `
+                            <tr>
+                                <td>${ranking.rank}</td>
+                                <td>${ranking.product}</td>
+                                <td>${ranking.sources}</td>
+                            </tr>
+                        `;
+                    });
+                    html += '</tbody></table>';
+                }
+            });
+            rawDataSection.innerHTML += html;
+        }
+    </script>
+</body>
+</html>

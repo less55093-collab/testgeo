@@ -1,0 +1,33 @@
+{
+  "job_name": "物品回收",
+  "run_id": "run_20260206_194429",
+  "analyzed_at": "2026-02-06T19:44:30.553708",
+  "total_keywords": 2,
+  "successful_queries": 0,
+  "failed_keywords": 2,
+  "source_stats": {
+    "total_unique_sources": 0,
+    "source_appearances": {},
+    "rank1_sources": {},
+    "top2_sources": {},
+    "top3_sources": {},
+    "rank1_source_percentage": {},
+    "top2_source_percentage": {},
+    "top3_source_percentage": {},
+    "all_source_percentage": {}
+  },
+  "product_stats": {
+    "total_unique_products": 0,
+    "product_appearances": {},
+    "rank1_products": {},
+    "top2_products": {},
+    "top3_products": {},
+    "rank1_product_percentage": {},
+    "top2_product_percentage": {},
+    "top3_product_percentage": {},
+    "all_product_percentage": {}
+  },
+  "target_product_stats": null,
+  "average_sources_per_keyword": 0.0,
+  "average_rankings_per_keyword": 0.0
+}

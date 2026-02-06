@@ -1,0 +1,84 @@
+{
+  "job_name": "物品回收",
+  "created_at": "2026-02-06T19:32:26.234672",
+  "keywords": [
+    "黄金回收",
+    "白银回收"
+  ],
+  "target_product": null,
+  "total_keywords": 2,
+  "runs": [
+    {
+      "run_id": "run_20260206_193240",
+      "started_at": "2026-02-06T19:32:40.908104",
+      "completed_at": "2026-02-06T19:32:41.896247",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_193426",
+      "started_at": "2026-02-06T19:34:26.883686",
+      "completed_at": "2026-02-06T19:34:27.715960",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_193742",
+      "started_at": "2026-02-06T19:37:42.579639",
+      "completed_at": "2026-02-06T19:37:43.377471",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_193847",
+      "started_at": "2026-02-06T19:38:47.994539",
+      "completed_at": "2026-02-06T19:39:09.795697",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_194128",
+      "started_at": "2026-02-06T19:41:28.544144",
+      "completed_at": "2026-02-06T19:41:29.482781",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_194323",
+      "started_at": "2026-02-06T19:43:23.050019",
+      "completed_at": "2026-02-06T19:43:24.000071",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_194429",
+      "started_at": "2026-02-06T19:44:29.618080",
+      "completed_at": "2026-02-06T19:44:30.535985",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_194617",
+      "started_at": "2026-02-06T19:46:17.493291",
+      "completed_at": "2026-02-06T19:46:18.381064",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_204717",
+      "started_at": "2026-02-06T20:47:17.572995",
+      "completed_at": "2026-02-06T20:47:43.645273",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    }
+  ]
+}

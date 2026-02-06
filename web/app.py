@@ -112,7 +112,7 @@ def create_job():
     data = request.json
     job_name = data.get('name', '').strip()
     keywords = data.get('keywords', [])
-    target_product = data.get('target_product', '').strip() or None
+    target_product = str(data.get('target_product') or '').strip() or None
     
     if not job_name:
         return jsonify({'error': '任务名称不能为空'}), 400
@@ -480,7 +480,7 @@ def save_provider_config():
             'accounts': [{'api_key': api_key}],
             'model': model,
             'endpoint_id': endpoint_id,
-            'base_url': 'https://ark.cn-beijing.volces.com/api/v3',
+            'base_url': 'https://ark.cn-beijing.volces.com/api/v3/',
             'rate_limit': {
                 'max_requests_per_period': rate_limit,
                 'period_seconds': rate_period
