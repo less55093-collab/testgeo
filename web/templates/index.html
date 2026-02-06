@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}仪表盘 - AI Crawler{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">仪表盘</h1>
+    <p class="page-subtitle">AI 排名爬虫系统概览</p>
+</div>
+
+<!-- Stats Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="stat-value" id="total-jobs">-</div>
+            <div class="stat-label">任务总数</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+            <div class="stat-value" id="total-runs">-</div>
+            <div class="stat-label">运行次数</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);">
+            <div class="stat-value" id="total-keywords">-</div>
+            <div class="stat-label">关键词总数</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);">
+            <div class="stat-value" id="crawler-status">空闲</div>
+            <div class="stat-label">爬虫状态</div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>快捷操作</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-3">
+                    <a href="/jobs" class="btn btn-primary">
+                        <i class="bi bi-plus-lg me-2"></i>创建新任务
+                    </a>
+                    <a href="/crawler" class="btn btn-success">
+                        <i class="bi bi-play-fill me-2"></i>启动爬虫
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>系统信息</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless mb-0">
+                    <tr>
+                        <td class="text-secondary">配置文件</td>
+                        <td>config.json</td>
+                    </tr>
+                    <tr>
+                        <td class="text-secondary">AI 平台</td>
+                        <td id="providers-list">加载中...</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Jobs -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>最近任务</h5>
+        <a href="/jobs" class="btn btn-sm btn-outline-light">查看全部</a>
+    </div>
+    <div class="card-body p-0">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>任务名称</th>
+                    <th>关键词数</th>
+                    <th>目标产品</th>
+                    <th>运行次数</th>
+                    <th>最后运行</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="jobs-table">
+                <tr>
+                    <td colspan="6" class="text-center text-secondary py-4">加载中...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Load dashboard data
+    async function loadDashboard() {
+        try {
+            // Load jobs
+            const jobsRes = await fetch('/api/jobs');
+            const jobs = await jobsRes.json();
+
+            // Update stats
+            document.getElementById('total-jobs').textContent = jobs.length;
+
+            let totalRuns = 0;
+            let totalKeywords = 0;
+            jobs.forEach(job => {
+                totalRuns += job.runs_count || 0;
+                totalKeywords += job.keywords_count || 0;
+            });
+
+            document.getElementById('total-runs').textContent = totalRuns;
+            document.getElementById('total-keywords').textContent = totalKeywords;
+
+            // Update jobs table
+            const tbody = document.getElementById('jobs-table');
+            if (jobs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="text-center text-secondary py-4">暂无任务</td></tr>';
+            } else {
+                tbody.innerHTML = jobs.slice(0, 5).map(job => `
+                    <tr>
+                        <td><strong>${job.name}</strong></td>
+                        <td>${job.keywords_count}</td>
+                        <td>${job.target_product || '-'}</td>
+                        <td>${job.runs_count}</td>
+                        <td>${job.last_run ? job.last_run.run_id : '-'}</td>
+                        <td>
+                            ${job.last_run && job.last_run.status === 'completed' ?
+                        `<a href="/report/${job.name}/${job.last_run.run_id}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-eye"></i> 报告
+                                </a>` : '-'}
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Load config
+            const configRes = await fetch('/api/config');
+            const config = await configRes.json();
+
+            const providers = Object.keys(config.providers || {}).filter(p => config.providers[p].has_accounts);
+            document.getElementById('providers-list').textContent = providers.join(', ') || '未配置';
+
+            // Load crawler status
+            const statusRes = await fetch('/api/crawler/status');
+            const status = await statusRes.json();
+            document.getElementById('crawler-status').textContent = status.running ? '运行中' : '空闲';
+
+        } catch (error) {
+            console.error('Failed to load dashboard:', error);
+        }
+    }
+
+    // Initial load
+    loadDashboard();
+
+    // Auto refresh every 5 seconds
+    setInterval(loadDashboard, 5000);
+</script>
+{% endblock %}

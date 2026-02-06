@@ -1,0 +1,29 @@
+{
+  "providers": {
+    "deepseek": {
+      "accounts": [
+        {
+          "mobile": "19271801486",
+          "password": "dLpBM01pvxDD",
+          "token": null
+        }
+      ],
+      "rate_limit": {
+        "max_requests_per_period": 1,
+        "period_seconds": 60.0,
+        "min_delay_between_requests": 60
+      },
+      "token_storage_path": "data/deepseek_tokens.json",
+      "wasm_path": "sha3_wasm_bg.7b9ca65ddd.wasm"
+    }
+  },
+  "llm": [
+    {
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key": "sk-714f4d353b3b4e2f9cfd554b2e257175",
+      "model": "deepseek-chat",
+      "timeout": 60.0,
+      "max_retries": 2
+    }
+  ]
+}

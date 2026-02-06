@@ -1,0 +1,12 @@
+[project]
+name = "ai-crawler"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "curl-cffi>=0.14.0",
+    "openai>=2.14.0",
+    "rich>=14.2.0",
+    "wasmtime>=40.0.0",
+]

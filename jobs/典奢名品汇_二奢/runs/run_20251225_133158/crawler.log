@@ -1,0 +1,3 @@
+2025-12-25 13:42:33,197 - crawler.crawler.job_manager - INFO - Updated run 'run_20251225_133158' status to 'running'
+2025-12-25 13:50:57,893 - crawler.crawler.job_manager - INFO - Updated run 'run_20251225_133158' status to 'running'
+2025-12-25 13:50:57,903 - crawler.crawler.job_manager - INFO - Updated run 'run_20251225_133158' status to 'completed'

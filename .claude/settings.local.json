@@ -1,0 +1,16 @@
+{
+  ".env": {
+    "ANTHROPIC_BASE_URL": "https://privnode.com",
+    "ANTHROPIC_AUTH_TOKEN": "sk-GQLWY9EH5A8yJ0sMhrBo7NkqeqjYdkpi6B7qlRFJOVxgY0f1"
+  },
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(uv add:*)",
+      "Bash(uv run:*)",
+      "Bash(find:*)"
+    ]
+  },
+  "enabledPlugins": {}
+}

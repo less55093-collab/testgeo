@@ -1,0 +1,1382 @@
+{"client_meta":{"local_conversation_id":"local_1761602142157517","conversation_id":"","bot_id":"7338286299411103781","last_section_id":"","last_message_index":null},"messages":[{"local_message_id":"6442e8a0-dfd5-11f0-92c7-ff55893b9acf","content_block":[{"block_type":10000,"content":{"text_block":{"text":"上海女健身教练上门","icon_url":"","icon_url_dark":"","summary":""},"pc_event_block":""},"block_id":"066dee82-877e-4698-a512-bb00ac5e2fa1","parent_id":"","meta_info":[],"append_fields":[]}],"message_status":0}],"option":{"send_message_scene":"","create_time_ms":1766476805167,"collect_id":"","is_audio":false,"answer_with_suggest":false,"tts_switch":false,"need_deep_think":0,"click_clear_context":false,"from_suggest":false,"is_regen":false,"is_replace":false,"disable_sse_cache":false,"select_text_action":"","resend_for_regen":false,"scene_type":0,"unique_key":"3cced420-656d-4d22-95ad-36bdda8c2471","start_seq":0,"need_create_conversation":true,"conversation_init_option":{"need_ack_conversation":true},"regen_query_id":[],"edit_query_id":[],"regen_instruction":"","no_replace_for_regen":false,"message_from":0,"shared_app_name":"","sse_recv_event_options":{"support_chunk_delta":true},"is_ai_playground":false},"ext":{"conversation_init_option":"{\"need_ack_conversation\":true}","fp":"verify_mjiaoi99_cgApIXbW_0UjE_45UZ_9tlR_cdZcX68PUUQd","commerce_credit_config_enable":"0","sub_conv_firstmet_type":"1"}}
+
+id: 0
+event: SSE_HEARTBEAT
+data: {}
+
+id: 0
+event: SSE_ACK
+data: {"query_list":[{"question_id":"34003435251730434","local_message_id":"6442e8a0-dfd5-11f0-92c7-ff55893b9acf","message_index":1}],"ack_client_meta":{"conversation_id":"33999975694999042","local_conversation_id":"local_1761602142157517","conversation_type":3,"section_id":"33999975694999298","conversation_info":{"conversation_id":"33999975694999042","conversation_type":3,"creator_id":"3651910374524100","name":"新对话","image":{"image_thumb":{"url":"https://p3-flow-imagex-sign.byteimg.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/bot_0817_05.png~tplv-a9rns2rl98-image-qvalue.png?rcl=20251223160006FEAE43288BDF1A1F7183&rk3s=8e244e95&rrcfp=bf2e6f99&x-expires=1769068806&x-signature=2lNtsdoJduNK2VODil5JbpFnbCM%3D"},"image_ori":{"url":"https://p3-flow-imagex-sign.byteimg.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/bot_0817_05.png~tplv-a9rns2rl98-image-qvalue.png?rcl=20251223160006FEAE43288BDF1A1F7183&rk3s=8e244e95&rrcfp=bf2e6f99&x-expires=1769068806&x-signature=2lNtsdoJduNK2VODil5JbpFnbCM%3D"}},"participant_count":2,"human_count":1,"tenant_id":0,"biz_id":0,"status":1,"create_time":1766476806,"update_time":1766476806,"extra":"{\"inner_app_id\":\"497858\",\"inner_cluster\":\"default\",\"inner_did\":\"7586959194272990770\",\"inner_env\":\"prod\",\"inner_flow_app_variant\":\"doubao\",\"inner_is_tour\":\"true\",\"inner_log_id\":\"20251223160006FEAE43288BDF1A1F7183\",\"inner_pc_version\":\"2.50.3\",\"inner_platform\":\"web\",\"inner_real_app_id\":\"497858\",\"inner_samantha_web\":\"true\",\"inner_tea_uuid\":\"7586959225067554346\",\"inner_tt_wid\":\"7586959194272990770\",\"inner_user_ip\":\"171.222.252.241\",\"inner_version_name\":\"\",\"local_conversation_id\":\"local_1761602142157517\",\"log_id\":\"20251223160006FEAE43288BDF1A1F7183\"}","msg_cursor":1,"bot_type":3,"retention_cursor":1,"last_read_index":0,"latest_index":0,"review_status":2,"create_scene":0,"create_channel":0,"badge_count":0,"read_badge_count":0,"latest_artifact":1}},"timeout_conf":{"answer_first_pending_time":180000,"packet_interval_time":120000}}
+
+id: 1
+event: FULL_MSG_NOTIFY
+data: {"message":{"conversation_id":"33999975694999042","message_id":"34003435251730434","message_body_version":1,"sender_id":"0","user_type":1,"content_type":9999,"content":"[{\"block_type\":10000,\"block_id\":\"066dee82-877e-4698-a512-bb00ac5e2fa1\",\"content\":{\"text_block\":{\"text\":\"上海女健身教练上门\"}}}]","index_in_conv":1,"create_time":1766476806,"biz_content_type":"","sec_sender":"MS4wLjABAAAAwG7cYQH33pPgYOAhhHYwpANsCzHxBqzU0fstiZdr0GOxMvDjgTRde-CUDcX5YPig","content_block":[{"block_type":10000,"block_id":"066dee82-877e-4698-a512-bb00ac5e2fa1","content":{"text_block":{"text":"上海女健身教练上门"}},"is_finish":false}],"tts_content":"","update_time":1766476806,"ext":{"inner_pc_version":"2.50.3","sub_conv_firstmet_type":"1","inner_msg_lang_display_code":"zh","chat_ability":"{}","model_type":"38","enc_strategy":"in_place","chat_id":"34003435251730434","reply_unique_key":"3cced420-656d-4d22-95ad-36bdda8c2471","inner_region":"","inner_terminal_app_id":"497858","inner_msg_lang_confidence":"1","inner_did":"7586959194272990770","inner_is_tour":"true","llm_model_type":"38","inner_libra_versions":"9681435,14922834,15261178,9427166,14887282,15020092,10541099,11100283,11100284,12077497,14916340,14966249,15025750,15052545,15135289,15136674,15146772,15147168,15169035,15196168,15202264,15204264,15214185,15219980,15225291,15231639,11958164,12628471,13349017,13578190,13644880,13863304,14207348,14370070,14432780,14438036,14464960,14754785,14869223,14884361,14898413,14998381,15028312,15071848,15106043,15124050,15157522,15170629,15190374,15192226,15195621","inner_user_ip":"171.222.252.241","msg_update_time_ms":"1766476806961","fp":"verify_mjiaoi99_cgApIXbW_0UjE_45UZ_9tlR_cdZcX68PUUQd","client_report_scene":"gui","chat_history_count":"0","inner_app_id":"497858","archive_state":"mask_init","input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","inner_log_id":"20251223160006FEAE43288BDF1A1F7183","inner_cluster":"default","old_content_type":"1","is_ai_playground":"false","inner_samantha_web":"true","conversation_init_option":"{\"need_ack_conversation\":true}","use_content_block":"1","chat_next":"1","inner_tea_uuid":"7586959225067554346","inner_version_name":"","inner_msg_lang_code":"zh","user_question_round":"1","commerce_credit_config_enable":"0","group":"1766476806","inner_platform":"web","inner_env":"prod","ugc_voice_id":"104","inner_flow_app_variant":"doubao","inner_tt_wid":"7586959194272990770","read_conv_version":"1766476806961900","inner_msg_lang_exemption":"false","cot_switch":"0","update_version_code":"0","speaker_id":"zh_female_wenroutaozi_uranus_bigtts","message_from":"InputBox","bot_source":"BotStudio","inner_real_app_id":"497858","bot_id":"7338286299411103781","pre_read_conv_version":"1766476616332944"},"local_message_id":"6442e8a0-dfd5-11f0-92c7-ff55893b9acf","section_id":"33999975694999298","bot_reply_message_id":"0","fetch_token":"34003435251730434"},"message_attr":{"badge_count":1,"read_badge_count":1,"read_conv_version":1766476806961900,"pre_read_conv_version":1766476616332944}}
+
+id: 3
+event: STREAM_MSG_NOTIFY
+data: {"content":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{"loading_block":{"scene":2,"text_loading":{"text":"正在搜索","icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png"}}},"is_finish":false,"patch_type":2}],"content_status":101,"ext":{"auto_create_creation":"1","inner_env":"prod","input_skill":"{\"skill_id\":\"0\",\"skill_type\":0}","llm_intention":"browsing","client_report_scene":"gui","inner_is_tour":"true","inner_msg_lang_display_code":"zh","inner_tea_uuid":"7586959225067554346","seed_agent_name":"Agent-Knowledge","agent_intention":"browsing","bot_state":"{\"bot_id\":\"7338286299411103781\",\"bot_name\":\"豆包\",\"agent_name\":\"豆包\",\"agent_id\":\"19457456070409730\",\"intent_agent_name\":\"Agent-Knowledge\"}","chat_id":"34003435251730434","chat_next":"1","cot_switch":"0","inner_cluster":"default","inner_msg_lang_exemption":"false","inner_region":"","agent_intention_detail":"complex_browsing","inner_app_id":"497858","llm_intention_detail":"complex_browsing","llm_intention_detail_dict":"{\"plugin_intention\":\"\",\"plugin_generalize_intention\":\"无\",\"vlm_intention\":\"false\",\"browsing_intention\":\"1\",\"rich_media_intention\":\"0\",\"branch_intention\":\"Branch-Other\",\"creation_detail_intention\":\"\",\"deep_think_intention\":\"0\",\"freshness\":\"false\",\"appended_system_prompt\":null,\"valid\":true,\"plugin_name\":\"\",\"plugin_name_generalized\":\"无\",\"origin_plugin_name\":\"<[Branch-Other]>\"}","reply_unique_key":"3cced420-656d-4d22-95ad-36bdda8c2471","use_content_block":"1","before_content_type":"","inner_platform":"web","inner_samantha_web":"true","inner_user_ip":"171.222.252.241","llm_model_type":"38","model_id":"38","old_content_type":"","tea_tags_time_cost":"{\"agent_id\":\"19457456070409730\",\"agent_name\":\"豆包\",\"llm_intention\":\"browsing\",\"llm_intention_detail\":\"complex_browsing\"}","agent_id":"19457456070409730","chat_ability":"{}","inner_did":"7586959194272990770","inner_flow_app_variant":"doubao","inner_msg_lang_confidence":"1","user_question_round":"1","agent_name":"豆包","auto_create_creation_asset":"0","inner_pc_version":"2.50.3","inner_real_app_id":"497858","inner_tt_wid":"7586959194272990770","update_version_code":"0","inner_libra_versions":"9681435,14922834,15261178,9427166,14887282,15020092,10541099,11100283,11100284,12077497,14916340,14966249,15025750,15052545,15135289,15136674,15146772,15147168,15169035,15196168,15202264,15204264,15214185,15219980,15225291,15231639,11958164,12628471,13349017,13578190,13644880,13863304,14207348,14370070,14432780,14438036,14464960,14754785,14869223,14884361,14898413,14998381,15028312,15071848,15106043,15124050,15157522,15170629,15190374,15192226,15195621","inner_log_id":"20251223160006FEAE43288BDF1A1F7183","inner_msg_lang_code":"zh","inner_version_name":"","model_type":"38","seed_intention":"browsing","tts":""},"content_type":9999},"meta":{"message_id":"34003435251732738","conversation_id":"33999975694999042","section_id":"33999975694999298","sender_id":"7338286299411103781","user_type":2,"create_time":1766476808,"index_in_conv":2,"bot_reply_message_id":"34003435251730434","local_conversation_id":"local_1761602142157517"},"attr":{"reply_unique_key":"3cced420-656d-4d22-95ad-36bdda8c2471"}}
+
+id: 5
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{"loading_block":{"scene":2,"text_loading":{"text":"找到 1 篇资料","min_display_duration_ms":200,"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png"}}},"is_finish":false,"patch_type":2}]}}]}
+
+id: 7
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{"loading_block":{"scene":2,"text_loading":{"text":"找到 4 篇资料","min_display_duration_ms":200,"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png"}}},"is_finish":false,"patch_type":2}]}}]}
+
+id: 9
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{"loading_block":{"scene":2,"text_loading":{"text":"找到 12 篇资料","min_display_duration_ms":200,"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png"}}},"is_finish":false,"patch_type":2}]}}]}
+
+id: 10
+event: SSE_HEARTBEAT
+data: {}
+
+id: 13
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{"loading_block":{"scene":2,"text_loading":{"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png"}}},"is_finish":true,"patch_type":2}]}}]}
+
+id: 16
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":3,"patch_value":{"content_block":[{"block_type":10101,"block_id":"34003768099441922","content":{},"is_finish":false,"patch_type":2}]}},{"patch_object":3,"patch_type":2,"patch_value":{"content_status":100}},{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"在"}},"is_finish":false,"patch_type":1}]}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"fpa_event_data":"","old_content_type":"1","plugin_scene":"","rec_video_called":"1","review_biz_type":"1","review_scenario_id":"4085066754","before_content_type":"1","fpa_common_param":"","fpa_event":"","link_type":"","rec_video_called_v2":"related_video"}}}]}
+
+id: 17
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"在"}}]}
+
+id: 20
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"上海"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 21
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"上海"}}]}
+
+id: 24
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"找"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 25
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"找"}}]}
+
+id: 28
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"女"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 29
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"女"}}]}
+
+id: 32
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"健身"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 33
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"健身"}}]}
+
+id: 36
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"教练"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 37
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"教练"}}]}
+
+id: 40
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"上门"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 41
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"上门"}}]}
+
+id: 44
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 45
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，"}}]}
+
+id: 48
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"可通过专业平台/工作室"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 49
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"可通过专业平台/工作室"}}]}
+
+id: 52
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"预约，重点核查资质、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 53
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"预约，重点核查资质、"}}]}
+
+id: 56
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"明确服务细节与安全保障"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 57
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"明确服务细节与安全保障"}}]}
+
+id: 60
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，按需求匹配合适"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 61
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，按需求匹配合适"}}]}
+
+id: 64
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"教练。以下是具体方案"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 65
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"教练。以下是具体方案"}}]}
+
+id: 68
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"与注意事项"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 69
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"与注意事项"}}]}
+
+id: 73
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"：\n---\n### "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 74
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"：\n---\n### "}}]}
+
+id: 77
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"一、预约渠道（高效"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 78
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"一、预约渠道（高效"}}]}
+
+id: 81
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"且有保障）\n|"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 82
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"且有保障）\n|"}}]}
+
+id: 85
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"渠道类型|代表平台/"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 86
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"渠道类型|代表平台/"}}]}
+
+id: 89
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"机构|核心优势|适用"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 90
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"机构|核心优势|适用"}}]}
+
+id: 93
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"人群|\n| ---- |"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 94
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"人群|\n| ---- |"}}]}
+
+id: 97
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" ---- | ---- | ---- |"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 98
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" ---- | ---- | ---- |"}}]}
+
+id: 101
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n|专业私教平台"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 102
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n|专业私教平台"}}]}
+
+id: 105
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"|爱教练、约单"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 106
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"|爱教练、约单"}}]}
+
+id: 109
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"网|教练实名+资质"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 110
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"网|教练实名+资质"}}]}
+
+id: 113
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"审核，覆盖全上海，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 114
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"审核，覆盖全上海，"}}]}
+
+id: 117
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"可筛选女教练|追求"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 118
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"可筛选女教练|追求"}}]}
+
+id: 121
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"平台背书、价格透明的"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 122
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"平台背书、价格透明的"}}]}
+
+id: 125
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"用户|\n|本地生活"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 126
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"用户|\n|本地生活"}}]}
+
+id: 129
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"平台|58同城、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 130
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"平台|58同城、"}}]}
+
+id: 133
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"大众点评|同城商家多"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 134
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"大众点评|同城商家多"}}]}
+
+id: 137
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，可看真实评价，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 138
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，可看真实评价，"}}]}
+
+id: 141
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"支持线下探店|想就近"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 142
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"支持线下探店|想就近"}}]}
+
+id: 145
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"找工作室/独立教练的"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 146
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"找工作室/独立教练的"}}]}
+
+id: 149
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"用户|\n|垂直上门"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 150
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"用户|\n|垂直上门"}}]}
+
+id: 153
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"服务|愉悦到家、Y"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 154
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"服务|愉悦到家、Y"}}]}
+
+id: 157
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"ogaView|主打上门，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 158
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"ogaView|主打上门，"}}]}
+
+id: 161
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"可快速匹配，部分带"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 162
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"可快速匹配，部分带"}}]}
+
+id: 165
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"辅具/器械|注重"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 166
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"辅具/器械|注重"}}]}
+
+id: 169
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"便捷、需要快速上门的"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 170
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"便捷、需要快速上门的"}}]}
+
+id: 173
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"用户|\n|连锁工作室"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 174
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"用户|\n|连锁工作室"}}]}
+
+id: 177
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"|赫诺健身、FOR"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 178
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"|赫诺健身、FOR"}}]}
+
+id: 181
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" U健身|教练经验足"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 182
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" U健身|教练经验足"}}]}
+
+id: 185
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，有线下场地，可"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 186
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，有线下场地，可"}}]}
+
+id: 189
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"上门+到店结合|"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 190
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"上门+到店结合|"}}]}
+
+id: 193
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"需要系统训练、产后修复"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 194
+event: SSE_HEARTBEAT
+data: {}
+
+id: 194
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"需要系统训练、产后修复"}}]}
+
+id: 197
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"等专项需求的用户|"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 198
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"等专项需求的用户|"}}]}
+
+id: 201
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n\n---\n### 二"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 202
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n\n---\n### 二"}}]}
+
+id: 205
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"、核心筛选要点（避"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 206
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"、核心筛选要点（避"}}]}
+
+id: 209
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"坑关键）\n1."}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 210
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"坑关键）\n1."}}]}
+
+id: 213
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" **资质核验**\n   "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 214
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" **资质核验**\n   "}}]}
+
+id: 217
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" - 必备认证：健身"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 218
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" - 必备认证：健身"}}]}
+
+id: 221
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"教练国家职业资格证、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 222
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"教练国家职业资格证、"}}]}
+
+id: 225
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"ACE/NASM等国际认证"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 226
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"ACE/NASM等国际认证"}}]}
+
+id: 229
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，专项如产后修复需"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 230
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，专项如产后修复需"}}]}
+
+id: 233
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"额外持证（如孕产"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 234
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"额外持证（如孕产"}}]}
+
+id: 237
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"康复认证）。\n   "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 238
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"康复认证）。\n   "}}]}
+
+id: 241
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" - 从业年限：优先"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 242
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" - 从业年限：优先"}}]}
+
+id: 245
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"3年以上，可要求"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 246
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"3年以上，可要求"}}]}
+
+id: 249
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"提供过往案例与会员评价"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 250
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"提供过往案例与会员评价"}}]}
+
+id: 253
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"。\n2.  **"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 254
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"。\n2.  **"}}]}
+
+id: 257
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"服务细节确认**\n   "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 258
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"服务细节确认**\n   "}}]}
+
+id: 261
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" |确认项|具体内容"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 262
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" |确认项|具体内容"}}]}
+
+id: 265
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"|\n    | ---- |"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 266
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"|\n    | ---- |"}}]}
+
+id: 269
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" ---- |\n    |课程"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 270
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" ---- |\n    |课程"}}]}
+
+id: 273
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"定价|150-"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 274
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"定价|150-"}}]}
+
+id: 277
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"800元/小时"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 278
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"800元/小时"}}]}
+
+id: 281
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"（新手约150"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 282
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"（新手约150"}}]}
+
+id: 285
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"-300元，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 286
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"-300元，"}}]}
+
+id: 289
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"资深/专项400"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 290
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"资深/专项400"}}]}
+
+id: 293
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"-800元）"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 294
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"-800元）"}}]}
+
+id: 297
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，明确是否含路费、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 298
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，明确是否含路费、"}}]}
+
+id: 301
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"器械费|\n    |"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 302
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"器械费|\n    |"}}]}
+
+id: 305
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"课程内容|课前评估、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 306
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"课程内容|课前评估、"}}]}
+
+id: 309
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"训练计划、课后跟进（"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 310
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"训练计划、课后跟进（"}}]}
+
+id: 313
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"饮食/作息建议），"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 314
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"饮食/作息建议），"}}]}
+
+id: 317
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"是否支持定制（减脂/"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 318
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"是否支持定制（减脂/"}}]}
+
+id: 321
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"塑形/康复等）|"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 322
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"塑形/康复等）|"}}]}
+
+id: 325
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n    |时间地点|"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 326
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n    |时间地点|"}}]}
+
+id: 329
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"预约时段（多为早"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 330
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"预约时段（多为早"}}]}
+
+id: 333
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"7点 - 晚8"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 334
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"7点 - 晚8"}}]}
+
+id: 337
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"点），上门范围（"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 338
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"点），上门范围（"}}]}
+
+id: 341
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"部分仅覆盖特定区，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 342
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"部分仅覆盖特定区，"}}]}
+
+id: 345
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"跨区可能加费）"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 346
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"跨区可能加费）"}}]}
+
+id: 349
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"|\n    |器械准备"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 350
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"|\n    |器械准备"}}]}
+
+id: 353
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"|教练是否自带小器械"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 354
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"|教练是否自带小器械"}}]}
+
+id: 357
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"（弹力带、瑜伽垫"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 358
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"（弹力带、瑜伽垫"}}]}
+
+id: 361
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"等），大件器械是否"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 362
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"等），大件器械是否"}}]}
+
+id: 365
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"额外收费|\n3."}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 366
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"额外收费|\n3."}}]}
+
+id: 369
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"  **安全保障**\n"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 370
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"  **安全保障**\n"}}]}
+
+id: 373
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"    - 平台预约优先"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 374
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"    - 平台预约优先"}}]}
+
+id: 377
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"：选有实名认证、平安"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 378
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"：选有实名认证、平安"}}]}
+
+id: 381
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"保险承保、先行赔付的"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 382
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"保险承保、先行赔付的"}}]}
+
+id: 382
+event: SSE_HEARTBEAT
+data: {}
+
+id: 385
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"平台，避免私下转账。"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 386
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"平台，避免私下转账。"}}]}
+
+id: 389
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n    - 上门前"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 390
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n    - 上门前"}}]}
+
+id: 393
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"：告知家人/朋友，"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 394
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"：告知家人/朋友，"}}]}
+
+id: 397
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"留教练联系方式，首次可"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 398
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"留教练联系方式，首次可"}}]}
+
+id: 401
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"在公共区域或带同伴"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 402
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"在公共区域或带同伴"}}]}
+
+id: 405
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"。\n    - 合同"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 406
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"。\n    - 合同"}}]}
+
+id: 409
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"签约：明确课时、费用"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 410
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"签约：明确课时、费用"}}]}
+
+id: 413
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"、退款规则，避免临时"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 414
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"、退款规则，避免临时"}}]}
+
+id: 417
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"加价。\n\n---\n###"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 418
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"加价。\n\n---\n###"}}]}
+
+id: 421
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" 三、预约流程（"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 422
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" 三、预约流程（"}}]}
+
+id: 425
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"快速落地）\n1."}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 426
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"快速落地）\n1."}}]}
+
+id: 429
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"  明确需求：确定"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 430
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"  明确需求：确定"}}]}
+
+id: 433
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"目标（减脂/塑形/"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 434
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"目标（减脂/塑形/"}}]}
+
+id: 437
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"产后修复等）、预算"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 438
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"产后修复等）、预算"}}]}
+
+id: 441
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"、上课时段、地点。"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 442
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"、上课时段、地点。"}}]}
+
+id: 445
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n2.  筛选"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 446
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n2.  筛选"}}]}
+
+id: 449
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"匹配：在平台按“"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 450
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"匹配：在平台按“"}}]}
+
+id: 453
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"女教练+上门+专项"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 454
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"女教练+上门+专项"}}]}
+
+id: 457
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"”筛选，查看资料与"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 458
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"”筛选，查看资料与"}}]}
+
+id: 461
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"评价，预约1节体验"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 462
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"评价，预约1节体验"}}]}
+
+id: 465
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"课。\n3. "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 466
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"课。\n3. "}}]}
+
+id: 469
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" 沟通细节：体验课前"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 470
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" 沟通细节：体验课前"}}]}
+
+id: 473
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"确认教练资质、课程流程"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 474
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"确认教练资质、课程流程"}}]}
+
+id: 477
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"、费用明细，确认是否"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 478
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"、费用明细，确认是否"}}]}
+
+id: 481
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"自带器械。\n4."}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 482
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"自带器械。\n4."}}]}
+
+id: 485
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"  签约上课：体验"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 486
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"  签约上课：体验"}}]}
+
+id: 489
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"满意后，签订服务协议"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 490
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"满意后，签订服务协议"}}]}
+
+id: 493
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"，按周期预约，定期"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 494
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"，按周期预约，定期"}}]}
+
+id: 497
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"反馈调整计划。\n\n---"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 498
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"反馈调整计划。\n\n---"}}]}
+
+id: 501
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n### 四、价格"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 502
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n### 四、价格"}}]}
+
+id: 505
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"参考（2025"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 506
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"参考（2025"}}]}
+
+id: 509
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"年12月上海市场价"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 510
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"年12月上海市场价"}}]}
+
+id: 513
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"）\n- 新手女"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 514
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"）\n- 新手女"}}]}
+
+id: 517
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"教练：150-"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 518
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"教练：150-"}}]}
+
+id: 521
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"300元/小时"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 522
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"300元/小时"}}]}
+
+id: 525
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"（适合基础体能、简单"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 526
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"（适合基础体能、简单"}}]}
+
+id: 529
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"塑形）。\n- "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 530
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"塑形）。\n- "}}]}
+
+id: 533
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"资深女教练：30"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 534
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"资深女教练：30"}}]}
+
+id: 537
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"0-500元"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 538
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"0-500元"}}]}
+
+id: 541
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"/小时（擅长减脂、"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 542
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"/小时（擅长减脂、"}}]}
+
+id: 545
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"体态矫正，有5年"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 546
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"体态矫正，有5年"}}]}
+
+id: 549
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"以上经验）。\n-"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 550
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"以上经验）。\n-"}}]}
+
+id: 553
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" 专项女教练（产后"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 554
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" 专项女教练（产后"}}]}
+
+id: 557
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"修复/运动康复）："}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 558
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"修复/运动康复）："}}]}
+
+id: 561
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"500-80"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 562
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"500-80"}}]}
+
+id: 565
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"0元/小时（需"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 566
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"0元/小时（需"}}]}
+
+id: 566
+event: SSE_HEARTBEAT
+data: {}
+
+id: 569
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"持专项认证，案例丰富"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 570
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"持专项认证，案例丰富"}}]}
+
+id: 573
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"）。\n\n---\n###"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 574
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"）。\n\n---\n###"}}]}
+
+id: 577
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":" 五、避坑提醒"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 578
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":" 五、避坑提醒"}}]}
+
+id: 581
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n- 拒绝“无证"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 582
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n- 拒绝“无证"}}]}
+
+id: 585
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"低价”：低于15"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 586
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"低价”：低于15"}}]}
+
+id: 589
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"0元/小时且无"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 590
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"0元/小时且无"}}]}
+
+id: 593
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"资质的教练，可能存在"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 594
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"资质的教练，可能存在"}}]}
+
+id: 597
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"动作不规范、损伤风险"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 598
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"动作不规范、损伤风险"}}]}
+
+id: 601
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"。\n- 警惕“"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 602
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"。\n- 警惕“"}}]}
+
+id: 605
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"预付大额”：优先选"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 606
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"预付大额”：优先选"}}]}
+
+id: 609
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"10课时内的小"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 610
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"10课时内的小"}}]}
+
+id: 613
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"课包，避免机构/"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 614
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"课包，避免机构/"}}]}
+
+id: 617
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"教练跑路。\n- "}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 618
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"教练跑路。\n- "}}]}
+
+id: 621
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"明确责任边界：训练中"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 622
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"明确责任边界：训练中"}}]}
+
+id: 625
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"受伤的理赔流程，提前"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 626
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"受伤的理赔流程，提前"}}]}
+
+id: 629
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"与平台/教练沟通。"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 630
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"与平台/教练沟通。"}}]}
+
+id: 633
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"\n\n需要我根据你的预算"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 634
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"\n\n需要我根据你的预算"}}]}
+
+id: 637
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"、所在上海区域和训练"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 638
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"、所在上海区域和训练"}}]}
+
+id: 641
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"目标（减脂/塑形/"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 642
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"目标（减脂/塑形/"}}]}
+
+id: 645
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"产后修复），帮你"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 646
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"产后修复），帮你"}}]}
+
+id: 649
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"筛选3位匹配的**"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 650
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"筛选3位匹配的**"}}]}
+
+id: 653
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"女健身教练**并附"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 654
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"女健身教练**并附"}}]}
+
+id: 657
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{"text":"预约话术吗？"}},"is_finish":false,"patch_type":1}]}}]}
+
+id: 658
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":111,"patch_type":1,"patch_value":{"tts_content":"预约话术吗？"}}]}
+
+id: 661
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10025,"block_id":"34003768100529154","content":{"search_query_result_block":{"summary":"搜索 2 个关键词，参考 12 篇资料","queries":["上海女健身教练上门","上海女健身教练上门服务平台"],"results":[{"text_card":{"id":34003768099495682,"summary":"上门私教\n平台认证\n服务于嘉定\n服务地区\n嘉定\n嘉定-丰庄-赫诺健身工作室(江佳路店)/上海市江桥镇江佳路132号2楼\n嘉定-丰庄-赫诺健身工作室(江佳路店)/上海市江桥镇江佳路132号2楼\n详情\n商家\n上门私教一对一服务！本人线下有一家健身工作室在江桥老街！有ifbb营养大师认证，诺亚第拉伸，女性塑形，产后修复！运动康复！从业9年，带过超500名会员。对减脂增肌，体态调整，体能训练拥有丰富经验！\n您在接受平台商家提供的服务前，注意核对商家的身份并提前确认商家提供的产品/服务是否符合相关法律规定。联系我时，请说是在58同城看到的，谢谢！\n保障 由平安保险承保 查看详情\n平台维权\n如您在服务过程中，遇到临时加价、财产损失等问题可以发起申诉，平台会保障您的权益\n先行赔付\n申诉后，平台会核实情况，根据实际情况可赔偿限额10000元\n商家\n上海睿践健身有限公司\n总共发布9条帖子\n店龄 12年\n","title":"上门私教 - 58同城","sitename":"58同城","url":"https://m.58.com/lm-info/56289365882922x.shtml","doc_id":"735985bf69646ce2-76f2a4b5c544bc09","publish_time_second":"2025-07-27T06:55:04+08:00","index":1}},{"text_card":{"id":34003768099495938,"summary":"我让上海女孩轻松实现私教自由，这不是一句空话，而是我们坚持的专业和透明。团队所有的教练都持有NASM等国际认证证书，同时具备运动康复师的资质。我们懂科学训练，更懂如何帮你安全有效的改变。\n在上海积累好的口碑不是靠推销，而是靠效果和真诚。现在我的新会员多半都来自老会员的推荐，他们推荐我上门训练真的太适合我这f姐妹。我是因为认同我的专注、透明的教学理念，每一节课都只为让你感受到实实在在的变化。课后还会匹配专属营养师，为你定制一对一的饮食计划。训练+饮食，双管齐下。\n我让上海女孩轻松实现私教自由，这不是一句空话，而是我们坚持的专业和透明。团队所有的教练都持有NASM等国际认证证书，同时具备运动康复师的资质。我们懂科学训练，更懂如何帮你安全有效的改变。\n在上海积累好的口碑不是靠推销，而是靠效果和真诚。现在我的新会员多半都来自老会员的推荐，他们推荐我上门训练真的太适合我这f姐妹。SAF运动当然可以，晚案子的。\n我是因为认同我的专注、透明的教学理念，每一节课都只为让你感受到实实在在的变化。课后还会匹配专属营养师，为你定制一对一的饮食计划。训练...\n","title":"上海 舍不得 分享 的 上门 私教 ！ ！ 🧘 ‍ ♀ ️ 课程 类型 \n 传统 力量 | 普拉提 | 瑜伽 | 身体 理疗 | 产后 修复 与 塑形 | 普拉提 器械 \n ⏰ 上课 时间 \n 早 7 : 00 - 晚 8 : 00 随 约 随 上 \n ✨ 课程 特色 \n 75 分钟 一 站 式 专属 服务 \n ✔ ️ 专业 身体 评估 与 运动 模式 分析 \n ✔ ️ 量身 定制 个人 训练 方","sitename":"抖音","url":"https://www.iesdouyin.com/share/video/7567566239250271523","logo_url":"https://p11-spider-image-sign.byteimg.com/isp-i18n-media/img/27422dd3ce8d2f41b45309e5aeca806b~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660808&x-signature=iyBxjucManMu6YceheePKc6ZcKo%3D","doc_id":"7567566239250271523","publish_time_second":"2025-11-01T18:00:00+08:00","original_doc_rank":1,"index":2}},{"text_card":{"id":34003768099496194,"summary":"上海瑜伽上门私教服务\n松江\n您的私人瑜伽导师已上线\n现在，专业瑜伽私教直接上门！\n无需舟车劳顿，在家就能开启身心蜕变之旅\n定制化课程：根据你的目标（塑形/减压/康复/提升柔韧）、体能基础，量身设计专属方案\n专业保障：8年教学经验，持有[国际瑜伽联盟认证资质]，精准纠错，规避运动损伤风险\n高效省时：告别通勤，灵活时间，碎片时间也能深度练习，自带所需要的各种辅具上门私教\n沉浸式体验：私密舒适的居家环境，专注自我，拒绝外界干扰\n全程陪伴：课后持续答疑，饮食+作息建议，助你养成健康生活方式\n·毕业于国际瑜伽联盟学院\n·通过irsc标准考试荣获高级瑜伽导师·ryt200ttc地面瑜伽认证老师·ryt50tt...\n·阿斯汤伽\n·倒立后弯\n·呼吸理疗\n·音乐流\n▫️体态矫正：改善圆肩驼背、骨盆前倾等不良体态\n▫️减脂塑形：打造马甲线、蜜桃臀，雕刻理想线条\n▫️孕产瑜伽：孕期舒缓、产后修复，温柔呵护妈妈身体\n▫️冥想疗愈：缓解焦虑，提升专注力，找回内心平静\n▫️体式提升：倒立后弯，精准纠错，减少身体代偿\n上门私教范围：上海各区\n","title":"上海瑜伽上门私教服务","sitename":"58同城","url":"https://m.58.com/sh/jianshenwudao/62481714937505x.shtml","doc_id":"44ee88d62d346244-958bdcfce60781a7","publish_time_second":"2025-10-13T17:44:59+08:00","original_doc_rank":2,"index":3}},{"text_card":{"id":34003768099496450,"summary":"我就是那个在上海没苦硬吃的上门普拉提教练。很多同行都是在店里等会员上课，而我却偏偏携带器械来找会员辅导锻炼。很多人都说我傻，但我并不这么认为。因为在这个行业摸爬滚打9年，直到在场馆办卡的会员最少有60%都没有坚持下来。所以我选择做这样的家庭健身私教。\n家庭健身私教主要是想让更多需要身材改变的姐妹不用出门也能实现好身材。这样既帮大家节省时间，还可以长期保持锻炼。这样的健身方式你会喜欢吗？\n我就是那个在上海没苦硬吃的上门普拉提教练。很多同行都是在店里等会员上课，而我却偏偏携带器械来找会员辅导锻炼。很多人都说我傻，但我并不这么认为。因为在这个行业摸爬滚打9年，直到在场馆办卡的会员最少有60%都没有坚持下来。所以我选择做这样的家庭健身私教。\n家庭健身私教主要是想让更多需要身材改变的姐妹不用出门也能实现好身材。这样既帮大家节省时间，还可以长期保持锻炼。这样的健身方式你会喜欢吗？\n","title":"上海上门普拉提私教：专业器械助力省时塑形","sitename":"抖音","url":"https://www.iesdouyin.com/share/video/7561653075274894607","logo_url":"https://p11-spider-image-sign.byteimg.com/isp-i18n-media/img/27422dd3ce8d2f41b45309e5aeca806b~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660808&x-signature=iyBxjucManMu6YceheePKc6ZcKo%3D","doc_id":"7561653075274894607","publish_time_second":"2025-10-19T12:04:00+08:00","original_doc_rank":3,"index":4}},{"text_card":{"id":34003768099496706,"summary":"小皮，做上门私教已经有6年的时间了。之前主要是服务静安区门店的一些会员，从21年开始决心在上海打造一个不输任何健身房的上门私教团队。\n很多老朋友们都知道我这个人没有什么其他的爱好，就是特别喜欢学习。这6年期间除了疫情期间没有办法出门之外，近几年几乎是每个月都要出去进修。最开始是死磕最基础的一些健身训练的动作，包括基础知识。只要是有哪个同行前辈跟我说哪个机构康复的或者是孕产培训特别厉害的，第二天准买票过去。\n小皮，做上门私教已经有6年的时间了。之前主要是服务静安区门店的一些会员，从21年开始决心在上海打造一个不输任何健身房的上门私教团队。\n很多老朋友们都知道我这个人没有什么其他的爱好，就是特别喜欢学习。这6年期间除了疫情期间没有办法出门之外，近几年几乎是每个月都要出去进修。最开始是死磕最基础的一些健身训练的动作，包括基础知识。只要是有哪个同行前辈跟我说哪个机构康复的或者是孕产培训特别厉害的，第二天准买票过去。\n很多人可能会觉得作为一个教练带着上课有那么难吗？但是真正的答案是带好每一节课并不难，难的是对每一个学员的身体效果负责...\n","title":"上海上门私教团队的专业品质与服务创新之路","sitename":"抖音","url":"https://www.iesdouyin.com/share/video/7579509288827396273","logo_url":"https://p11-spider-image-sign.byteimg.com/isp-i18n-media/img/27422dd3ce8d2f41b45309e5aeca806b~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660808&x-signature=iyBxjucManMu6YceheePKc6ZcKo%3D","doc_id":"7579509288827396273","publish_time_second":"2025-12-03T18:07:00+08:00","original_doc_rank":4,"index":5}},{"text_card":{"id":34003768099499010,"summary":"Mamb噻\n地址：上海市闵行区新虹\n线下服务：200.00元/小时\n综合评分：4.7\n服务介绍：瑜伽让我们的肌肤变得更加紧致，畅通全身的气血，延缓衰老，随叫随到\n上海普拉提新人服务者\n苏欣\n地址：上海市徐汇区康健新村\n线下服务：135....\n美美灵儿\n地址：上海市闵行区梅陇镇\n线下服务：200.00元/小时\n综合评分：4.6\n服务介绍：从你盘腿而坐，闭上眼睛，随着耳边的音乐深呼吸时，一个只属于你的美丽世界应运而生//\n听风笑A00\n地址：上海市闵行区浦锦\n线下服务：133.00元/小时\n综合评分：4.6\n服务介绍：瑜伽能平心静气，改善不良情绪。当上司对你表达不满而你又不无法回应的时候，可以尝试练一会瑜伽，这时候你的不满情绪就会舒缓很多了。\nLna生活\n地址：上海市普陀区长寿路\n线下服务：800.00元/小时\n综合评分：4.7\n服务介绍：从事瑜伽康体行业多年，擅长理疗减压，形体塑形矫正，心灵瑜伽。带给你身心心灵由内到外的舒解，放松，\n线下服务：136.00元/小时\n","title":"上海普拉提_上海普拉提服务_上海瑜伽教练【约单网】手机版","sitename":"约单网","url":"https://m.iyuedan.com/sh/yujia/t3068957.html","doc_id":"b4cfa6b1ed25c2dc-b029af8fd9c6d6c4","publish_time_second":"2025-08-12T22:06:16+08:00","original_doc_rank":5,"index":6}},{"text_card":{"id":34003768099499778,"summary":"上海市私教\n平台运营12年 上门服务 平台监督\n覆盖区域\n崇明区\n浦东新区\n奉贤区\n金山区\n黄浦区\n普陀区\n杨浦区\n虹口区\n徐汇区\n青浦区\n长宁区\n静安区\n宝山区\n松江区\n嘉定区\n闵行区\n课时费用\n¥100起\n授课方式\n私教1对1\n小班1对2\n小班1对4\n亲子班\n课时包\n体验课\n10个课时\n20个课时\n30个课时\n50个课时\n注：1个课时为60分钟\n爱教练是国内实名制教练预约服务的平台，专注于为每个家庭提供专业的私人教练服务。作为广州上进青年控股集团有限公司旗下品牌，爱教练于2012年上线，经过10余年的沉淀，爱教练汇聚了来自全国120多座城市的近万名体育私教。他们中有国家运动健将、国家高考网可查的高水平运动员、专业体队退役运动员、国家一级运动员等，课程类型涵盖网球、羽毛球、游泳、跑步、瑜伽、武术等多领域。\n为了给用户提供专业、便利、有保障的服务，爱教练平台采用人工审核机制，所有入驻的教练都必须实名进行身份和资质认证。\n爱教练平台拥有专业的产研团队、运营团队、客服团队，...\n","title":"爱教练官网","sitename":"爱教练","url":"https://shanghaishi.ijiaolian.com/jiaolianDetail/2747","logo_url":"https://p3-spider-image-sign.byteimg.com/isp-i18n-media/img/386676a7c805e7cc9c2ab7294c0394e3~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660809&x-signature=A3N3VyltG8%2BILe4kYKjHz9%2BhaDM%3D","doc_id":"9909b3ddae8aa956-415837c57bf19bd1","publish_time_second":"2025-09-12T09:02:27+08:00","index":7}},{"text_card":{"id":34003768099502594,"summary":"上海普拉提培训\n普拉提瑜伽舞蹈授课\n浦东 可服务\n\"好评，感觉挺专业，省了不少时间\"\n舞蹈 瑜伽 普拉提\n瑜伽普拉提力量训练私教课\n松江 可服务\n\"好评，感觉挺专业，省了不少时间\"\n一对一 普拉提 私教 私教课\n瑜伽、普拉提上门私教，199元\n全上海 可服务\n\"工作效率蛮高的，非常满意\"\n教练 课程 瑜伽教练\n瑜伽&普拉提\n长宁 可服务\n\"业务很熟练，活干的非常漂亮，真的很专业..\"\n教学 理疗 教练 普拉提 私教\n导师\n接瑜伽、普拉提、孕期瑜伽、产后修复、体态调整、疼痛理疗、减脂瘦身等上门\n闵行 可服务\n\"商家很耐心，一一讲解\"\n理疗 普拉提 私教 修复 孕期瑜伽\n普拉提 专业一对一私教 孕妇瑜伽 产后修复 康复调理 瑜伽 拉伸\n虹口 可服务\n\"好评，感觉挺专业，省了不少时间\"\n一对一 教学 普拉提 私教 小班\n孕妇瑜伽\n莎兰普拉提\n上海瑜伽上门私教服务\n松江 可服务\n一对一 健身房 教学 理疗 私教\n瑜伽私教\n上海瑜伽私教\n一对一...\n健身教练\n健身教练培训\n","title":"上海普拉提培训 - 58同城","sitename":"58同城","url":"https://www.58.com/npphyhx25715857/","doc_id":"b872840bc7a854ba-a78f968466fd11b9","publish_time_second":"2025-12-18T09:19:21+08:00","original_doc_rank":1,"index":8}},{"text_card":{"id":34003768099503106,"summary":"愉悦到家\n5.0\n瑜伽\n综合服务\n愉悦到家\n5.0\n瑜伽\n综合服务\n愉悦到家\n开发者：成都柚村美容服务有限责任公司 V1.2.34\n运营者：成都柚村美容服务有限责任公司\n2025.9.15更新\n简介\n愉悦到家为您提供足不出户的预约上门服务，按摩spa、瑜伽健身私教、美容洁面等服务。在线选择技师和私教，30分钟即可到达您预约的地点，提供专业安全的服务，24小时在线客服随时为您提供帮助，为您提供绿色健康、高效专业安全的服务； 服务城市：成都、上海、天津、武汉、苏州、长沙、西安、昆明、兰州、贵阳等全国城市； --专业技师-- 平台技师均经过专业培训，专注于提供绿色、专业、丰富的健身、洗脸、瑜伽服务，致力于为用户提供最合适、最实惠最专业的体验。 --服务城市-- 已开通城市:成都、上海、武汉、南昌、福州、重庆、德阳、乐山、天津、昆明、昭通、丽江、临汾、西宁等100+城市与地区。\n愉悦到家\n成都柚村美容服务有限责任公司\n1.2.34...\n成都柚村美容服务有限责任公司\n成都柚村美容服务有限责任公司\n成都柚村美容服务有限责任公司\n","title":"愉悦到家app-官方正版软件2025最新版本免费下载-应用宝官网","sitename":"应用宝","url":"https://sj.qq.com/appdetail/com.yuyueshangmen.app","logo_url":"https://p3-spider-image-sign.byteimg.com/isp-i18n-media/img/456ed2940a4fb075eaa31d8cee663a43~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660809&x-signature=w59K1IdiRxSZamC%2BcOZ7kpRlXII%3D","doc_id":"f91ffe659e7e70a2-f0e412d2294d2948","publish_time_second":"2025-09-15T00:00:00+08:00","original_doc_rank":2,"index":9}},{"text_card":{"id":34003768099504386,"summary":"“FOR U 健身私教馆”隶属于上海福有...\n上海福有健身管理有限公司成立于2021年，场馆位于上海市浦东新区，是一家专注于社区型健身场馆运营、私教课程体系建设及健康管理服务的专业机构。公司以“科学训练、专业指导、长期陪伴”为核心，打造标准化、可复制的健身服务体系，为会员提供安全、有效、可持续的健康解决方案。\n依托行业教练人才、数字化管理系统及标准化运营流程，福有健身在体能训练、功能性矫正、力量增肌、减脂塑形等领域形成系统化服务能力，目前累计服务上千名会员，在社区健身赛道具备稳定增长优势。\n公司业务聚焦于健身教练培训与公对公上门私教服务两大板块，形成标准化、可复制的专业体系：\n公对公上门私教（B2B）\n公司为企业、机构及社区合作伙伴提供标准化上门健身服务，主要包括：\n• 企业员工健康管理与体能提升\n• 机构合作的运动课程输出（学校、社区中心、康养机构等）\n• 定点驻场私教服务\n• 定制化专项训练（如体态改善、体能提升、功能性训练等）\n服务以专业评估为起点，制定周期训练计划，以结果作为核心考核指标。\n公司团队具备成熟的行业流程，使合作方能够快速落地健身课程并稳定运行。\n","title":"上海浦东健身私教工作室(可私教上门一对一)推荐——“FOR U 健身私教馆”_搜狐网","sitename":"手机搜狐网","url":"https://m.sohu.com/a/960933667_122554976/","logo_url":"https://p3-spider-image-sign.byteimg.com/isp-i18n-media/img/6b1d3a6f49304d84d8268210e144399e~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660809&x-signature=NSKldSLg%2Bx4Zrw6GusHS6hlMWzI%3D","doc_id":"0ca55d81fbf2a4ec-fbd14358838d0ec9","publish_time_second":"2025-12-03T09:11:00+08:00","original_doc_rank":3,"index":10}},{"text_card":{"id":34003768099504898,"summary":"上海鸥穆信息科技有限公司\n0-20人 · O2O · 上海市\nYogaView是上海鸥穆信息科技有限公司旗下品牌。一个专为都市“懒癌患者”和日理万机，操神费力以及有孕产和形体理疗需求的人们提供定制化的，专业有效的上门瑜伽教授服务。让您身心合一，从瑜伽的视角感受不一样的世界。YogaView随时随地，每时每刻，为您！\nYogaView\nO2O 天使轮 0-20人\n以瑜伽私教为主的平台\nYogaView，随时随地，每时每刻，为您！\nYogaView，一个Call专业瑜伽私教上门的平台！\nYogaView瑜伽专属私教\n上海浦东新区晶耀前滩Crystal PlazaT61楼\n上海鸥穆信息科技有限公司\n法定代表人： 范嘉莹\n注册资本： 52万人民币\n成立日期： 2018-07-16\n经营状态： 存续（在营、开业、在册）\n注册地址： 上海市金山区亭卫公路6488号2幢（杭州湾北岸产业园）\n经营范围： 一般项目：技术服务、技术开发、技术咨询、技术交流、技术转让、技术推广；专业设计服务；信息咨询服务（不含许可类信息咨询服务）；咨询策划服务；市场营销策划；项目策划与...\n","title":"「上海鸥穆信息科技有限公司招聘」-BOSS直聘","sitename":"BOSS直聘","url":"https://m.zhipin.com/companys/d4363cc8d2870a011nN-2N21E1I~.html","logo_url":"https://p3-spider-image-sign.byteimg.com/isp-i18n-media/img/86c69b74ca01abe0ff7a20c2546cb48f~tplv-e9ol9do63j-thumbnail.jpeg?rk3s=feb11e32&x-expires=1771660809&x-signature=PlA7SP4GSWEPjezReVwieIrVwes%3D","doc_id":"c51ba29d20fca4d8-9a11a89ef296ee72","publish_time_second":"2025-11-22T00:00:00+08:00","original_doc_rank":4,"index":11}},{"text_card":{"id":34003768099505154,"summary":"7 年\n2万+\n服务用户\n24小时\n服务预约\n10+\n服务城市\n“摩来到家”是基于互联网+服务成立的到家互联网服务品牌——“健康预约，按摩来到家”，提供专业、正规、安全、便捷的24小时上门推拿服务。涵盖美容、美体、SPA、足疗、采耳等健康养生服务项目，用户可以通过本站、热线电话、小程序、公众号、下载APP，就可以轻松预约下单，享受居家服务体验。\n通过近十年的线上服务积累，我们已经建立了几百人的服务团队，且拥有丰富的服务经验和能力，技师团队均拥有多年专业的技术水平。立足上海，辐射北京，深圳、广州、杭州、贵阳等一线城市和省会城市，面向商旅、居民区生活群体，提供现代互联网技术带来的居家、快捷服务预约！\n我们的技师团队，来自于各大城市专业的美容师、推拿技师、芳香精油按摩师、足浴、采耳领域的职业从业人员，拥有丰富专业的门店和线上服务经验，目前各城市覆盖累积有500+人员\n服务人员均实名认证\n客服热线：15821801945 总部地址：上海市松江区九亭中心3号楼1213室 网址：http://www.mojing.sh.cn 邮箱：2062798482@...\n","title":"摩来到家","sitename":"上海摩精生物科技有限公司","url":"http://www.mojing.sh.cn/","doc_id":"3da696008dbed7c3-21a4af689c188b48","publish_time_second":"2025-11-21T05:18:52+08:00","original_doc_rank":5,"index":12}}],"icon_url":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search.png","icon_url_dark":"https://lf3-static.bytednsdoc.com/obj/eden-cn/dvsm/ljhwZthlaukjlkulzlp/tool_icon/Search-1.png","scene":2,"search_type":1,"extend_fields":{"thinking_idx":1}}},"is_finish":true,"patch_type":2}]}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"req_id":"20251223160006FEAE43288BDF1A1F7183"}}}]}
+
+id: 663
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10050,"block_id":"34003768100529410","content":{"rich_media_block":{"scene":1,"creations":[{"type":2,"video":{"id":34003768100528898,"item_id":"7505000558214909225","video_captions":"500一节的上门私教，忍不住想吐槽下 简直离谱！怎么还有这么多姐妹不知道！ 我们在咱当地做了五年多超棒的上门私教\n大家越来越卷了，但我们真的是踏踏实实做好服务和教学的老师团队 \n帮懒人解决自律性差适合宝妈族和上班族集美！\n在家里上课真的很方便，而且\n 1⃣️早七点-晚9点 ，上班族，宝妈的训练时间都能满足\n 2⃣️私人订制课表 （只要家里5平米的训练空间即可）\n我们目前已开通，成都，北京，上海，广州，深圳，杭州，长沙，青岛，苏州，宁波等城市\n 希望小红薯推给更多同城集美 \n#saf上门私教  #上海  #自律  #减肥打卡  #同城","album_image":"https://p3-sign.douyinpic.com/tos-cn-i-dy/39f705fe090e4f928220660dfa820960~tplv-dy-resize-walign-adapt-aq:540:q75.jpeg?lk3s=138a59ce&x-expires=1767686400&x-signature=1sKmHmP1%2Fh2lFwmYlYkNmqIdHK4%3D&from=327834062&s=PackSourceEnum_SEARCH&se=false&sc=cover&biz_tag=aweme_video&l=20251223160006FEAE43288BDF1A1F7183","album_image_height":720,"album_image_width":540,"source_from":3,"source_app_name":"抖音","source_app_icon":"http://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/icon.png~tplv-a9rns2rl98-image.image?rk3s=c3b0d92e&x-expires=1791431360&x-signature=0OhC%2Bx5S9tTJIL%2B7T4VnfEYOu9g%3D","image_uri":"tos-cn-i-dy/39f705fe090e4f928220660dfa820960","width":360,"height":640,"video_first_frame_image":"https://p11-sign.douyinpic.com/tos-cn-p-0015/o4PVnRQAABBiT9gKz6B4C0I0EIPehHeb4iIAEq~tplv-dy-360p.jpeg?lk3s=138a59ce&x-expires=1767686400&x-signature=IXxCfeInYdkajZmGOVVyg7gm1AE%3D&from=327834062&s=PackSourceEnum_SEARCH&se=false&sc=origin_cover&biz_tag=aweme_video&l=20251223160006FEAE43288BDF1A1F7183","video_first_frame_image_width":360,"video_first_frame_image_height":640,"main_site_url":"https://m.douyin.com/share/video/7505000558214909225/?scene_from=douyin_h5_flow"}}],"container_attribute":{"video_title":"相关视频","video_height":640,"video_width":360,"video_title_show":true},"video_infinite":true}},"is_finish":true,"patch_type":2}]}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"mult_query":"上海女健身教练上门,上海女健身教练上门服务平台"}}}]}
+
+id: 665
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":1,"patch_type":1,"patch_value":{"content_block":[{"block_type":10000,"block_id":"34003768099567362","content":{"text_block":{}},"is_finish":true,"patch_type":1}]}}]}
+
+id: 667
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":3,"patch_type":2,"patch_value":{}},{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"is_finish":"1"}}}]}
+
+id: 669
+event: SSE_REPLY_END
+data: {"end_type":1,"msg_finish_attr":{"msgid":"34003435251732738","badge_count":2,"read_badge_count":1,"read_conv_version":1766476808761561,"pre_read_conv_version":1766476806961900,"brief":"在上海找女健身教练上门，可通过专业平台/工作室预约，重点核查资质、明确服务细节与安全保障，按需求匹配合适教练。以下是具体方案与注意事项：\n---\n### 一、预约渠道（高效且有保障）\n|渠道类型|代表平台/机构|核心优势|适用人群|\n| ---- | ---- | ---- | ---- |\n|专业私教平台|爱教练、约单网|教练实名+资质审核，覆盖全上海，可筛选女教练|追求平台背书、价格透明的用户|\n|本地生活平台|58同城、大众点评|同城商家多，可看真实评价，支持线下探店|想就近找工作室/独立教练的用户|\n|垂直上门服务|愉悦到家、YogaView|主打上门，可快速匹配，部分带辅具/器械|注重便捷、需要快速上门的用户|\n|连锁工作室|赫诺健身、FOR U健身|教练经验足，有线下场地，可上门+到店结合|需要系统训练、产后修复等专项需求的用户|\n\n---\n### 二、核心筛选要点（避坑关键）\n1. **资质核验**\n    - 必备认证：健身教练国家职业资格证、ACE/NASM等国际认证，专项如产后修复需额外持证（如孕产康复认证）。\n    - 从业年限：优先3年以上，可要求提供过往案例与会员评价。\n2.  **服务细节确认**\n    |确认项|具体内容|\n    | ---- | ---- |\n    |课程定价|150-800元/小时（新手约150-300元，资深/专项400-800元），明确是否含路费、器械费|\n    |课程内容|课前评估、训练计划、课后跟进（饮食/作息建议），是否支持定制（减脂/塑形/康复等）|\n    |时间地点|预约时段（多为早7点 - 晚8点），上门范围（部分仅覆盖特定区，跨区可能加费）|\n    |器械准备|教练是否自带小器械（弹力带、瑜伽垫等），大件器械是否额外收费|\n3.  **安全保障**\n    - 平台预约优先：选有实名认证、平安保险承保、先行赔付的平台，避免私下转账。\n    - 上门前：告知家人/朋友，留教练联系方式，首次可在公共区域或带同伴。\n    - 合同签约：明确课时、费用、退款规则，避免临时加价。\n\n---\n### 三、预约流程（快速落地）\n1.  明确需求：确定目标（减脂/塑形/产后修复等）、预算、上课时段、地点。\n2.  筛选匹配：在平台按“女教练+上门+专项”筛选，查看资料与评价，预约1节体验课。\n3.  沟通细节：体验课前确认教练资质、课程流程、费用明细，确认是否自带器械。\n4.  签约上课：体验满意后，签订服务协议，按周期预约，定期反馈调整计划。\n\n---\n### 四、价格参考（2025年12月上海市场价）\n- 新手女教练：150-300元/小时（适合基础体能、简单塑形）。\n- 资深女教练：300-500元/小时（擅长减脂、体态矫正，有5年以上经验）。\n- 专项女教练（产后修复/运动康复）：500-800元/小时（需持专项认证，案例丰富）。\n\n---\n### 五、避坑提醒\n- 拒绝“无证低价”：低于150元/小时且无资质的教练，可能存在动作不规范、损伤风险。\n- 警惕“预付大额”：优先选10课时内的小课包，避免机构/教练跑路。\n- 明确责任边界：训练中受伤的理赔流程，提前与平台/教练沟通。\n\n需要我根据你的预算、所在上海区域和训练目标（减脂/塑形/产后修复），帮你筛选3位匹配的**女健身教练**并附预约话术吗？"}}
+
+id: 670
+event: SSE_REPLY_END
+data: {"end_type":2,"answer_finish_attr":{"has_suggest":true}}
+
+id: 670
+event: SSE_HEARTBEAT
+data: {}
+
+id: 671
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 上海女健身教练上门的费用大概是多少？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]","tea_tags_time_cost":"{\"agent_id\":\"\",\"agent_name\":\"\",\"llm_intention\":\"browsing\",\"llm_intention_detail\":\"complex_browsing\"}"}}}]}
+
+id: 673
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 上海女健身教练上门的费用大概是多少？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 如何判断女健身教练的专业水平？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]"}}}]}
+
+id: 675
+event: STREAM_CHUNK
+data: {"message_id":"34003435251732738","patch_op":[{"patch_object":50,"patch_type":1,"patch_value":{"ext":{"has_suggest":"1","sp_v2":"[{\"suggest_type\":1,\"content\":\" 上海女健身教练上门的费用大概是多少？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 如何判断女健身教练的专业水平？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"},{\"suggest_type\":1,\"content\":\" 上海女健身教练上门服务的安全保障有哪些？\",\"icon_url\":\"\",\"icon_uri\":\"\",\"click_url\":\"\",\"bot_id\":\"\",\"dark_icon_url\":\"\"}]"}}}]}
+
+id: 677
+event: SSE_REPLY_END
+data: {"end_type":3}
+

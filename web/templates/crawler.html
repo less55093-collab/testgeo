@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}爬虫控制 - AI Crawler{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title">爬虫控制</h1>
+    <p class="page-subtitle">启动和监控爬取任务</p>
+</div>
+
+<div class="row g-4">
+    <!-- Control Panel -->
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-gear me-2"></i>控制面板</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">选择任务</label>
+                    <select class="form-select" id="job-select">
+                        <option value="">加载中...</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">运行模式</label>
+                    <select class="form-select" id="mode-select">
+                        <option value="new">新建运行 (处理所有关键词)</option>
+                        <option value="resume">恢复运行 (继续未完成的)</option>
+                        <option value="rerun">重新运行 (重新处理所有)</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success btn-lg" id="start-btn">
+                        <i class="bi bi-play-fill me-2"></i>启动爬虫
+                    </button>
+                    <button class="btn btn-danger btn-lg" id="stop-btn" disabled>
+                        <i class="bi bi-stop-fill me-2"></i>停止爬虫
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Card -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-speedometer me-2"></i>当前状态</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless mb-0">
+                    <tr>
+                        <td class="text-secondary">状态</td>
+                        <td id="status-text">空闲</td>
+                    </tr>
+                    <tr>
+                        <td class="text-secondary">当前任务</td>
+                        <td id="current-job">-</td>
+                    </tr>
+                    <tr>
+                        <td class="text-secondary">当前关键词</td>
+                        <td id="current-keyword">-</td>
+                    </tr>
+                    <tr>
+                        <td class="text-secondary">进度</td>
+                        <td id="progress-text">0 / 0</td>
+                    </tr>
+                    <tr>
+                        <td class="text-secondary">成功 / 失败</td>
+                        <td><span id="success-count" class="text-success">0</span> / <span id="fail-count"
+                                class="text-danger">0</span></td>
+                    </tr>
+                </table>
+
+                <div class="progress mt-3">
+                    <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Log Panel -->
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-terminal me-2"></i>运行日志</h5>
+                <button class="btn btn-sm btn-outline-secondary" onclick="clearLogs()">
+                    <i class="bi bi-trash"></i> 清空
+                </button>
+            </div>
+            <div class="card-body p-0">
+                <div class="log-container" id="log-container">
+                    <div class="log-entry text-secondary">等待启动...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const socket = io();
+    let isRunning = false;
+
+    // Load jobs for select
+    async function loadJobsSelect() {
+        try {
+            const res = await fetch('/api/jobs');
+            const jobs = await res.json();
+
+            const select = document.getElementById('job-select');
+            if (jobs.length === 0) {
+                select.innerHTML = '<option value="">暂无任务，请先创建</option>';
+            } else {
+                select.innerHTML = jobs.map(job =>
+                    `<option value="${job.name}">${job.name} (${job.keywords_count}个关键词)</option>`
+                ).join('');
+            }
+        } catch (error) {
+            console.error('Failed to load jobs:', error);
+        }
+    }
+
+    // Update UI based on running state
+    function updateUI(running) {
+        isRunning = running;
+        document.getElementById('start-btn').disabled = running;
+        document.getElementById('stop-btn').disabled = !running;
+        document.getElementById('job-select').disabled = running;
+        document.getElementById('mode-select').disabled = running;
+        document.getElementById('status-text').innerHTML = running ?
+            '<span class="text-warning pulse">运行中</span>' :
+            '<span class="text-secondary">空闲</span>';
+    }
+
+    // Start crawler
+    document.getElementById('start-btn').addEventListener('click', async () => {
+        const jobName = document.getElementById('job-select').value;
+        const mode = document.getElementById('mode-select').value;
+
+        if (!jobName) {
+            alert('请选择一个任务');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/crawler/start', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ job_name: jobName, mode: mode })
+            });
+
+            const data = await res.json();
+            if (!res.ok) {
+                alert('启动失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('启动失败: ' + error.message);
+        }
+    });
+
+    // Stop crawler
+    document.getElementById('stop-btn').addEventListener('click', async () => {
+        if (!confirm('确定要停止爬虫吗？')) return;
+
+        try {
+            const res = await fetch('/api/crawler/stop', { method: 'POST' });
+            const data = await res.json();
+            if (!res.ok) {
+                alert('停止失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('停止失败: ' + error.message);
+        }
+    });
+
+    // Clear logs
+    function clearLogs() {
+        document.getElementById('log-container').innerHTML =
+            '<div class="log-entry text-secondary">日志已清空</div>';
+    }
+
+    // Add log entry
+    function addLog(message) {
+        const container = document.getElementById('log-container');
+        const entry = document.createElement('div');
+        entry.className = 'log-entry';
+
+        if (message.includes('✓') || message.includes('成功')) {
+            entry.classList.add('success');
+        } else if (message.includes('✗') || message.includes('失败') || message.includes('错误')) {
+            entry.classList.add('error');
+        }
+
+        entry.textContent = message;
+        container.appendChild(entry);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    // Socket events
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+    socket.on('status', (data) => {
+        updateUI(data.running);
+        if (data.running) {
+            document.getElementById('current-job').textContent = data.current_job || '-';
+            document.getElementById('current-keyword').textContent = data.current_keyword || '-';
+            document.getElementById('progress-text').textContent = `${data.progress} / ${data.total}`;
+            document.getElementById('success-count').textContent = data.success_count;
+            document.getElementById('fail-count').textContent = data.fail_count;
+
+            const percentage = data.total > 0 ? (data.progress / data.total * 100) : 0;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+        }
+    });
+
+    socket.on('progress', (data) => {
+        document.getElementById('current-keyword').textContent = data.keyword;
+        document.getElementById('progress-text').textContent = `${data.current} / ${data.total}`;
+        document.getElementById('success-count').textContent = data.success;
+        document.getElementById('fail-count').textContent = data.fail;
+        document.getElementById('progress-bar').style.width = data.percentage + '%';
+    });
+
+    socket.on('log', (data) => {
+        addLog(data.message);
+    });
+
+    socket.on('crawler_finished', (data) => {
+        updateUI(false);
+        addLog('=== 爬虫运行结束 ===');
+    });
+
+    // Check initial status
+    async function checkStatus() {
+        try {
+            const res = await fetch('/api/crawler/status');
+            const data = await res.json();
+            updateUI(data.running);
+            if (data.running) {
+                document.getElementById('current-job').textContent = data.current_job || '-';
+            }
+        } catch (error) {
+            console.error('Failed to check status:', error);
+        }
+    }
+
+    // Initial load
+    loadJobsSelect();
+    checkStatus();
+</script>
+{% endblock %}

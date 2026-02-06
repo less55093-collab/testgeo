@@ -1,0 +1,1585 @@
+event: ready
+data: {"request_message_id":1,"response_message_id":2}
+
+event: update_session
+data: {"updated_at":1766551459.602447}
+
+data: {"v": {"response": {"message_id": 2, "parent_id": 1, "model": "", "role": "ASSISTANT", "thinking_enabled": false, "ban_edit": false, "ban_regenerate": false, "status": "WIP", "accumulated_token_usage": null, "inserted_at": 1766551459.572, "search_enabled": true, "feedback": null, "files": [], "content": "", "tips": [], "thinking_content": null, "thinking_elapsed_secs": null, "search_status": null, "search_results": null}}}
+
+data: {"v": "SEARCHING", "p": "response/search_status"}
+
+data: {"v": [{"url": "https://www.cnblogs.com/koubei/p/19300077#commentform", "title": "上海浦东健身私教馆（可私教上门一对一）推荐——“FOR U 健身私教馆”", "snippet": "企业概况 上海福有健身管理有限公司成立于2021年，场馆位于上海市浦东新区，是一家专注于社区型健身场馆运营、私教课程体系 建设及健康管理服务的专业机构。公司以“科学训练、专业指导...", "cite_index": 1, "published_at": 1764691200.0, "site_name": "博客园", "site_icon": "https://cdn.deepseek.com/site-icons/cnblogs.com", "query_indexes": [0]}, {"url": "https://www.cnblogs.com/koubei/p/19302323#commentform", "title": "2025上海健身私教工作室推荐榜——浦东FOR U健身私教馆排名第一", "snippet": "成立于 2021 年，场馆位于上海市浦东新区利津路 451 号。作为一家专注于社区型场馆运营、私教课程体系建设及健康管理服务的专业机构，FOR U 以“科学训练、专业指导、长期陪伴”为核心理念，致力于为会员提供安全、有效、可持续的健康解决方案。", "cite_index": 2, "published_at": 1764691200.0, "site_name": "博客园", "site_icon": "https://cdn.deepseek.com/site-icons/cnblogs.com", "query_indexes": [0]}, {"url": "https://www.163.com/dy/article/JQP0QD8T055040N3.html", "title": "无推销、专注训练！ 这家私教工作室带你练出好身材", "snippet": "人鱼线是一家私教健身工作室，不收取会费，全部以私教课程形式进行授课。创始人之一的褚爽丽说，采取全私教课程的形式，源于她和合伙人兼教练想要改变健身行业的想法，“我自己也是健身的受益者。过去...", "cite_index": 3, "published_at": 1742054400.0, "site_name": "网易", "site_icon": "https://cdn.deepseek.com/site-icons/163.com", "query_indexes": [0]}, {"url": "http://app.why.com.cn/wx/article/2022/12/15/16710768481176400207.html", "title": "青年调查｜上门私教正流行，提供便利的同时会不会打“擦边球”？", "snippet": "采访中，记者 发现，上门私教主要分为两种，一种是在健身房长期任职的教练，他们会在健身房允许的情况下，为部分客户进行上门服务；还有一种则是自由教练，他们通常是一些资深教练，积累了一定的客户群体，他们专门做上门服务。一般来讲...", "cite_index": 4, "published_at": 1671033600.0, "site_name": "Why", "site_icon": "https://cdn.deepseek.com/site-icons/why.com.cn", "query_indexes": [0]}, {"url": "https://www.ssme.sh.gov.cn/public/product!serviceDetail.do?productId=2c91c2877627e48d0176696f1245257a", "title": "益链 角马私教_上海市企业服务云", "snippet": "服务简介： | 角马私教作为全球首个“区块链+”私教真人在线授课平台，带着一个全新概念的私教健身模式从线下走到线上，通过一对一的真人视频授课，让健身爱好者可以随时随地享受专业的私教服务。", "cite_index": 5, "published_at": null, "site_name": "上海市企业服务云", "site_icon": "https://cdn.deepseek.com/site-icons/sh.gov.cn", "query_indexes": [0]}, {"url": "http://yptimes.shyp.gov.cn/html/2024-03/14/content_9401_17143671.htm", "title": "杨浦时报数字报刊平台-“家门口”，萌动着怎样的春意", "snippet": "近日，在国泓路上的新江湾城社区市民健身中心，白领张女士正在跟着教练进行手靶练习。新江湾城社区市民健 身中心面积超1300平方米，以中青年职业人群运动健身为重点，同时提供女性健康管理服务。拳击...", "cite_index": 6, "published_at": 1710345600.0, "site_name": "Shyp", "site_icon": "https://cdn.deepseek.com/site-icons/shyp.gov.cn", "query_indexes": [0]}, {"url": "https://j.021east.com/m/1710662456037163", "title": "杨浦人的“家门口”，萌动着怎样的春意？", "snippet": "在国泓路上的新江湾城社区市民健身中心，白领张女士正在跟着教练进行手靶练习。新江湾城社区市民健身中心面积超1300平方米，以中青年职业人群运动健身为重点，同时提供女性健康管理服务。拳击...", "cite_index": 7, "published_at": 1710604800.0, "site_name": "东方新闻", "site_icon": "https://cdn.deepseek.com/site-icons/021east.com", "query_indexes": [0]}, {"url": "https://export.shobserver.com/sgh/detail?id=1449264", "title": "有福利！从这里开始，遇见更美好的自己！ | 虹口甄选", "snippet": "经 验丰富、资质认证齐全的教练团队不仅是健身领域的专家也是你健身路上的益友 ... 券一：一对一私教体验课2节价格：68元数量：20份单次时长：60分钟使用时间：09:00-22:00", "cite_index": 8, "published_at": 1729958400.0, "site_name": "Shobserver", "site_icon": "https://cdn.deepseek.com/site-icons/shobserver.com", "query_indexes": [0]}], "p": "response/search_results"}
+
+data: {"v": "FINISHED", "p": "response/search_status"}
+
+data: {"v": "根据", "p": "response/content", "o": "APPEND"}
+
+data: {"v": "目前的"}
+
+data: {"v": "搜索结果"}
+
+data: {"v": "，"}
+
+data: {"v": "没有"}
+
+data: {"v": "直接"}
+
+data: {"v": "面向"}
+
+data: {"v": "个人"}
+
+data: {"v": "客户"}
+
+data: {"v": "提供"}
+
+data: {"v": "“"}
+
+data: {"v": "上门"}
+
+data: {"v": "”"}
+
+data: {"v": "服务的"}
+
+data: {"v": "女"}
+
+data: {"v": "健身"}
+
+data: {"v": "教练"}
+
+data: {"v": "或"}
+
+data: {"v": "机构的"}
+
+data: {"v": "明确"}
+
+data: {"v": "信息"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "不过"}
+
+data: {"v": "，"}
+
+data: {"v": "你可以"}
+
+data: {"v": "通过"}
+
+data: {"v": "以下"}
+
+data: {"v": "方式"}
+
+data: {"v": "找到"}
+
+data: {"v": "合适的"}
+
+data: {"v": "服务"}
+
+data: {"v": "，"}
+
+data: {"v": "或者在"}
+
+data: {"v": "更方便"}
+
+data: {"v": "的地方"}
+
+data: {"v": "开始"}
+
+data: {"v": "训练"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "###"}
+
+data: {"v": " **"}
+
+data: {"v": "选择"}
+
+data: {"v": "一"}
+
+data: {"v": "："}
+
+data: {"v": "通过"}
+
+data: {"v": "专业"}
+
+data: {"v": "机构"}
+
+data: {"v": "寻找"}
+
+data: {"v": "上门"}
+
+data: {"v": "教练"}
+
+data: {"v": "**\n"}
+
+data: {"v": "一些"}
+
+data: {"v": "机构"}
+
+data: {"v": "提供"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "上"}
+
+data: {"v": "门的"}
+
+data: {"v": "服务"}
+
+data: {"v": "，"}
+
+data: {"v": "但它们"}
+
+data: {"v": "主要"}
+
+data: {"v": "面向"}
+
+data: {"v": "企业"}
+
+data: {"v": "（"}
+
+data: {"v": "B"}
+
+data: {"v": "2"}
+
+data: {"v": "B"}
+
+data: {"v": "）"}
+
+data: {"v": "而非"}
+
+data: {"v": "个人"}
+
+data: {"v": "客户"}
+
+data: {"v": "。"}
+
+data: {"v": "你可以"}
+
+data: {"v": "尝试"}
+
+data: {"v": "联系"}
+
+data: {"v": "咨询"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "**"}
+
+data: {"v": "FOR"}
+
+data: {"v": " U"}
+
+data: {"v": " "}
+
+data: {"v": "健身"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "馆"}
+
+data: {"v": "**\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "服务"}
+
+data: {"v": "类型"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "专注于"}
+
+data: {"v": "**"}
+
+data: {"v": "公"}
+
+data: {"v": "对"}
+
+data: {"v": "公"}
+
+data: {"v": "（"}
+
+data: {"v": "B"}
+
+data: {"v": "2"}
+
+data: {"v": "B"}
+
+data: {"v": "）"}
+
+data: {"v": "上门"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "服务"}
+
+data: {"v": "**"}
+
+data: {"v": "，"}
+
+data: {"v": "例如"}
+
+data: {"v": "为"}
+
+data: {"v": "企业和"}
+
+data: {"v": "社区"}
+
+data: {"v": "提供"}
+
+data: {"v": "上门"}
+
+data: {"v": "课程"}
+
+data: {"v": "[citation:1]"}
+
+data: {"v": "[citation:2]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "信息"}
+
+data: {"v": "参考"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "搜索结果"}
+
+data: {"v": "中"}
+
+data: {"v": "该"}
+
+data: {"v": "机构"}
+
+data: {"v": "信息"}
+
+data: {"v": "发布时间"}
+
+data: {"v": "为"}
+
+data: {"v": "202"}
+
+data: {"v": "5"}
+
+data: {"v": "年"}
+
+data: {"v": "12"}
+
+data: {"v": "月"}
+
+data: {"v": "3"}
+
+data: {"v": "日"}
+
+data: {"v": "[citation:1]"}
+
+data: {"v": "[citation:2]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "如何"}
+
+data: {"v": "尝试"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "虽然"}
+
+data: {"v": "核心"}
+
+data: {"v": "业务"}
+
+data: {"v": "是对"}
+
+data: {"v": "公"}
+
+data: {"v": "，"}
+
+data: {"v": "但"}
+
+data: {"v": "你可以"}
+
+data: {"v": "通过"}
+
+data: {"v": "其"}
+
+data: {"v": "联系方式"}
+
+data: {"v": "**"}
+
+data: {"v": "直接"}
+
+data: {"v": "咨询"}
+
+data: {"v": "**"}
+
+data: {"v": "是否"}
+
+data: {"v": "承接"}
+
+data: {"v": "个人"}
+
+data: {"v": "客户的"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "上门"}
+
+data: {"v": "需求"}
+
+data: {"v": "。"}
+
+data: {"v": "其"}
+
+data: {"v": "教练"}
+
+data: {"v": "团队"}
+
+data: {"v": "中包含"}
+
+data: {"v": "有"}
+
+data: {"v": "专业"}
+
+data: {"v": "赛事"}
+
+data: {"v": "冠军"}
+
+data: {"v": "背景"}
+
+data: {"v": "的"}
+
+data: {"v": "成员"}
+
+data: {"v": "[citation:1]"}
+
+data: {"v": "[citation:2]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "联系方式"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "电话"}
+
+data: {"v": "/"}
+
+data: {"v": "微信"}
+
+data: {"v": " **"}
+
+data: {"v": "150"}
+
+data: {"v": "006"}
+
+data: {"v": "543"}
+
+data: {"v": "28"}
+
+data: {"v": "**"}
+
+data: {"v": " ("}
+
+data: {"v": "联系人"}
+
+data: {"v": "："}
+
+data: {"v": "缪"}
+
+data: {"v": "福"}
+
+data: {"v": "雨"}
+
+data: {"v": "教练"}
+
+data: {"v": ")"}
+
+data: {"v": "[citation:1]"}
+
+data: {"v": "[citation:2]"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "###"}
+
+data: {"v": " **"}
+
+data: {"v": "选择"}
+
+data: {"v": "二"}
+
+data: {"v": "："}
+
+data: {"v": "考虑"}
+
+data: {"v": "优质的"}
+
+data: {"v": "线下"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "工作室"}
+
+data: {"v": "**\n"}
+
+data: {"v": "如果"}
+
+data: {"v": "上门"}
+
+data: {"v": "服务"}
+
+data: {"v": "难以"}
+
+data: {"v": "寻找"}
+
+data: {"v": "，"}
+
+data: {"v": "选择"}
+
+data: {"v": "一家"}
+
+data: {"v": "交通"}
+
+data: {"v": "便利"}
+
+data: {"v": "、"}
+
+data: {"v": "专业"}
+
+data: {"v": "且"}
+
+data: {"v": "无"}
+
+data: {"v": "推销"}
+
+data: {"v": "的工作"}
+
+data: {"v": "室"}
+
+data: {"v": "是"}
+
+data: {"v": "更"}
+
+data: {"v": "主流"}
+
+data: {"v": "和"}
+
+data: {"v": "高效"}
+
+data: {"v": "的选择"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "下面是"}
+
+data: {"v": "搜索结果"}
+
+data: {"v": "中"}
+
+data: {"v": "两家"}
+
+data: {"v": "位于"}
+
+data: {"v": "上海"}
+
+data: {"v": "不同"}
+
+data: {"v": "区域的"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "工作室"}
+
+data: {"v": "信息"}
+
+data: {"v": "，"}
+
+data: {"v": "它们"}
+
+data: {"v": "都"}
+
+data: {"v": "提供"}
+
+data: {"v": "多元"}
+
+data: {"v": "化的"}
+
+data: {"v": "课程"}
+
+data: {"v": "和"}
+
+data: {"v": "体验"}
+
+data: {"v": "课"}
+
+data: {"v": "，"}
+
+data: {"v": "你可以"}
+
+data: {"v": "作为"}
+
+data: {"v": "参考"}
+
+data: {"v": "：\n\n"}
+
+data: {"v": "**"}
+
+data: {"v": "人"}
+
+data: {"v": "鱼"}
+
+data: {"v": "线"}
+
+data: {"v": "健身"}
+
+data: {"v": "工作室"}
+
+data: {"v": "**\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "所在"}
+
+data: {"v": "区域"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "虹"}
+
+data: {"v": "口"}
+
+data: {"v": "区"}
+
+data: {"v": "\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "推荐"}
+
+data: {"v": "理由"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "由"}
+
+data: {"v": "体育"}
+
+data: {"v": "专业"}
+
+data: {"v": "背景"}
+
+data: {"v": "的"}
+
+data: {"v": "创始人"}
+
+data: {"v": "经营"}
+
+data: {"v": "，"}
+
+data: {"v": "注重"}
+
+data: {"v": "专业"}
+
+data: {"v": "打磨"}
+
+data: {"v": "，"}
+
+data: {"v": "**"}
+
+data: {"v": "明确"}
+
+data: {"v": "标"}
+
+data: {"v": "榜"}
+
+data: {"v": "“"}
+
+data: {"v": "无"}
+
+data: {"v": "推销"}
+
+data: {"v": "”"}
+
+data: {"v": "**"}
+
+data: {"v": "[citation:3]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "特色"}
+
+data: {"v": "课程"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "常规"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "、"}
+
+data: {"v": "普"}
+
+data: {"v": "拉"}
+
+data: {"v": "提"}
+
+data: {"v": "、"}
+
+data: {"v": "产后"}
+
+data: {"v": "塑"}
+
+data: {"v": "型"}
+
+data: {"v": "、"}
+
+data: {"v": "泰"}
+
+data: {"v": "拳"}
+
+data: {"v": "、"}
+
+data: {"v": "青少年"}
+
+data: {"v": "体"}
+
+data: {"v": "适"}
+
+data: {"v": "能"}
+
+data: {"v": "等"}
+
+data: {"v": "[citation:3]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "参考"}
+
+data: {"v": "价格"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "提供"}
+
+data: {"v": "价值"}
+
+data: {"v": "380"}
+
+data: {"v": "元的"}
+
+data: {"v": "**"}
+
+data: {"v": "免费"}
+
+data: {"v": "一小时"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "体验"}
+
+data: {"v": "课"}
+
+data: {"v": "**"}
+
+data: {"v": "[citation:3]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "联系方式"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "电话"}
+
+data: {"v": " **"}
+
+data: {"v": "021"}
+
+data: {"v": "-"}
+
+data: {"v": "564"}
+
+data: {"v": "019"}
+
+data: {"v": "58"}
+
+data: {"v": "**"}
+
+data: {"v": " "}
+
+data: {"v": "或"}
+
+data: {"v": " **"}
+
+data: {"v": "137"}
+
+data: {"v": " "}
+
+data: {"v": "743"}
+
+data: {"v": "6"}
+
+data: {"v": " "}
+
+data: {"v": "752"}
+
+data: {"v": "3"}
+
+data: {"v": "**"}
+
+data: {"v": "[citation:3]"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "**"}
+
+data: {"v": "Line"}
+
+data: {"v": "+"}
+
+data: {"v": "炼"}
+
+data: {"v": "加"}
+
+data: {"v": "健身"}
+
+data: {"v": "工作室"}
+
+data: {"v": "**\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "所在"}
+
+data: {"v": "区域"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "虹"}
+
+data: {"v": "口"}
+
+data: {"v": "区"}
+
+data: {"v": "\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "推荐"}
+
+data: {"v": "理由"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "由"}
+
+data: {"v": "“"}
+
+data: {"v": "上海"}
+
+data: {"v": "虹"}
+
+data: {"v": "口"}
+
+data: {"v": "”"}
+
+data: {"v": "官方"}
+
+data: {"v": "平台"}
+
+data: {"v": "推荐"}
+
+data: {"v": "，"}
+
+data: {"v": "信息"}
+
+data: {"v": "较为"}
+
+data: {"v": "可靠"}
+
+data: {"v": "[citation:8]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "特色"}
+
+data: {"v": "课程"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "减"}
+
+data: {"v": "脂"}
+
+data: {"v": "塑"}
+
+data: {"v": "形"}
+
+data: {"v": "、"}
+
+data: {"v": "增"}
+
+data: {"v": "肌"}
+
+data: {"v": "、"}
+
+data: {"v": "孕"}
+
+data: {"v": "产"}
+
+data: {"v": "训练"}
+
+data: {"v": "、"}
+
+data: {"v": "拳"}
+
+data: {"v": "击"}
+
+data: {"v": "、"}
+
+data: {"v": "普"}
+
+data: {"v": "拉"}
+
+data: {"v": "提"}
+
+data: {"v": "等"}
+
+data: {"v": "[citation:8]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "参考"}
+
+data: {"v": "价格"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "提供"}
+
+data: {"v": "多种"}
+
+data: {"v": "低价"}
+
+data: {"v": "体验"}
+
+data: {"v": "券"}
+
+data: {"v": "，"}
+
+data: {"v": "例如"}
+
+data: {"v": "2"}
+
+data: {"v": "节"}
+
+data: {"v": "一对一"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "体验"}
+
+data: {"v": "课"}
+
+data: {"v": " **"}
+
+data: {"v": "68"}
+
+data: {"v": "元"}
+
+data: {"v": "**"}
+
+data: {"v": "[citation:8]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "*"}
+
+data: {"v": "  "}
+
+data: {"v": " **"}
+
+data: {"v": "联系方式"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "电话"}
+
+data: {"v": " **"}
+
+data: {"v": "178"}
+
+data: {"v": "216"}
+
+data: {"v": "334"}
+
+data: {"v": "11"}
+
+data: {"v": "**"}
+
+data: {"v": "[citation:8]"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "###"}
+
+data: {"v": " **"}
+
+data: {"v": "选择"}
+
+data: {"v": "三"}
+
+data: {"v": "："}
+
+data: {"v": "尝试"}
+
+data: {"v": "新型"}
+
+data: {"v": "的"}
+
+data: {"v": "线上"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "模式"}
+
+data: {"v": "**\n"}
+
+data: {"v": "如果你"}
+
+data: {"v": "追求"}
+
+data: {"v": "灵活性"}
+
+data: {"v": "，"}
+
+data: {"v": "也可以"}
+
+data: {"v": "考虑"}
+
+data: {"v": "线上"}
+
+data: {"v": "真人"}
+
+data: {"v": "视频"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "。"}
+
+data: {"v": "例如"}
+
+data: {"v": "“"}
+
+data: {"v": "**"}
+
+data: {"v": "角"}
+
+data: {"v": "马"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "**"}
+
+data: {"v": "”"}
+
+data: {"v": "平台"}
+
+data: {"v": "，"}
+
+data: {"v": "它"}
+
+data: {"v": "通过"}
+
+data: {"v": "一对一"}
+
+data: {"v": "视频"}
+
+data: {"v": "授课"}
+
+data: {"v": "提供服务"}
+
+data: {"v": "[citation:5]"}
+
+data: {"v": "。"}
+
+data: {"v": "这种方式"}
+
+data: {"v": "不受"}
+
+data: {"v": "地域"}
+
+data: {"v": "限制"}
+
+data: {"v": "，"}
+
+data: {"v": "可以"}
+
+data: {"v": "随时随地"}
+
+data: {"v": "接受"}
+
+data: {"v": "指导"}
+
+data: {"v": "，"}
+
+data: {"v": "但"}
+
+data: {"v": "需要"}
+
+data: {"v": "你"}
+
+data: {"v": "自"}
+
+data: {"v": "备"}
+
+data: {"v": "基本的"}
+
+data: {"v": "运动"}
+
+data: {"v": "器械"}
+
+data: {"v": "和"}
+
+data: {"v": "空间"}
+
+data: {"v": "[citation:5]"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "###"}
+
+data: {"v": " **"}
+
+data: {"v": "如何"}
+
+data: {"v": "安全"}
+
+data: {"v": "地"}
+
+data: {"v": "选择"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "服务"}
+
+data: {"v": "？"}
+
+data: {"v": "**\n"}
+
+data: {"v": "无论"}
+
+data: {"v": "选择"}
+
+data: {"v": "哪种"}
+
+data: {"v": "方式"}
+
+data: {"v": "，"}
+
+data: {"v": "保障"}
+
+data: {"v": "自身"}
+
+data: {"v": "安全"}
+
+data: {"v": "和个人"}
+
+data: {"v": "权益"}
+
+data: {"v": "都"}
+
+data: {"v": "至关重要"}
+
+data: {"v": "。"}
+
+data: {"v": "根据"}
+
+data: {"v": "行业"}
+
+data: {"v": "报道"}
+
+data: {"v": "和"}
+
+data: {"v": "律师"}
+
+data: {"v": "建议"}
+
+data: {"v": "，"}
+
+data: {"v": "请注意"}
+
+data: {"v": "以下几点"}
+
+data: {"v": "[citation:4]"}
+
+data: {"v": "：\n"}
+
+data: {"v": "1"}
+
+data: {"v": "."}
+
+data: {"v": " "}
+
+data: {"v": " **"}
+
+data: {"v": "核实"}
+
+data: {"v": "资质"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "优先"}
+
+data: {"v": "选择"}
+
+data: {"v": "正规"}
+
+data: {"v": "平台"}
+
+data: {"v": "或"}
+
+data: {"v": "大型"}
+
+data: {"v": "工作室"}
+
+data: {"v": "的"}
+
+data: {"v": "教练"}
+
+data: {"v": "，"}
+
+data: {"v": "要求"}
+
+data: {"v": "查看"}
+
+data: {"v": "其"}
+
+data: {"v": "专业"}
+
+data: {"v": "认证"}
+
+data: {"v": "资质"}
+
+data: {"v": "。\n"}
+
+data: {"v": "2"}
+
+data: {"v": "."}
+
+data: {"v": " "}
+
+data: {"v": " **"}
+
+data: {"v": "签订"}
+
+data: {"v": "合同"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "在"}
+
+data: {"v": "付费"}
+
+data: {"v": "前"}
+
+data: {"v": "，"}
+
+data: {"v": "务必"}
+
+data: {"v": "签订"}
+
+data: {"v": "服务"}
+
+data: {"v": "合同"}
+
+data: {"v": "，"}
+
+data: {"v": "明确"}
+
+data: {"v": "课程"}
+
+data: {"v": "内容"}
+
+data: {"v": "、"}
+
+data: {"v": "价格"}
+
+data: {"v": "、"}
+
+data: {"v": "时长"}
+
+data: {"v": "、"}
+
+data: {"v": "违约责任"}
+
+data: {"v": "等"}
+
+data: {"v": "细节"}
+
+data: {"v": "[citation:4]"}
+
+data: {"v": "。\n"}
+
+data: {"v": "3"}
+
+data: {"v": "."}
+
+data: {"v": " "}
+
+data: {"v": " **"}
+
+data: {"v": "保障"}
+
+data: {"v": "安全"}
+
+data: {"v": "**"}
+
+data: {"v": "："}
+
+data: {"v": "特别是"}
+
+data: {"v": "上门"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "，"}
+
+data: {"v": "首次"}
+
+data: {"v": "服务"}
+
+data: {"v": "建议"}
+
+data: {"v": "有"}
+
+data: {"v": "他"}
+
+data: {"v": "人在"}
+
+data: {"v": "场"}
+
+data: {"v": "。"}
+
+data: {"v": "业内人士"}
+
+data: {"v": "建议"}
+
+data: {"v": "，"}
+
+data: {"v": "可"}
+
+data: {"v": "考虑"}
+
+data: {"v": "**"}
+
+data: {"v": "全程"}
+
+data: {"v": "录音"}
+
+data: {"v": "或"}
+
+data: {"v": "视频"}
+
+data: {"v": "**"}
+
+data: {"v": "，"}
+
+data: {"v": "以备"}
+
+data: {"v": "发生"}
+
+data: {"v": "纠纷"}
+
+data: {"v": "时"}
+
+data: {"v": "作为"}
+
+data: {"v": "证据"}
+
+data: {"v": "[citation:4]"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "总的来说"}
+
+data: {"v": "，"}
+
+data: {"v": "目前"}
+
+data: {"v": "个人"}
+
+data: {"v": "寻找"}
+
+data: {"v": "女"}
+
+data: {"v": "教练"}
+
+data: {"v": "上门"}
+
+data: {"v": "服务"}
+
+data: {"v": "的信息"}
+
+data: {"v": "不多"}
+
+data: {"v": "，"}
+
+data: {"v": "最"}
+
+data: {"v": "直接"}
+
+data: {"v": "的方式"}
+
+data: {"v": "是"}
+
+data: {"v": "联系"}
+
+data: {"v": "那些"}
+
+data: {"v": "有"}
+
+data: {"v": "上门"}
+
+data: {"v": "业务"}
+
+data: {"v": "（"}
+
+data: {"v": "即使是"}
+
+data: {"v": "B"}
+
+data: {"v": "2"}
+
+data: {"v": "B"}
+
+data: {"v": "为主"}
+
+data: {"v": "）"}
+
+data: {"v": "的"}
+
+data: {"v": "机构"}
+
+data: {"v": "进行"}
+
+data: {"v": "询问"}
+
+data: {"v": "。\n\n"}
+
+data: {"v": "如果需要"}
+
+data: {"v": "，"}
+
+data: {"v": "我可以"}
+
+data: {"v": "根据"}
+
+data: {"v": "你"}
+
+data: {"v": "所在的"}
+
+data: {"v": "**"}
+
+data: {"v": "具体"}
+
+data: {"v": "区域"}
+
+data: {"v": "**"}
+
+data: {"v": "或"}
+
+data: {"v": "**"}
+
+data: {"v": "训练"}
+
+data: {"v": "目标"}
+
+data: {"v": "**"}
+
+data: {"v": "（"}
+
+data: {"v": "如"}
+
+data: {"v": "减"}
+
+data: {"v": "脂"}
+
+data: {"v": "、"}
+
+data: {"v": "产后"}
+
+data: {"v": "恢复"}
+
+data: {"v": "等"}
+
+data: {"v": "），"}
+
+data: {"v": "帮你"}
+
+data: {"v": "留意"}
+
+data: {"v": "是否有"}
+
+data: {"v": "更"}
+
+data: {"v": "合适的"}
+
+data: {"v": "线下"}
+
+data: {"v": "私"}
+
+data: {"v": "教"}
+
+data: {"v": "工作室"}
+
+data: {"v": "推荐"}
+
+data: {"v": "。"}
+
+data: {"v": [{"type": "warning", "position": "bottom", "content": "本回答由 AI 生成，内容仅供参考，请仔细甄别。"}], "p": "response/tips"}
+
+data: {"v": [{"v": "FINISHED", "p": "status"}, {"v": 809, "p": "accumulated_token_usage"}], "p": "response", "o": "BATCH"}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1766551493.740038}
+
+event: title
+data: {"content":"上海女健身教练上门服务推荐"}
+
+event: close
+data: {"click_behavior":"none","auto_resume":false}

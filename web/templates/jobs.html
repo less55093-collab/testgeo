@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}任务管理 - AI Crawler{% endblock %}
+
+{% block content %}
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">任务管理</h1>
+        <p class="page-subtitle">创建和管理爬取任务</p>
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createJobModal">
+        <i class="bi bi-plus-lg me-2"></i>创建任务
+    </button>
+</div>
+
+<!-- Jobs List -->
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table mb-0">
+            <thead>
+                <tr>
+                    <th>任务名称</th>
+                    <th>关键词数</th>
+                    <th>目标产品</th>
+                    <th>运行次数</th>
+                    <th>最后运行</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="jobs-table">
+                <tr>
+                    <td colspan="7" class="text-center text-secondary py-4">加载中...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Create Job Modal -->
+<div class="modal fade" id="createJobModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-plus-circle me-2"></i>创建新任务</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="create-job-form">
+                    <div class="mb-3">
+                        <label class="form-label">任务名称 <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="job-name" placeholder="例如：二奢回收广告_202502" required>
+                        <div class="form-text text-secondary">唯一标识符，用于区分不同的任务</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">关键词列表 <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="job-keywords" rows="6"
+                            placeholder="每行一个关键词，例如：&#10;二手奢侈品上门回收&#10;上海二奢店哪家比较靠谱&#10;二奢上门回收" required></textarea>
+                        <div class="form-text text-secondary">每行输入一个关键词</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">目标产品 <span class="text-secondary">(可选)</span></label>
+                        <input type="text" class="form-control" id="job-target" placeholder="例如：典奢名品汇">
+                        <div class="form-text text-secondary">用于追踪你的产品在AI回答中的排名</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="create-job-btn">
+                    <i class="bi bi-check-lg me-2"></i>创建任务
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Job Detail Modal -->
+<div class="modal fade" id="jobDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="job-detail-title">任务详情</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="job-detail-content">
+                加载中...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Load jobs
+    async function loadJobs() {
+        try {
+            const res = await fetch('/api/jobs');
+            const jobs = await res.json();
+
+            const tbody = document.getElementById('jobs-table');
+            if (jobs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center text-secondary py-4">暂无任务，点击"创建任务"开始</td></tr>';
+            } else {
+                tbody.innerHTML = jobs.map(job => {
+                    const lastRun = job.last_run;
+                    let statusBadge = '<span class="badge-status badge-secondary">无运行</span>';
+                    if (lastRun) {
+                        if (lastRun.status === 'completed') {
+                            statusBadge = '<span class="badge-status badge-success">已完成</span>';
+                        } else if (lastRun.status === 'running') {
+                            statusBadge = '<span class="badge-status badge-warning pulse">运行中</span>';
+                        } else if (lastRun.status === 'paused') {
+                            statusBadge = '<span class="badge-status badge-warning">已暂停</span>';
+                        } else if (lastRun.status === 'failed') {
+                            statusBadge = '<span class="badge-status badge-danger">失败</span>';
+                        }
+                    }
+
+                    return `
+                        <tr>
+                            <td><strong>${job.name}</strong></td>
+                            <td>${job.keywords_count}</td>
+                            <td>${job.target_product || '-'}</td>
+                            <td>${job.runs_count}</td>
+                            <td>${lastRun ? lastRun.run_id.replace('run_', '') : '-'}</td>
+                            <td>${statusBadge}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <button class="btn btn-outline-primary" onclick="viewJob('${job.name}')">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    ${lastRun && lastRun.status === 'completed' ?
+                            `<a href="/report/${job.name}/${lastRun.run_id}" class="btn btn-outline-success">
+                                            <i class="bi bi-file-text"></i>
+                                        </a>` : ''}
+                                    <button class="btn btn-outline-danger" onclick="deleteJob('${job.name}')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+        } catch (error) {
+            console.error('Failed to load jobs:', error);
+        }
+    }
+
+    // Create job
+    document.getElementById('create-job-btn').addEventListener('click', async () => {
+        const name = document.getElementById('job-name').value.trim();
+        const keywordsText = document.getElementById('job-keywords').value.trim();
+        const targetProduct = document.getElementById('job-target').value.trim();
+
+        if (!name) {
+            alert('请输入任务名称');
+            return;
+        }
+
+        const keywords = keywordsText.split('\n').map(k => k.trim()).filter(k => k);
+        if (keywords.length === 0) {
+            alert('请输入至少一个关键词');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/jobs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    keywords: keywords,
+                    target_product: targetProduct || null
+                })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                bootstrap.Modal.getInstance(document.getElementById('createJobModal')).hide();
+                document.getElementById('create-job-form').reset();
+                loadJobs();
+                alert('任务创建成功！');
+            } else {
+                alert('创建失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('创建失败: ' + error.message);
+        }
+    });
+
+    // View job detail
+    async function viewJob(name) {
+        try {
+            const res = await fetch(`/api/jobs/${name}`);
+            const job = await res.json();
+
+            document.getElementById('job-detail-title').textContent = `任务详情: ${name}`;
+            document.getElementById('job-detail-content').innerHTML = `
+                <div class="mb-4">
+                    <h6 class="text-secondary mb-2">关键词列表 (${job.keywords.length}个)</h6>
+                    <div class="bg-dark p-3 rounded" style="max-height: 200px; overflow-y: auto;">
+                        ${job.keywords.map((k, i) => `<div class="mb-1">${i + 1}. ${k}</div>`).join('')}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h6 class="text-secondary mb-2">目标产品</h6>
+                    <div>${job.target_product || '(未设置)'}</div>
+                </div>
+                <div>
+                    <h6 class="text-secondary mb-2">运行记录 (${job.runs.length}次)</h6>
+                    ${job.runs.length > 0 ? `
+                        <table class="table table-sm">
+                            <thead>
+                                <tr><th>运行ID</th><th>状态</th><th>操作</th></tr>
+                            </thead>
+                            <tbody>
+                                ${job.runs.slice().reverse().map(run => `
+                                    <tr>
+                                        <td>${run.run_id}</td>
+                                        <td>${run.status}</td>
+                                        <td>
+                                            ${run.status === 'completed' ?
+                    `<a href="/report/${name}/${run.run_id}" class="btn btn-sm btn-outline-primary">查看报告</a>` : ''}
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    ` : '<div class="text-secondary">暂无运行记录</div>'}
+                </div>
+            `;
+
+            new bootstrap.Modal(document.getElementById('jobDetailModal')).show();
+        } catch (error) {
+            alert('获取任务详情失败: ' + error.message);
+        }
+    }
+
+    // Delete job
+    async function deleteJob(name) {
+        if (!confirm(`确定要删除任务 "${name}" 吗？此操作不可恢复！`)) {
+            return;
+        }
+
+        try {
+            const res = await fetch(`/api/jobs/${name}`, { method: 'DELETE' });
+            const data = await res.json();
+            if (res.ok) {
+                loadJobs();
+                alert('任务已删除');
+            } else {
+                alert('删除失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('删除失败: ' + error.message);
+        }
+    }
+
+    // Initial load
+    loadJobs();
+</script>
+{% endblock %}
