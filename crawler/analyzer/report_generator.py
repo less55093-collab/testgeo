@@ -577,19 +577,24 @@ class ReportGenerator:
 
     def generate_console_summary(self) -> str:
         """Generate console summary"""
-        return f"""
-分析完成！
-
-任务：{self.stats.job_name}
-运行ID：{self.stats.run_id}
-总关键词：{self.stats.total_keywords}
-成功查询：{self.stats.successful_queries}
-失败查询：{self.stats.failed_keywords}
-
-报告已保存至：{self.run_dir}/
-  - statistics.json
-  - report.html
-"""
+        return (
+            "\n"
+            "========================================\n"
+            "✅ 分析完成\n"
+            "========================================\n"
+            f"任务名称：{self.stats.job_name}\n"
+            f"运行 ID：{self.stats.run_id}\n"
+            "----------------------------------------\n"
+            f"总关键词：{self.stats.total_keywords}\n"
+            f"成功查询：{self.stats.successful_queries}\n"
+            f"失败查询：{self.stats.failed_keywords}\n"
+            "----------------------------------------\n"
+            "报告已保存至：\n"
+            f"  {self.run_dir}/\n"
+            "  - statistics.json\n"
+            "  - report.html\n"
+            "========================================\n"
+        )
 
     def _serialize_stats(self, obj: Any) -> Any:
         """Convert tuple keys to strings for JSON serialization"""
