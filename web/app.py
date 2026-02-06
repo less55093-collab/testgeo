@@ -178,12 +178,13 @@ def start_crawler():
     data = request.json
     job_name = data.get('job_name')
     mode = data.get('mode', 'new')  # 'new', 'resume', 'rerun'
+    provider = data.get('provider', 'deepseek')  # 'deepseek' or 'doubao'
     
     if not job_name:
         return jsonify({'error': '请选择任务'}), 400
     
     # Start crawler in background thread
-    thread = threading.Thread(target=run_crawler_async, args=(job_name, mode))
+    thread = threading.Thread(target=run_crawler_async, args=(job_name, mode, provider))
     thread.daemon = True
     thread.start()
     
@@ -202,8 +203,8 @@ def stop_crawler():
     return jsonify({'success': True, 'message': '爬虫已停止'})
 
 
-def run_crawler_async(job_name, mode):
-    """Run crawler in background"""
+def run_crawler_async(job_name, mode, provider='deepseek'):
+    """Run crawler in background with selected AI provider"""
     global crawler_state
     
     crawler_state['running'] = True
@@ -212,6 +213,7 @@ def run_crawler_async(job_name, mode):
     crawler_state['success_count'] = 0
     crawler_state['fail_count'] = 0
     crawler_state['logs'] = []
+    crawler_state['provider'] = provider
     
     def log(message):
         timestamp = datetime.now().strftime('%H:%M:%S')
@@ -238,6 +240,7 @@ def run_crawler_async(job_name, mode):
     
     try:
         log(f"开始爬取任务: {job_name}")
+        log(f"使用 AI 平台: {provider.upper()}")
         
         # Load job metadata
         metadata = job_manager.load_job(job_name)
@@ -258,11 +261,17 @@ def run_crawler_async(job_name, mode):
         log(f"运行ID: {run_id}")
         log(f"待处理关键词: {len(keywords_to_process)} 个")
         
-        # Import provider
-        from provider.providers.deepseek import DeepSeek
+        # Import provider based on selection
         from provider.core.types import CallParams
         
-        deepseek = DeepSeek(str(CONFIG_PATH))
+        if provider == 'doubao':
+            from provider.providers.doubao import Doubao
+            ai_provider = Doubao(str(CONFIG_PATH))
+            log("✓ 豆包 AI 已初始化 (支持联网搜索)")
+        else:
+            from provider.providers.deepseek import DeepSeek
+            ai_provider = DeepSeek(str(CONFIG_PATH))
+            log("✓ DeepSeek AI 已初始化")
         
         total = len(keywords_to_process)
         success_count = 0
@@ -288,7 +297,7 @@ def run_crawler_async(job_name, mode):
                 # Make API call
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
-                result = loop.run_until_complete(deepseek.call(params))
+                result = loop.run_until_complete(ai_provider.call(params))
                 loop.close()
                 
                 # Save result
@@ -299,6 +308,10 @@ def run_crawler_async(job_name, mode):
                     rankings=result.rankings,
                     sources=result.sources
                 )
+                
+                # Log source count for search results
+                if result.sources:
+                    log(f"  → 获取到 {len(result.sources)} 个搜索来源")
                 
                 success_count += 1
                 log(f"✓ 成功: {keyword}")

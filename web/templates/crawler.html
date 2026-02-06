@@ -3,34 +3,53 @@
 {% block title %}爬虫控制 - AI Crawler{% endblock %}
 
 {% block content %}
-<div class="page-header">
+<div class="page-header fade-in-up">
     <h1 class="page-title">爬虫控制</h1>
-    <p class="page-subtitle">启动和监控爬取任务</p>
+    <p class="page-subtitle">启动和监控 AI 爬取任务，支持多平台智能搜索</p>
 </div>
 
 <div class="row g-4">
     <!-- Control Panel -->
     <div class="col-lg-5">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="bi bi-gear me-2"></i>控制面板</h5>
+        <div class="card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="card-header d-flex align-items-center">
+                <i class="bi bi-sliders me-2" style="font-size: 20px; color: var(--accent-color);"></i>
+                <h5 class="mb-0">控制面板</h5>
             </div>
             <div class="card-body">
+                <!-- AI Provider Selection -->
+                <div class="mb-4">
+                    <label class="form-label">选择 AI 平台</label>
+                    <div class="provider-select-group">
+                        <div class="provider-option selected" data-provider="deepseek"
+                            onclick="selectProvider('deepseek')">
+                            <i class="bi bi-robot" style="color: #764ba2;"></i>
+                            <div class="name">DeepSeek</div>
+                            <div class="desc">深度求索</div>
+                        </div>
+                        <div class="provider-option" data-provider="doubao" onclick="selectProvider('doubao')">
+                            <i class="bi bi-lightning-charge" style="color: #10b981;"></i>
+                            <div class="name">豆包</div>
+                            <div class="desc">联网搜索<span class="feature-badge"><i class="bi bi-globe"></i>实时</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label">选择任务</label>
                     <select class="form-select" id="job-select">
                         <option value="">加载中...</option>
                     </select>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label class="form-label">运行模式</label>
                     <select class="form-select" id="mode-select">
-                        <option value="new">新建运行 (处理所有关键词)</option>
-                        <option value="resume">恢复运行 (继续未完成的)</option>
-                        <option value="rerun">重新运行 (重新处理所有)</option>
+                        <option value="new">🆕 新建运行 (处理所有关键词)</option>
+                        <option value="resume">▶️ 恢复运行 (继续未完成的)</option>
+                        <option value="rerun">🔄 重新运行 (重新处理所有)</option>
                     </select>
                 </div>
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-3">
                     <button class="btn btn-success btn-lg" id="start-btn">
                         <i class="bi bi-play-fill me-2"></i>启动爬虫
                     </button>
@@ -42,37 +61,57 @@
         </div>
 
         <!-- Status Card -->
-        <div class="card mt-4">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="bi bi-speedometer me-2"></i>当前状态</h5>
+        <div class="card mt-4 fade-in-up" style="animation-delay: 0.2s;">
+            <div class="card-header d-flex align-items-center">
+                <i class="bi bi-activity me-2" style="font-size: 20px; color: var(--success-color);"></i>
+                <h5 class="mb-0">运行状态</h5>
+                <span class="badge-status badge-success ms-auto" id="status-badge">空闲</span>
             </div>
             <div class="card-body">
-                <table class="table table-borderless mb-0">
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <div class="p-3 rounded-3" style="background: rgba(124, 58, 237, 0.1);">
+                            <div class="text-secondary mb-1" style="font-size: 12px;">当前任务</div>
+                            <div id="current-job" style="font-weight: 600;">-</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 rounded-3" style="background: rgba(16, 185, 129, 0.1);">
+                            <div class="text-secondary mb-1" style="font-size: 12px;">使用平台</div>
+                            <div id="current-provider" style="font-weight: 600;">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-borderless mb-0" style="font-size: 14px;">
                     <tr>
-                        <td class="text-secondary">状态</td>
-                        <td id="status-text">空闲</td>
+                        <td class="text-secondary py-2" style="width: 100px;">关键词</td>
+                        <td id="current-keyword" class="py-2" style="font-weight: 500;">-</td>
                     </tr>
                     <tr>
-                        <td class="text-secondary">当前任务</td>
-                        <td id="current-job">-</td>
+                        <td class="text-secondary py-2">进度</td>
+                        <td id="progress-text" class="py-2" style="font-weight: 500;">0 / 0</td>
                     </tr>
                     <tr>
-                        <td class="text-secondary">当前关键词</td>
-                        <td id="current-keyword">-</td>
-                    </tr>
-                    <tr>
-                        <td class="text-secondary">进度</td>
-                        <td id="progress-text">0 / 0</td>
-                    </tr>
-                    <tr>
-                        <td class="text-secondary">成功 / 失败</td>
-                        <td><span id="success-count" class="text-success">0</span> / <span id="fail-count"
-                                class="text-danger">0</span></td>
+                        <td class="text-secondary py-2">结果</td>
+                        <td class="py-2">
+                            <span class="text-success" style="font-weight: 600;"><i
+                                    class="bi bi-check-circle me-1"></i><span id="success-count">0</span></span>
+                            <span class="mx-2 text-secondary">/</span>
+                            <span class="text-danger" style="font-weight: 600;"><i class="bi bi-x-circle me-1"></i><span
+                                    id="fail-count">0</span></span>
+                        </td>
                     </tr>
                 </table>
 
-                <div class="progress mt-3">
-                    <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%"></div>
+                <div class="mt-3">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-secondary" style="font-size: 12px;">处理进度</span>
+                        <span class="text-secondary" style="font-size: 12px;" id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,16 +119,21 @@
 
     <!-- Log Panel -->
     <div class="col-lg-7">
-        <div class="card h-100">
+        <div class="card h-100 fade-in-up" style="animation-delay: 0.3s;">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"><i class="bi bi-terminal me-2"></i>运行日志</h5>
-                <button class="btn btn-sm btn-outline-secondary" onclick="clearLogs()">
-                    <i class="bi bi-trash"></i> 清空
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-terminal me-2" style="font-size: 20px; color: var(--info-color);"></i>
+                    <h5 class="mb-0">运行日志</h5>
+                </div>
+                <button class="btn btn-sm btn-outline-light" onclick="clearLogs()">
+                    <i class="bi bi-trash3 me-1"></i>清空
                 </button>
             </div>
             <div class="card-body p-0">
-                <div class="log-container" id="log-container">
-                    <div class="log-entry text-secondary">等待启动...</div>
+                <div class="log-container" id="log-container" style="height: 500px; border-radius: 0 0 20px 20px;">
+                    <div class="log-entry text-secondary">
+                        <i class="bi bi-hourglass me-2"></i>等待启动爬虫...
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,6 +146,16 @@
 <script>
     const socket = io();
     let isRunning = false;
+    let selectedProvider = 'deepseek';
+
+    // Provider selection
+    function selectProvider(provider) {
+        selectedProvider = provider;
+        document.querySelectorAll('.provider-option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        document.querySelector(`[data-provider="${provider}"]`).classList.add('selected');
+    }
 
     // Load jobs for select
     async function loadJobsSelect() {
@@ -129,9 +183,21 @@
         document.getElementById('stop-btn').disabled = !running;
         document.getElementById('job-select').disabled = running;
         document.getElementById('mode-select').disabled = running;
-        document.getElementById('status-text').innerHTML = running ?
-            '<span class="text-warning pulse">运行中</span>' :
-            '<span class="text-secondary">空闲</span>';
+
+        const statusBadge = document.getElementById('status-badge');
+        if (running) {
+            statusBadge.textContent = '运行中';
+            statusBadge.className = 'badge-status badge-warning ms-auto pulse';
+        } else {
+            statusBadge.textContent = '空闲';
+            statusBadge.className = 'badge-status badge-success ms-auto';
+        }
+
+        // Disable provider selection while running
+        document.querySelectorAll('.provider-option').forEach(opt => {
+            opt.style.pointerEvents = running ? 'none' : 'auto';
+            opt.style.opacity = running ? '0.6' : '1';
+        });
     }
 
     // Start crawler
@@ -144,11 +210,19 @@
             return;
         }
 
+        // Update current provider display
+        const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包 (联网搜索)' };
+        document.getElementById('current-provider').textContent = providerNames[selectedProvider] || selectedProvider;
+
         try {
             const res = await fetch('/api/crawler/start', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ job_name: jobName, mode: mode })
+                body: JSON.stringify({
+                    job_name: jobName,
+                    mode: mode,
+                    provider: selectedProvider
+                })
             });
 
             const data = await res.json();
@@ -178,7 +252,7 @@
     // Clear logs
     function clearLogs() {
         document.getElementById('log-container').innerHTML =
-            '<div class="log-entry text-secondary">日志已清空</div>';
+            '<div class="log-entry text-secondary"><i class="bi bi-check2 me-2"></i>日志已清空</div>';
     }
 
     // Add log entry
@@ -187,7 +261,7 @@
         const entry = document.createElement('div');
         entry.className = 'log-entry';
 
-        if (message.includes('✓') || message.includes('成功')) {
+        if (message.includes('✓') || message.includes('成功') || message.includes('完成')) {
             entry.classList.add('success');
         } else if (message.includes('✗') || message.includes('失败') || message.includes('错误')) {
             entry.classList.add('error');
@@ -212,8 +286,14 @@
             document.getElementById('success-count').textContent = data.success_count;
             document.getElementById('fail-count').textContent = data.fail_count;
 
-            const percentage = data.total > 0 ? (data.progress / data.total * 100) : 0;
+            const percentage = data.total > 0 ? Math.round(data.progress / data.total * 100) : 0;
             document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-percentage').textContent = percentage + '%';
+
+            if (data.provider) {
+                const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包' };
+                document.getElementById('current-provider').textContent = providerNames[data.provider] || data.provider;
+            }
         }
     });
 
@@ -223,6 +303,7 @@
         document.getElementById('success-count').textContent = data.success;
         document.getElementById('fail-count').textContent = data.fail;
         document.getElementById('progress-bar').style.width = data.percentage + '%';
+        document.getElementById('progress-percentage').textContent = data.percentage + '%';
     });
 
     socket.on('log', (data) => {
@@ -231,7 +312,8 @@
 
     socket.on('crawler_finished', (data) => {
         updateUI(false);
-        addLog('=== 爬虫运行结束 ===');
+        addLog('══════════════════════════════════');
+        addLog('🎉 爬虫运行完成！');
     });
 
     // Check initial status
@@ -242,6 +324,10 @@
             updateUI(data.running);
             if (data.running) {
                 document.getElementById('current-job').textContent = data.current_job || '-';
+                if (data.provider) {
+                    const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包' };
+                    document.getElementById('current-provider').textContent = providerNames[data.provider] || data.provider;
+                }
             }
         } catch (error) {
             console.error('Failed to check status:', error);

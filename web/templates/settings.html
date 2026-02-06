@@ -3,59 +3,65 @@
 {% block title %}设置 - AI Crawler{% endblock %}
 
 {% block content %}
-<div class="page-header">
+<div class="page-header fade-in-up">
     <h1 class="page-title">系统设置</h1>
-    <p class="page-subtitle">配置 AI 平台 API 密钥</p>
+    <p class="page-subtitle">配置 AI 平台 API 密钥和系统参数</p>
 </div>
 
 <div class="row g-4">
     <!-- DeepSeek Configuration -->
-    <div class="col-lg-6">
-        <div class="card">
+    <div class="col-lg-6 fade-in-up" style="animation-delay: 0.1s;">
+        <div class="card h-100">
             <div class="card-header d-flex align-items-center">
                 <div class="provider-icon me-3"
-                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-robot text-white"></i>
+                    style="background: var(--primary-gradient); width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);">
+                    <i class="bi bi-robot text-white" style="font-size: 22px;"></i>
                 </div>
                 <div>
-                    <h5 class="mb-0">DeepSeek</h5>
-                    <small class="text-secondary">深度求索</small>
+                    <h5 class="mb-0" style="font-weight: 700;">DeepSeek</h5>
+                    <small class="text-secondary">深度求索 · 网页登录</small>
                 </div>
                 <span class="badge-status badge-success ms-auto" id="deepseek-status">已配置</span>
             </div>
             <div class="card-body">
                 <form id="deepseek-form">
                     <div class="mb-3">
-                        <label class="form-label">手机号 / 邮箱</label>
-                        <input type="text" class="form-control" id="deepseek-account" placeholder="登录账号">
+                        <label class="form-label">
+                            <i class="bi bi-person me-1"></i>手机号 / 邮箱
+                        </label>
+                        <input type="text" class="form-control" id="deepseek-account" placeholder="输入登录账号">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">密码</label>
+                        <label class="form-label">
+                            <i class="bi bi-key me-1"></i>密码
+                        </label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="deepseek-password" placeholder="登录密码">
+                            <input type="password" class="form-control" id="deepseek-password" placeholder="输入登录密码">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="togglePassword('deepseek-password')">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">请求频率限制</label>
-                        <div class="row g-2">
+                    <div class="mb-4">
+                        <label class="form-label">
+                            <i class="bi bi-speedometer2 me-1"></i>请求频率限制
+                        </label>
+                        <div class="row g-2 align-items-center">
                             <div class="col">
                                 <input type="number" class="form-control" id="deepseek-rate-limit" placeholder="次数"
                                     value="1">
                             </div>
-                            <div class="col-auto d-flex align-items-center text-secondary">次 /</div>
+                            <div class="col-auto text-secondary">次 /</div>
                             <div class="col">
                                 <input type="number" class="form-control" id="deepseek-rate-period" placeholder="秒"
                                     value="60">
                             </div>
-                            <div class="col-auto d-flex align-items-center text-secondary">秒</div>
+                            <div class="col-auto text-secondary">秒</div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary w-100" onclick="saveProvider('deepseek')">
-                        <i class="bi bi-check-lg me-2"></i>保存配置
+                        <i class="bi bi-check2-circle me-2"></i>保存配置
                     </button>
                 </form>
             </div>
@@ -63,66 +69,77 @@
     </div>
 
     <!-- Doubao Configuration -->
-    <div class="col-lg-6">
-        <div class="card">
+    <div class="col-lg-6 fade-in-up" style="animation-delay: 0.2s;">
+        <div class="card h-100">
             <div class="card-header d-flex align-items-center">
                 <div class="provider-icon me-3"
-                    style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                    <i class="bi bi-lightning-charge text-white"></i>
+                    style="background: var(--secondary-gradient); width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);">
+                    <i class="bi bi-lightning-charge text-white" style="font-size: 22px;"></i>
                 </div>
                 <div>
-                    <h5 class="mb-0">豆包</h5>
-                    <small class="text-secondary">字节跳动 Doubao</small>
+                    <h5 class="mb-0" style="font-weight: 700;">豆包 <span class="feature-badge"><i
+                                class="bi bi-globe"></i>联网搜索</span></h5>
+                    <small class="text-secondary">字节跳动 · 火山方舟 API</small>
                 </div>
                 <span class="badge-status badge-warning ms-auto" id="doubao-status">未配置</span>
             </div>
             <div class="card-body">
                 <form id="doubao-form">
                     <div class="mb-3">
-                        <label class="form-label">API Key</label>
+                        <label class="form-label">
+                            <i class="bi bi-key-fill me-1"></i>API Key
+                        </label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="doubao-api-key" placeholder="火山方舟 API Key">
+                            <input type="password" class="form-control" id="doubao-api-key"
+                                placeholder="输入火山方舟 API Key">
                             <button class="btn btn-outline-secondary" type="button"
                                 onclick="togglePassword('doubao-api-key')">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </div>
-                        <div class="form-text text-secondary">
-                            <a href="https://console.volcengine.com/ark" target="_blank" class="text-info">
-                                <i class="bi bi-box-arrow-up-right me-1"></i>获取 API Key
+                        <div class="form-text">
+                            <a href="https://console.volcengine.com/ark" target="_blank" class="text-info"
+                                style="text-decoration: none;">
+                                <i class="bi bi-box-arrow-up-right me-1"></i>前往火山方舟获取 API Key
                             </a>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">模型</label>
+                        <label class="form-label">
+                            <i class="bi bi-cpu me-1"></i>模型
+                        </label>
                         <select class="form-select" id="doubao-model">
                             <option value="doubao-pro-32k">doubao-pro-32k (推荐)</option>
-                            <option value="doubao-pro-128k">doubao-pro-128k</option>
-                            <option value="doubao-lite-32k">doubao-lite-32k</option>
+                            <option value="doubao-pro-128k">doubao-pro-128k (长上下文)</option>
+                            <option value="doubao-lite-32k">doubao-lite-32k (轻量)</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Endpoint ID</label>
+                        <label class="form-label">
+                            <i class="bi bi-plug me-1"></i>Endpoint ID <small class="text-secondary">(可选)</small>
+                        </label>
                         <input type="text" class="form-control" id="doubao-endpoint" placeholder="模型推理接入点 ID">
-                        <div class="form-text text-secondary">在火山方舟控制台创建的接入点 ID</div>
+                        <div class="form-text text-secondary">在火山方舟控制台创建的接入点 ID，不填则使用默认模型</div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">请求频率限制</label>
-                        <div class="row g-2">
+                    <div class="mb-4">
+                        <label class="form-label">
+                            <i class="bi bi-speedometer2 me-1"></i>请求频率限制
+                        </label>
+                        <div class="row g-2 align-items-center">
                             <div class="col">
                                 <input type="number" class="form-control" id="doubao-rate-limit" placeholder="次数"
                                     value="60">
                             </div>
-                            <div class="col-auto d-flex align-items-center text-secondary">次 /</div>
+                            <div class="col-auto text-secondary">次 /</div>
                             <div class="col">
                                 <input type="number" class="form-control" id="doubao-rate-period" placeholder="秒"
                                     value="60">
                             </div>
-                            <div class="col-auto d-flex align-items-center text-secondary">秒</div>
+                            <div class="col-auto text-secondary">秒</div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary w-100" onclick="saveProvider('doubao')">
-                        <i class="bi bi-check-lg me-2"></i>保存配置
+                    <button type="button" class="btn btn-success w-100" onclick="saveProvider('doubao')">
+                        <i class="bi bi-check2-circle me-2"></i>保存配置
                     </button>
                 </form>
             </div>
@@ -131,19 +148,29 @@
 </div>
 
 <!-- LLM API Configuration -->
-<div class="card mt-4">
-    <div class="card-header">
-        <h5 class="mb-0"><i class="bi bi-braces me-2"></i>LLM 解析配置</h5>
-        <small class="text-secondary">用于解析 AI 回答中的排名信息</small>
+<div class="card mt-4 fade-in-up" style="animation-delay: 0.3s;">
+    <div class="card-header d-flex align-items-center">
+        <div class="provider-icon me-3"
+            style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-braces text-white" style="font-size: 18px;"></i>
+        </div>
+        <div>
+            <h5 class="mb-0" style="font-weight: 600;">LLM 解析配置</h5>
+            <small class="text-secondary">用于解析 AI 回答中的排名信息</small>
+        </div>
     </div>
     <div class="card-body">
         <div class="row g-4">
             <div class="col-md-4">
-                <label class="form-label">Base URL</label>
+                <label class="form-label">
+                    <i class="bi bi-link-45deg me-1"></i>Base URL
+                </label>
                 <input type="text" class="form-control" id="llm-base-url" placeholder="https://api.deepseek.com/v1">
             </div>
             <div class="col-md-4">
-                <label class="form-label">API Key</label>
+                <label class="form-label">
+                    <i class="bi bi-key me-1"></i>API Key
+                </label>
                 <div class="input-group">
                     <input type="password" class="form-control" id="llm-api-key" placeholder="sk-xxx">
                     <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('llm-api-key')">
@@ -152,35 +179,40 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <label class="form-label">模型</label>
+                <label class="form-label">
+                    <i class="bi bi-cpu me-1"></i>模型
+                </label>
                 <input type="text" class="form-control" id="llm-model" placeholder="deepseek-chat">
             </div>
         </div>
-        <button type="button" class="btn btn-primary mt-3" onclick="saveLlmConfig()">
-            <i class="bi bi-check-lg me-2"></i>保存 LLM 配置
+        <button type="button" class="btn btn-primary mt-4" onclick="saveLlmConfig()">
+            <i class="bi bi-check2-circle me-2"></i>保存 LLM 配置
         </button>
     </div>
 </div>
 
 <!-- Test Connection Section -->
-<div class="card mt-4">
-    <div class="card-header">
-        <h5 class="mb-0"><i class="bi bi-wifi me-2"></i>连接测试</h5>
+<div class="card mt-4 fade-in-up" style="animation-delay: 0.4s;">
+    <div class="card-header d-flex align-items-center">
+        <div class="provider-icon me-3"
+            style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <i class="bi bi-wifi text-white" style="font-size: 18px;"></i>
+        </div>
+        <div>
+            <h5 class="mb-0" style="font-weight: 600;">连接测试</h5>
+            <small class="text-secondary">验证 AI 平台配置是否正确</small>
+        </div>
     </div>
     <div class="card-body">
-        <div class="row g-3">
-            <div class="col-auto">
-                <button class="btn btn-outline-primary" onclick="testConnection('deepseek')">
-                    <i class="bi bi-play-fill me-2"></i>测试 DeepSeek
-                </button>
-            </div>
-            <div class="col-auto">
-                <button class="btn btn-outline-success" onclick="testConnection('doubao')">
-                    <i class="bi bi-play-fill me-2"></i>测试豆包
-                </button>
-            </div>
+        <div class="d-flex gap-3 flex-wrap">
+            <button class="btn btn-outline-light" onclick="testConnection('deepseek')" style="min-width: 160px;">
+                <i class="bi bi-play-fill me-2"></i>测试 DeepSeek
+            </button>
+            <button class="btn btn-outline-light" onclick="testConnection('doubao')" style="min-width: 160px;">
+                <i class="bi bi-play-fill me-2"></i>测试豆包
+            </button>
         </div>
-        <div id="test-result" class="mt-3" style="display: none;">
+        <div id="test-result" class="mt-4" style="display: none;">
             <div class="alert" id="test-alert"></div>
         </div>
     </div>
@@ -193,7 +225,14 @@
     // Toggle password visibility
     function togglePassword(inputId) {
         const input = document.getElementById(inputId);
-        input.type = input.type === 'password' ? 'text' : 'password';
+        const icon = input.nextElementSibling?.querySelector('i') || input.parentElement.querySelector('button i');
+        if (input.type === 'password') {
+            input.type = 'text';
+            if (icon) icon.className = 'bi bi-eye-slash';
+        } else {
+            input.type = 'password';
+            if (icon) icon.className = 'bi bi-eye';
+        }
     }
 
     // Load current config
@@ -262,7 +301,7 @@
             const ratePeriod = parseInt(document.getElementById('deepseek-rate-period').value) || 60;
 
             if (!account || !password) {
-                alert('请填写账号和密码');
+                showNotification('请填写账号和密码', 'error');
                 return;
             }
 
@@ -281,7 +320,7 @@
             const ratePeriod = parseInt(document.getElementById('doubao-rate-period').value) || 60;
 
             if (!apiKey) {
-                alert('请填写 API Key');
+                showNotification('请填写 API Key', 'error');
                 return;
             }
 
@@ -304,13 +343,13 @@
 
             const result = await res.json();
             if (res.ok) {
-                alert('配置保存成功！');
+                showNotification(`${provider === 'doubao' ? '豆包' : 'DeepSeek'} 配置保存成功！`, 'success');
                 loadConfig();
             } else {
-                alert('保存失败: ' + result.error);
+                showNotification('保存失败: ' + result.error, 'error');
             }
         } catch (error) {
-            alert('保存失败: ' + error.message);
+            showNotification('保存失败: ' + error.message, 'error');
         }
     }
 
@@ -321,7 +360,7 @@
         const model = document.getElementById('llm-model').value.trim();
 
         if (!baseUrl || !apiKey || !model) {
-            alert('请填写所有字段');
+            showNotification('请填写所有字段', 'error');
             return;
         }
 
@@ -334,12 +373,12 @@
 
             const result = await res.json();
             if (res.ok) {
-                alert('LLM 配置保存成功！');
+                showNotification('LLM 配置保存成功！', 'success');
             } else {
-                alert('保存失败: ' + result.error);
+                showNotification('保存失败: ' + result.error, 'error');
             }
         } catch (error) {
-            alert('保存失败: ' + error.message);
+            showNotification('保存失败: ' + error.message, 'error');
         }
     }
 
@@ -350,7 +389,7 @@
 
         resultDiv.style.display = 'block';
         alertDiv.className = 'alert alert-info';
-        alertDiv.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>正在测试...';
+        alertDiv.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>正在测试连接...';
 
         try {
             const res = await fetch(`/api/config/test/${provider}`, { method: 'POST' });
@@ -358,15 +397,29 @@
 
             if (res.ok && result.success) {
                 alertDiv.className = 'alert alert-success';
-                alertDiv.innerHTML = `<i class="bi bi-check-circle me-2"></i>${provider} 连接成功！`;
+                alertDiv.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i>${provider === 'doubao' ? '豆包' : 'DeepSeek'} 连接成功！配置有效。`;
             } else {
                 alertDiv.className = 'alert alert-danger';
-                alertDiv.innerHTML = `<i class="bi bi-x-circle me-2"></i>连接失败: ${result.error || '未知错误'}`;
+                alertDiv.innerHTML = `<i class="bi bi-x-circle-fill me-2"></i>连接失败: ${result.error || '未知错误'}`;
             }
         } catch (error) {
             alertDiv.className = 'alert alert-danger';
-            alertDiv.innerHTML = `<i class="bi bi-x-circle me-2"></i>测试失败: ${error.message}`;
+            alertDiv.innerHTML = `<i class="bi bi-x-circle-fill me-2"></i>测试失败: ${error.message}`;
         }
+    }
+
+    // Notification helper
+    function showNotification(message, type) {
+        const resultDiv = document.getElementById('test-result');
+        const alertDiv = document.getElementById('test-alert');
+
+        resultDiv.style.display = 'block';
+        alertDiv.className = `alert alert-${type === 'success' ? 'success' : 'danger'}`;
+        alertDiv.innerHTML = `<i class="bi bi-${type === 'success' ? 'check-circle-fill' : 'x-circle-fill'} me-2"></i>${message}`;
+
+        setTimeout(() => {
+            resultDiv.style.display = 'none';
+        }, 3000);
     }
 
     // Initial load
