@@ -42,48 +42,73 @@ class StatisticsCalculator:
         # Target product tracking
         target_ranks: list[int] = []
         target_keywords: dict[str, int] = {}
+        target_rank_position_counts: Counter[int] = Counter()
 
         total_sources_count = 0
         total_rankings_count = 0
 
         for result in successful:
+            # Source stats (based on search result order, provider-agnostic)
+            sources = result.sources or []
+            total_sources_count += len(sources)
+
+            # Count sources as "appeared in this keyword" (dedupe per keyword)
+            source_keys = [self._source_key(source) for source in sources]
+            for source_key in set(source_keys):
+                source_counter[source_key] += 1
+
+            if source_keys:
+                rank1_sources[source_keys[0]] += 1
+
+            for source_key in set(source_keys[:2]):
+                top2_sources[source_key] += 1
+
+            for source_key in set(source_keys[:3]):
+                top3_sources[source_key] += 1
+
+            # Product stats (based on extracted rankings)
             total_rankings_count += len(result.rankings)
+            all_products_this_keyword: set[str] = set()
+            rank1_products_this_keyword: set[str] = set()
+            top2_products_this_keyword: set[str] = set()
+            top3_products_this_keyword: set[str] = set()
+
+            best_target_rank: int | None = None
 
             for ranking in result.rankings:
                 rank = ranking.get("rank", 999)
-                product_name = ranking.get("name", "")
-
+                product_name = (ranking.get("name") or "").strip()
                 if not product_name:
                     continue
 
-                # Track product
-                product_counter[product_name] += 1
+                all_products_this_keyword.add(product_name)
                 if rank == 1:
-                    rank1_products[product_name] += 1
+                    rank1_products_this_keyword.add(product_name)
                 if rank <= 2:
-                    top2_products[product_name] += 1
+                    top2_products_this_keyword.add(product_name)
                 if rank <= 3:
-                    top3_products[product_name] += 1
+                    top3_products_this_keyword.add(product_name)
 
-                # Check if target product (fuzzy match)
+                # Track target product (one best rank per keyword)
                 if self._is_target_product(product_name, target_product):
-                    target_ranks.append(rank)
-                    target_keywords[result.keyword] = rank
+                    if best_target_rank is None:
+                        best_target_rank = rank
+                    else:
+                        best_target_rank = min(best_target_rank, rank)
 
-                # Track sources for this ranking
-                for source in ranking.get("sources", []):
-                    total_sources_count += 1
-                    domain = self._extract_domain(source.get("url", ""))
-                    site_name = source.get("site_name", domain)
-                    source_key = (domain, site_name)
+            for product_name in all_products_this_keyword:
+                product_counter[product_name] += 1
+            for product_name in rank1_products_this_keyword:
+                rank1_products[product_name] += 1
+            for product_name in top2_products_this_keyword:
+                top2_products[product_name] += 1
+            for product_name in top3_products_this_keyword:
+                top3_products[product_name] += 1
 
-                    source_counter[source_key] += 1
-                    if rank == 1:
-                        rank1_sources[source_key] += 1
-                    if rank <= 2:
-                        top2_sources[source_key] += 1
-                    if rank <= 3:
-                        top3_sources[source_key] += 1
+            if best_target_rank is not None:
+                target_ranks.append(best_target_rank)
+                target_rank_position_counts[best_target_rank] += 1
+                target_keywords[result.keyword] = best_target_rank
 
         # Calculate source statistics
         source_stats = SourceStatistics(
@@ -126,6 +151,7 @@ class StatisticsCalculator:
                 worst_keywords=sorted(
                     target_keywords.items(), key=lambda x: x[1], reverse=True
                 )[:5],
+                rank_position_counts=dict(target_rank_position_counts),
             )
 
         return OverallStatistics(
@@ -152,6 +178,17 @@ class StatisticsCalculator:
             return False
         return target.lower() in product_name.lower()
 
+    def _source_key(self, source: dict) -> tuple[str, str]:
+        """Build a consistent (domain, site_name) key from a source object"""
+        domain = self._extract_domain(source.get("url", ""))
+        if not domain:
+            domain = "unknown"
+
+        site_name = (source.get("site_name") or "").strip()
+        if not site_name:
+            site_name = self._guess_site_name(domain) or domain
+        return (domain, site_name)
+
     def _extract_domain(self, url: str) -> str:
         """Extract domain from URL"""
         try:
@@ -162,6 +199,35 @@ class StatisticsCalculator:
             return domain
         except Exception:
             return url
+
+    def _guess_site_name(self, domain: str) -> str | None:
+        """Guess common Chinese site names from domain."""
+        domain = (domain or "").lower()
+        if not domain:
+            return None
+
+        # Longest suffix first.
+        suffix_map = [
+            ("baike.baidu.com", "百度百科"),
+            ("zhihu.com", "知乎"),
+            ("xiaohongshu.com", "小红书"),
+            ("weibo.com", "微博"),
+            ("bilibili.com", "哔哩哔哩"),
+            ("douban.com", "豆瓣"),
+            ("sohu.com", "搜狐"),
+            ("sina.com.cn", "新浪"),
+            ("qq.com", "腾讯"),
+            ("163.com", "网易"),
+            ("csdn.net", "CSDN"),
+            ("jianshu.com", "简书"),
+            ("people.com.cn", "人民网"),
+        ]
+
+        for suffix, name in suffix_map:
+            if domain == suffix or domain.endswith(f".{suffix}"):
+                return name
+
+        return None
 
     def _calc_percentage[T: (str, tuple[str, str])](
         self, counter: Counter[T], total: int

@@ -23,4 +23,13 @@ if __name__ == '__main__':
     print("  按 Ctrl+C 停止服务")
     print("=" * 50)
     
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    # Flask-SocketIO blocks running on Werkzeug by default (newer versions).
+    # This project uses it for local development, so explicitly allow it here.
+    socketio.run(
+        app,
+        host='0.0.0.0',
+        port=5000,
+        debug=True,
+        use_reloader=False,
+        allow_unsafe_werkzeug=True,
+    )

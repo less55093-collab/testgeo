@@ -2,6 +2,7 @@
 Report generator for statistics
 """
 
+import csv
 import json
 from collections import Counter
 from dataclasses import asdict
@@ -39,6 +40,154 @@ class ReportGenerator:
         html_path = self.run_dir / "report.html"
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(html)
+
+    def save_text(self) -> None:
+        """Generate Chinese text report"""
+        report = self.generate_text_report()
+        txt_path = self.run_dir / "report.txt"
+        with open(txt_path, "w", encoding="utf-8") as f:
+            f.write(report)
+
+    def generate_text_report(self) -> str:
+        """Generate Chinese text report (report.txt)"""
+        s = self.stats
+
+        lines: list[str] = []
+        sep = "=" * 52
+        sub_sep = "-" * 52
+
+        lines.append(sep)
+        lines.append(f"AI排名分析报告：{s.job_name}")
+        lines.append(sep)
+        lines.append(f"生成时间：{s.analyzed_at}")
+        lines.append(f"运行ID：{s.run_id}")
+        lines.append("")
+
+        # Overview
+        success_rate = (
+            (s.successful_queries / s.total_keywords * 100)
+            if s.total_keywords > 0
+            else 0.0
+        )
+        lines.append("总览")
+        lines.append(sub_sep)
+        lines.append(f"总关键词数：       {s.total_keywords}")
+        lines.append(f"成功查询数：       {s.successful_queries}")
+        lines.append(f"失败查询数：       {s.failed_keywords}")
+        lines.append(f"成功率：           {success_rate:.1f}%")
+        lines.append("")
+
+        # Sources
+        lines.extend(
+            self._format_source_section(
+                title="排名第一的来源网站",
+                sources_dict=s.source_stats.rank1_sources,
+                percentage_dict=s.source_stats.rank1_source_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_source_section(
+                title="前二名的来源网站",
+                sources_dict=s.source_stats.top2_sources,
+                percentage_dict=s.source_stats.top2_source_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_source_section(
+                title="前三名的来源网站",
+                sources_dict=s.source_stats.top3_sources,
+                percentage_dict=s.source_stats.top3_source_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_source_section(
+                title="所有来源网站（出现频率）",
+                sources_dict=s.source_stats.source_appearances,
+                percentage_dict=s.source_stats.all_source_percentage,
+                max_rows=30,
+            )
+        )
+        lines.append("")
+
+        # Products
+        lines.extend(
+            self._format_product_section(
+                title="排名第一的产品/平台",
+                products_dict=s.product_stats.rank1_products,
+                percentage_dict=s.product_stats.rank1_product_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_product_section(
+                title="前二名的产品/平台",
+                products_dict=s.product_stats.top2_products,
+                percentage_dict=s.product_stats.top2_product_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_product_section(
+                title="前三名的产品/平台",
+                products_dict=s.product_stats.top3_products,
+                percentage_dict=s.product_stats.top3_product_percentage,
+            )
+        )
+        lines.append("")
+        lines.extend(
+            self._format_product_section(
+                title="所有产品/平台（出现频率）",
+                products_dict=s.product_stats.product_appearances,
+                percentage_dict=s.product_stats.all_product_percentage,
+                max_rows=30,
+            )
+        )
+
+        # Target product
+        if s.target_product_stats:
+            t = s.target_product_stats
+            lines.append("")
+            lines.append("目标产品表现")
+            lines.append(sub_sep)
+            lines.append(f"目标产品：         {t.target_name}")
+            lines.append(
+                f"展现：             {t.total_appearances} ({t.appearance_rate:.1f}%)"
+            )
+            lines.append(f"排名第一：         {t.rank1_count} 次")
+            lines.append(f"前二名：           {t.top2_count} 次")
+            lines.append(f"前三名：           {t.top3_count} 次")
+            lines.append(f"平均排名：         {t.average_rank:.2f}")
+
+            if t.rank_position_counts:
+                lines.append("")
+                lines.append("各排名位置次数")
+                lines.append(sub_sep)
+                for rank, count in sorted(t.rank_position_counts.items()):
+                    lines.append(f"第{rank}名：           {count} 次")
+
+            lines.append("")
+            lines.append("表现最好的关键词（Top 5）")
+            lines.append(sub_sep)
+            for keyword, rank in t.best_keywords:
+                lines.append(f"{keyword}  (第{rank}名)")
+
+            lines.append("")
+            lines.append("表现最差的关键词（Top 5）")
+            lines.append(sub_sep)
+            for keyword, rank in t.worst_keywords:
+                lines.append(f"{keyword}  (第{rank}名)")
+
+        # Footer with averages
+        lines.append("")
+        lines.append("其他指标")
+        lines.append(sub_sep)
+        lines.append(f"平均来源数/关键词： {s.average_sources_per_keyword:.2f}")
+        lines.append(f"平均排名数/关键词： {s.average_rankings_per_keyword:.2f}")
+
+        return "\n".join(lines).rstrip() + "\n"
 
     def generate_html_report(self) -> str:
         """Generate Chinese HTML report with charts using template"""
@@ -251,19 +400,47 @@ class ReportGenerator:
         }
 
     def _load_raw_results(self) -> list[dict]:
-        """Load raw results from JSONL file"""
+        """Load raw results from JSONL (preferred) or CSV (fallback)."""
         if self._raw_results is not None:
             return self._raw_results
 
         jsonl_path = self.run_dir / "results.jsonl"
-        if not jsonl_path.exists():
-            return []
+        csv_path = self.run_dir / "results.csv"
 
-        results = []
-        with open(jsonl_path, "r", encoding="utf-8") as f:
-            for line in f:
-                if line.strip():
-                    results.append(json.loads(line))
+        results: list[dict] = []
+        if jsonl_path.exists():
+            with open(jsonl_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.strip():
+                        results.append(json.loads(line))
+        elif csv_path.exists():
+            with open(csv_path, "r", encoding="utf-8", newline="") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    success_raw = (row.get("success") or "").strip().lower()
+                    success = success_raw in {"1", "true", "yes", "y"}
+                    try:
+                        rankings = json.loads(row.get("rankings") or "[]")
+                    except Exception:
+                        rankings = []
+                    try:
+                        sources = json.loads(row.get("sources") or "[]")
+                    except Exception:
+                        sources = []
+
+                    results.append(
+                        {
+                            "keyword": row.get("keyword", ""),
+                            "timestamp": row.get("timestamp", ""),
+                            "success": success,
+                            "error_message": row.get("error_message"),
+                            "content": row.get("content", ""),
+                            "rankings": rankings or [],
+                            "sources": sources or [],
+                        }
+                    )
+        else:
+            results = []
 
         self._raw_results = results
         return results
@@ -589,7 +766,59 @@ class ReportGenerator:
 报告已保存至：{self.run_dir}/
   - statistics.json
   - report.html
+  - report.txt
 """
+
+    def _format_source_section(
+        self,
+        *,
+        title: str,
+        sources_dict: dict[tuple[str, str], int],
+        percentage_dict: dict[tuple[str, str], float],
+        max_rows: int = 20,
+    ) -> list[str]:
+        sub_sep = "-" * 52
+        lines = [title, sub_sep]
+
+        sorted_items = sorted(
+            percentage_dict.items(), key=lambda x: x[1], reverse=True
+        )[:max_rows]
+
+        if not sorted_items:
+            lines.append("（无数据）")
+            return lines
+
+        for (domain, site_name), pct in sorted_items:
+            count = sources_dict.get((domain, site_name), 0)
+            label = f"{site_name} ({domain})" if site_name != domain else domain
+            lines.append(f"{label:<30} {pct:>5.1f}% ({count}次)")
+
+        return lines
+
+    def _format_product_section(
+        self,
+        *,
+        title: str,
+        products_dict: dict[str, int],
+        percentage_dict: dict[str, float],
+        max_rows: int = 20,
+    ) -> list[str]:
+        sub_sep = "-" * 52
+        lines = [title, sub_sep]
+
+        sorted_items = sorted(
+            percentage_dict.items(), key=lambda x: x[1], reverse=True
+        )[:max_rows]
+
+        if not sorted_items:
+            lines.append("（无数据）")
+            return lines
+
+        for product, pct in sorted_items:
+            count = products_dict.get(product, 0)
+            lines.append(f"{product:<30} {pct:>5.1f}% ({count}次)")
+
+        return lines
 
     def _serialize_stats(self, obj: Any) -> Any:
         """Convert tuple keys to strings for JSON serialization"""

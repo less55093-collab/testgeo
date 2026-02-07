@@ -3,6 +3,7 @@ Async keyword crawler engine
 """
 
 import asyncio
+import csv
 import json
 import logging
 from datetime import datetime
@@ -135,3 +136,33 @@ class CrawlerEngine:
         with open(jsonl_path, "a", encoding="utf-8") as f:
             json.dump(result.to_dict(), f, ensure_ascii=False)
             f.write("\n")
+
+        # Also append to CSV for easy viewing/compatibility
+        csv_path = self.run_dir / "results.csv"
+        file_exists = csv_path.exists()
+        with open(csv_path, "a", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "keyword",
+                    "timestamp",
+                    "success",
+                    "error_message",
+                    "content",
+                    "rankings",
+                    "sources",
+                ],
+            )
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(
+                {
+                    "keyword": result.keyword,
+                    "timestamp": result.timestamp,
+                    "success": result.success,
+                    "error_message": result.error_message,
+                    "content": result.content,
+                    "rankings": json.dumps(result.rankings, ensure_ascii=False),
+                    "sources": json.dumps(result.sources, ensure_ascii=False),
+                }
+            )

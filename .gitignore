@@ -9,3 +9,30 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Sensitive configuration files
+config.json
+*.local.json
+
+# Data and logs
+data/
+logs/
+*.log
+
+# Job results (may contain sensitive data)
+jobs/*/runs/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Screenshots and temp files
+screenshots/
+*.png
+*.jpg
+
+# System files
+.DS_Store
+Thumbs.db

@@ -75,6 +75,42 @@
     </div>
 </div>
 
+<!-- Edit Job Modal -->
+<div class="modal fade" id="editJobModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-pencil-square me-2"></i>编辑任务</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-job-form">
+                    <input type="hidden" id="edit-job-name-hidden">
+                    <div class="mb-3">
+                        <label class="form-label">任务名称</label>
+                        <input type="text" class="form-control" id="edit-job-name" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">关键词列表 <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="edit-job-keywords" rows="6" required></textarea>
+                        <div class="form-text text-secondary">每行一个关键词</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">目标产品</label>
+                        <input type="text" class="form-control" id="edit-job-target">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="save-edit-job-btn">
+                    <i class="bi bi-save me-2"></i>保存修改
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Job Detail Modal -->
 <div class="modal fade" id="jobDetailModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -135,6 +171,13 @@
                                     <button class="btn btn-outline-primary" onclick="viewJob('${job.name}')">
                                         <i class="bi bi-eye"></i>
                                     </button>
+                                    <button class="btn btn-outline-info" onclick="openEditJob('${job.name}')">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    ${lastRun ? `
+                                        <button class="btn btn-outline-warning" onclick="finishJob('${job.name}')" ${lastRun.status === 'completed' ? 'disabled' : ''}>
+                                            <i class="bi bi-flag"></i>
+                                        </button>` : ''}
                                     ${lastRun && lastRun.status === 'completed' ?
                             `<a href="/report/${job.name}/${lastRun.run_id}" class="btn btn-outline-success">
                                             <i class="bi bi-file-text"></i>
@@ -261,6 +304,74 @@
             }
         } catch (error) {
             alert('删除失败: ' + error.message);
+        }
+    }
+
+    // Open edit modal
+    async function openEditJob(name) {
+        try {
+            const res = await fetch(`/api/jobs/${name}`);
+            if (!res.ok) throw new Error('加载任务失败');
+            const job = await res.json();
+            document.getElementById('edit-job-name-hidden').value = name;
+            document.getElementById('edit-job-name').value = name;
+            document.getElementById('edit-job-target').value = job.target_product || '';
+            document.getElementById('edit-job-keywords').value = job.keywords.join('\n');
+            new bootstrap.Modal(document.getElementById('editJobModal')).show();
+        } catch (error) {
+            alert('加载任务失败: ' + error.message);
+        }
+    }
+
+    document.getElementById('save-edit-job-btn').addEventListener('click', async () => {
+        const name = document.getElementById('edit-job-name-hidden').value;
+        const keywordsText = document.getElementById('edit-job-keywords').value.trim();
+        const targetProduct = document.getElementById('edit-job-target').value.trim();
+
+        const keywords = keywordsText.split('\n').map(k => k.trim()).filter(k => k);
+        if (!keywords.length) {
+            alert('关键词不能为空');
+            return;
+        }
+
+        try {
+            const res = await fetch(`/api/jobs/${name}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    keywords: keywords,
+                    target_product: targetProduct || null,
+                })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                bootstrap.Modal.getInstance(document.getElementById('editJobModal')).hide();
+                loadJobs();
+                alert('任务已更新');
+            } else {
+                alert('更新失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('更新失败: ' + error.message);
+        }
+    });
+
+    // Finish job
+    async function finishJob(name) {
+        if (!confirm(`确定要结束任务 "${name}" 的最新运行吗？`)) {
+            return;
+        }
+        try {
+            const res = await fetch(`/api/jobs/${name}/end`, { method: 'POST' });
+            const data = await res.json();
+            if (res.ok) {
+                loadJobs();
+                alert('任务已标记为完成');
+            } else {
+                alert('结束失败: ' + data.error);
+            }
+        } catch (error) {
+            alert('结束失败: ' + error.message);
         }
     }
 

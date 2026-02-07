@@ -1,0 +1,276 @@
+{
+  "job_name": "黄金回收2.7",
+  "created_at": "2026-02-07T14:53:40.287975",
+  "keywords": [
+    "徐汇区黄金回收",
+    "徐汇区黄金上门回收"
+  ],
+  "target_product": "金豆豆",
+  "total_keywords": 2,
+  "runs": [
+    {
+      "run_id": "run_20260207_145348",
+      "started_at": "2026-02-07T14:53:48.924919",
+      "completed_at": "2026-02-07T14:54:28.176731",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_150907",
+      "started_at": "2026-02-07T15:09:07.176311",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_151115",
+      "started_at": "2026-02-07T15:11:15.846270",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_151223",
+      "started_at": "2026-02-07T15:12:23.602341",
+      "completed_at": "2026-02-07T15:17:42.946418",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_151753",
+      "started_at": "2026-02-07T15:17:53.403435",
+      "completed_at": "2026-02-07T15:19:10.097417",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_160311",
+      "started_at": "2026-02-07T16:03:11.721700",
+      "completed_at": "2026-02-07T16:03:30.881103",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_165438",
+      "started_at": "2026-02-07T16:54:38.376782",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_165455",
+      "started_at": "2026-02-07T16:54:55.156324",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_165509",
+      "started_at": "2026-02-07T16:55:09.180892",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_170021",
+      "started_at": "2026-02-07T17:00:21.007860",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_170511",
+      "started_at": "2026-02-07T17:05:11.965906",
+      "completed_at": "2026-02-07T17:09:07.500495",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_170915",
+      "started_at": "2026-02-07T17:09:15.007848",
+      "completed_at": "2026-02-07T17:11:13.244644",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_172056",
+      "started_at": "2026-02-07T17:20:56.780448",
+      "completed_at": "2026-02-07T17:22:21.255326",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_172246",
+      "started_at": "2026-02-07T17:22:46.004926",
+      "completed_at": "2026-02-07T17:26:03.663685",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_181632",
+      "started_at": "2026-02-07T18:16:32.795644",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_181647",
+      "started_at": "2026-02-07T18:16:47.369491",
+      "completed_at": "2026-02-07T18:16:55.196710",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_181700",
+      "started_at": "2026-02-07T18:17:00.894789",
+      "completed_at": "2026-02-07T18:20:34.977462",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_183350",
+      "started_at": "2026-02-07T18:33:50.736493",
+      "completed_at": "2026-02-07T18:37:34.724706",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_183741",
+      "started_at": "2026-02-07T18:37:41.086368",
+      "completed_at": "2026-02-07T18:39:34.100907",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_185132",
+      "started_at": "2026-02-07T18:51:32.014659",
+      "completed_at": "2026-02-07T18:54:15.117673",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_190447",
+      "started_at": "2026-02-07T19:04:47.704110",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_191112",
+      "started_at": "2026-02-07T19:11:12.108293",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_191225",
+      "started_at": "2026-02-07T19:12:25.343489",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_191241",
+      "started_at": "2026-02-07T19:12:41.124536",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_191325",
+      "started_at": "2026-02-07T19:13:25.055847",
+      "completed_at": "2026-02-07T19:14:28.719329",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_191851",
+      "started_at": "2026-02-07T19:18:51.951369",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_192156",
+      "started_at": "2026-02-07T19:21:56.550354",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_192230",
+      "started_at": "2026-02-07T19:22:30.384105",
+      "completed_at": "2026-02-07T19:23:37.887877",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_192344",
+      "started_at": "2026-02-07T19:23:44.542757",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_192644",
+      "started_at": "2026-02-07T19:26:44.577749",
+      "completed_at": "2026-02-07T19:29:05.007651",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_204808",
+      "started_at": "2026-02-07T20:48:08.865096",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_205054",
+      "started_at": "2026-02-07T20:50:54.128774",
+      "completed_at": "2026-02-07T20:52:40.269544",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_211034",
+      "started_at": "2026-02-07T21:10:34.678695",
+      "completed_at": "2026-02-07T21:14:12.639624",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    }
+  ]
+}

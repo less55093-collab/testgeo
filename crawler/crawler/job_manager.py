@@ -2,6 +2,7 @@
 Job lifecycle and persistence management
 """
 
+import csv
 import json
 import logging
 from dataclasses import asdict
@@ -133,6 +134,36 @@ class JobManager:
         with open(jsonl_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
+        # Also append to CSV for easy viewing/compatibility (crash recovery friendly)
+        csv_path = run_dir / "results.csv"
+        file_exists = csv_path.exists()
+        with open(csv_path, "a", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "keyword",
+                    "timestamp",
+                    "success",
+                    "error_message",
+                    "content",
+                    "rankings",
+                    "sources",
+                ],
+            )
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(
+                {
+                    "keyword": result["keyword"],
+                    "timestamp": result["timestamp"],
+                    "success": result["success"],
+                    "error_message": result["error_message"],
+                    "content": result["content"],
+                    "rankings": json.dumps(result["rankings"], ensure_ascii=False),
+                    "sources": json.dumps(result["sources"], ensure_ascii=False),
+                }
+            )
+
     def get_unprocessed_keywords(self, job_name: str, run_id: str) -> list[str]:
         """Get keywords not yet processed in JSONL"""
         metadata = self.load_job(job_name)
@@ -152,6 +183,37 @@ class JobManager:
 
         # Return unprocessed
         return [kw for kw in metadata.keywords if kw not in processed]
+
+    def edit_job(
+        self,
+        job_name: str,
+        keywords: list[str],
+        target_product: str | None = None,
+    ) -> JobMetadata:
+        """Update job keywords and target product"""
+        if not keywords:
+            raise ValueError("关键词不能为空")
+
+        metadata = self.load_job(job_name)
+        metadata.keywords = keywords
+        metadata.total_keywords = len(keywords)
+        metadata.target_product = target_product
+        self._save_metadata(job_name, metadata)
+        logger.info("Edited job '%s' with %d keywords", job_name, len(keywords))
+        return metadata
+
+    def end_latest_run(self, job_name: str) -> dict:
+        """Mark the latest run as completed immediately"""
+        metadata = self.load_job(job_name)
+        if not metadata.runs:
+            raise ValueError("该任务没有运行记录")
+
+        latest_run = metadata.runs[-1]
+        latest_run["status"] = "completed"
+        latest_run["completed_at"] = datetime.now().isoformat()
+        self._save_metadata(job_name, metadata)
+        logger.info("Manually ended run '%s' for job '%s'", latest_run["run_id"], job_name)
+        return latest_run
 
     def _save_metadata(self, job_name: str, metadata: JobMetadata) -> None:
         """Save metadata to file"""

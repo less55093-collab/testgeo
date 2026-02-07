@@ -43,7 +43,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <label class="form-label">
                             <i class="bi bi-speedometer2 me-1"></i>请求频率限制
                         </label>
@@ -59,6 +59,34 @@
                             </div>
                             <div class="col-auto text-secondary">秒</div>
                         </div>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="bi bi-clock me-1"></i>最小请求间隔(秒)
+                            </label>
+                            <input type="number" class="form-control" id="deepseek-min-delay" value="60" min="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="bi bi-arrow-repeat me-1"></i>最大重试次数
+                            </label>
+                            <input type="number" class="form-control" id="deepseek-max-retries" value="3" min="0">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="bi bi-folder me-1"></i>Token 存储路径
+                        </label>
+                        <input type="text" class="form-control" id="deepseek-token-storage-path"
+                            placeholder="data/deepseek_tokens.json" value="data/deepseek_tokens.json">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">
+                            <i class="bi bi-file-binary me-1"></i>WASM 文件路径
+                        </label>
+                        <input type="text" class="form-control" id="deepseek-wasm-path"
+                            placeholder="sha3_wasm_bg.7b9ca65ddd.wasm" value="sha3_wasm_bg.7b9ca65ddd.wasm">
                     </div>
                     <button type="button" class="btn btn-primary w-100" onclick="saveProvider('deepseek')">
                         <i class="bi bi-check2-circle me-2"></i>保存配置
@@ -87,57 +115,42 @@
                 <form id="doubao-form">
                     <div class="mb-3">
                         <label class="form-label">
-                            <i class="bi bi-key-fill me-1"></i>API Key
+                            <i class="bi bi-cookie me-1"></i>浏览器 Cookie
                         </label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="doubao-api-key"
-                                placeholder="输入火山方舟 API Key">
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="togglePassword('doubao-api-key')">
-                                <i class="bi bi-eye"></i>
-                            </button>
-                        </div>
+                        <textarea class="form-control" id="doubao-cookies" rows="4"
+                            placeholder="i18next=zh; ttcid=..."></textarea>
                         <div class="form-text">
-                            <a href="https://console.volcengine.com/ark" target="_blank" class="text-info"
-                                style="text-decoration: none;">
-                                <i class="bi bi-box-arrow-up-right me-1"></i>前往火山方舟获取 API Key
-                            </a>
+                            在已登录豆包的浏览器复制完整 Cookie（可在开发者工具 Application → Cookies 查看），粘贴到此处。
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">
-                            <i class="bi bi-cpu me-1"></i>模型
+                            <i class="bi bi-link-45deg me-1"></i>聊天地址
                         </label>
-                        <select class="form-select" id="doubao-model">
-                            <option value="doubao-pro-32k">doubao-pro-32k (推荐)</option>
-                            <option value="doubao-pro-128k">doubao-pro-128k (长上下文)</option>
-                            <option value="doubao-lite-32k">doubao-lite-32k (轻量)</option>
-                        </select>
+                        <input type="text" class="form-control" id="doubao-chat-url"
+                            placeholder="https://www.doubao.com/chat/" value="https://www.doubao.com/chat/">
+                        <div class="form-text text-secondary">如需固定某个会话，可以填入具体的聊天 URL。</div>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">
-                            <i class="bi bi-plug me-1"></i>Endpoint ID <small class="text-danger">(必填)</small>
-                        </label>
-                        <input type="text" class="form-control" id="doubao-endpoint"
-                            placeholder="例如: ep-20240206000000-xxxxx">
-                        <div class="form-text text-secondary">请前往火山方舟控制台创建在线推理接入点，并复制接入点 ID (以 ep- 开头)</div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">
+                                <i class="bi bi-journal-check me-1"></i>参考资料翻页次数
+                            </label>
+                            <input type="number" class="form-control" id="doubao-reference-pages" min="1" value="5">
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="form-check form-switch mt-4">
+                                <input class="form-check-input" type="checkbox" id="doubao-headless">
+                                <label class="form-check-label" for="doubao-headless">启用无头模式</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label">
-                            <i class="bi bi-speedometer2 me-1"></i>请求频率限制
+                            <i class="bi bi-card-text me-1"></i>提问模板
                         </label>
-                        <div class="row g-2 align-items-center">
-                            <div class="col">
-                                <input type="number" class="form-control" id="doubao-rate-limit" placeholder="次数"
-                                    value="60">
-                            </div>
-                            <div class="col-auto text-secondary">次 /</div>
-                            <div class="col">
-                                <input type="number" class="form-control" id="doubao-rate-period" placeholder="秒"
-                                    value="60">
-                            </div>
-                            <div class="col-auto text-secondary">秒</div>
-                        </div>
+                        <textarea class="form-control" id="doubao-question-template" rows="5"></textarea>
+                        <div class="form-text">可用变量：<code>{keyword}</code>、<code>{target_brand}</code>、<code>{all_keywords}</code></div>
                     </div>
                     <button type="button" class="btn btn-success w-100" onclick="saveProvider('doubao')">
                         <i class="bi bi-check2-circle me-2"></i>保存配置
@@ -186,6 +199,20 @@
                 <input type="text" class="form-control" id="llm-model" placeholder="deepseek-chat">
             </div>
         </div>
+        <div class="row g-4 mt-1">
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="bi bi-hourglass-split me-1"></i>请求超时(秒)
+                </label>
+                <input type="number" class="form-control" id="llm-timeout" placeholder="60" value="60" min="1">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">
+                    <i class="bi bi-arrow-repeat me-1"></i>最大重试次数
+                </label>
+                <input type="number" class="form-control" id="llm-max-retries" placeholder="2" value="2" min="0">
+            </div>
+        </div>
         <button type="button" class="btn btn-primary mt-4" onclick="saveLlmConfig()">
             <i class="bi bi-check2-circle me-2"></i>保存 LLM 配置
         </button>
@@ -223,6 +250,8 @@
 
 {% block extra_js %}
 <script>
+    const defaultDoubaoTemplate = "你是资深市场调研顾问。请围绕关键词“{keyword}”分析目标品牌“{target_brand}”及其核心竞品，给出可信度/口碑/服务能力的综合排名，至少列出5个品牌。\\n1. 明确标出每个品牌的排名数字；\\n2. 针对排名给出一句话理由；\\n3. 引用豆包自动匹配的参考资料；\\n4. 如果目标品牌未出现请解释原因。";
+
     // Toggle password visibility
     function togglePassword(inputId) {
         const input = document.getElementById(inputId);
@@ -254,7 +283,11 @@
                 if (ds.rate_limit) {
                     document.getElementById('deepseek-rate-limit').value = ds.rate_limit.max_requests_per_period || 1;
                     document.getElementById('deepseek-rate-period').value = ds.rate_limit.period_seconds || 60;
+                    document.getElementById('deepseek-min-delay').value = ds.rate_limit.min_delay_between_requests ?? 60;
                 }
+                document.getElementById('deepseek-max-retries').value = ds.max_retries ?? 3;
+                document.getElementById('deepseek-token-storage-path').value = ds.token_storage_path || 'data/deepseek_tokens.json';
+                document.getElementById('deepseek-wasm-path').value = ds.wasm_path || 'sha3_wasm_bg.7b9ca65ddd.wasm';
                 document.getElementById('deepseek-status').textContent = '已配置';
                 document.getElementById('deepseek-status').className = 'badge-status badge-success ms-auto';
             } else {
@@ -265,17 +298,28 @@
             // Doubao
             if (config.providers?.doubao) {
                 const db = config.providers.doubao;
-                if (db.accounts?.[0]) {
-                    document.getElementById('doubao-api-key').value = db.accounts[0].api_key || '';
+                const account = db.accounts?.[0] || {};
+                document.getElementById('doubao-cookies').value = account.cookies || '';
+                document.getElementById('doubao-chat-url').value = db.chat_url || 'https://www.doubao.com/chat/';
+                document.getElementById('doubao-reference-pages').value = db.reference_pages || 5;
+                document.getElementById('doubao-headless').checked = !!db.headless;
+                document.getElementById('doubao-question-template').value = db.question_template || defaultDoubaoTemplate;
+
+                if ((account.cookies || '').trim()) {
+                    document.getElementById('doubao-status').textContent = '已配置';
+                    document.getElementById('doubao-status').className = 'badge-status badge-success ms-auto';
+                } else {
+                    document.getElementById('doubao-status').textContent = '缺少 Cookie';
+                    document.getElementById('doubao-status').className = 'badge-status badge-warning ms-auto';
                 }
-                document.getElementById('doubao-model').value = db.model || 'doubao-pro-32k';
-                document.getElementById('doubao-endpoint').value = db.endpoint_id || '';
-                if (db.rate_limit) {
-                    document.getElementById('doubao-rate-limit').value = db.rate_limit.max_requests_per_period || 60;
-                    document.getElementById('doubao-rate-period').value = db.rate_limit.period_seconds || 60;
-                }
-                document.getElementById('doubao-status').textContent = '已配置';
-                document.getElementById('doubao-status').className = 'badge-status badge-success ms-auto';
+            } else {
+                document.getElementById('doubao-cookies').value = '';
+                document.getElementById('doubao-chat-url').value = 'https://www.doubao.com/chat/';
+                document.getElementById('doubao-reference-pages').value = 5;
+                document.getElementById('doubao-headless').checked = false;
+                document.getElementById('doubao-question-template').value = defaultDoubaoTemplate;
+                document.getElementById('doubao-status').textContent = '未配置';
+                document.getElementById('doubao-status').className = 'badge-status badge-warning ms-auto';
             }
 
             // LLM
@@ -284,6 +328,8 @@
                 document.getElementById('llm-base-url').value = llm.base_url || '';
                 document.getElementById('llm-api-key').value = llm.api_key || '';
                 document.getElementById('llm-model').value = llm.model || '';
+                document.getElementById('llm-timeout').value = llm.timeout ?? 60;
+                document.getElementById('llm-max-retries').value = llm.max_retries ?? 2;
             }
 
         } catch (error) {
@@ -300,6 +346,10 @@
             const password = document.getElementById('deepseek-password').value;
             const rateLimit = parseInt(document.getElementById('deepseek-rate-limit').value) || 1;
             const ratePeriod = parseInt(document.getElementById('deepseek-rate-period').value) || 60;
+            const minDelay = parseFloat(document.getElementById('deepseek-min-delay').value) ?? 60;
+            const maxRetries = parseInt(document.getElementById('deepseek-max-retries').value) ?? 3;
+            const tokenStoragePath = document.getElementById('deepseek-token-storage-path').value.trim() || 'data/deepseek_tokens.json';
+            const wasmPath = document.getElementById('deepseek-wasm-path').value.trim() || 'sha3_wasm_bg.7b9ca65ddd.wasm';
 
             if (!account || !password) {
                 showNotification('请填写账号和密码', 'error');
@@ -311,31 +361,31 @@
                 account: account,
                 password: password,
                 rate_limit: rateLimit,
-                rate_period: ratePeriod
+                rate_period: ratePeriod,
+                min_delay_between_requests: minDelay,
+                max_retries: maxRetries,
+                token_storage_path: tokenStoragePath,
+                wasm_path: wasmPath
             };
         } else if (provider === 'doubao') {
-            const apiKey = document.getElementById('doubao-api-key').value.trim();
-            const model = document.getElementById('doubao-model').value;
-            const endpoint = document.getElementById('doubao-endpoint').value.trim();
-            const rateLimit = parseInt(document.getElementById('doubao-rate-limit').value) || 60;
-            const ratePeriod = parseInt(document.getElementById('doubao-rate-period').value) || 60;
+            const cookies = document.getElementById('doubao-cookies').value.trim();
+            const chatUrl = document.getElementById('doubao-chat-url').value.trim() || 'https://www.doubao.com/chat/';
+            const referencePages = parseInt(document.getElementById('doubao-reference-pages').value) || 5;
+            const headless = document.getElementById('doubao-headless').checked;
+            const template = document.getElementById('doubao-question-template').value.trim() || defaultDoubaoTemplate;
 
-            if (!apiKey) {
-                showNotification('请填写 API Key', 'error');
-                return;
-            }
-            if (!endpoint) {
-                showNotification('请填写 Endpoint ID', 'error');
+            if (!cookies) {
+                showNotification('请粘贴豆包 Cookie', 'error');
                 return;
             }
 
             data = {
                 provider: 'doubao',
-                api_key: apiKey,
-                model: model,
-                endpoint_id: endpoint,
-                rate_limit: rateLimit,
-                rate_period: ratePeriod
+                cookies: cookies,
+                chat_url: chatUrl,
+                reference_pages: referencePages,
+                headless: headless,
+                question_template: template
             };
         }
 
@@ -363,6 +413,8 @@
         const baseUrl = document.getElementById('llm-base-url').value.trim();
         const apiKey = document.getElementById('llm-api-key').value.trim();
         const model = document.getElementById('llm-model').value.trim();
+        const timeout = parseFloat(document.getElementById('llm-timeout').value) || 60;
+        const maxRetries = parseInt(document.getElementById('llm-max-retries').value) ?? 2;
 
         if (!baseUrl || !apiKey || !model) {
             showNotification('请填写所有字段', 'error');
@@ -373,7 +425,7 @@
             const res = await fetch('/api/config/llm', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ base_url: baseUrl, api_key: apiKey, model: model })
+                body: JSON.stringify({ base_url: baseUrl, api_key: apiKey, model: model, timeout: timeout, max_retries: maxRetries })
             });
 
             const result = await res.json();

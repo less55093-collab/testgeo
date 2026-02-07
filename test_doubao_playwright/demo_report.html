@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆包爬取结果报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .keyword-header {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        th {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+        th:first-child {
+            border-radius: 8px 0 0 0;
+            width: 80px;
+        }
+        th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e8f5e9;
+        }
+        .rank-cell {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 18px;
+        }
+        .product-name {
+            color: #1976D2;
+            font-weight: 500;
+        }
+        .source-link {
+            color: #666;
+        }
+        .source-link a {
+            color: #1976D2;
+            text-decoration: none;
+        }
+        .source-link a:hover {
+            text-decoration: underline;
+        }
+        .meta-info {
+            color: #888;
+            font-size: 14px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+        .no-data {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 豆包爬取结果报告</h1>
+        
+        <div class="result-card">
+            <div class="keyword-header">关键词：二手奢侈品上门回收</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>产品/平台</th>
+                        <th>引用来源</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td class="rank-cell">1</td>
+                        <td class="product-name">小萌芦（深圳）互联网有限公司</td>
+                        <td class="source-link"><a href="https://xnnews.com.cn" target="_blank">咸宁网 (https://xnnews.com.cn)</a></td>
+                    </tr>
+
+                    <tr>
+                        <td class="rank-cell">2</td>
+                        <td class="product-name">胖虎（北京）科技有限公司</td>
+                        <td class="source-link"><a href="https://xnnews.com.cn" target="_blank">咸宁网 (https://xnnews.com.cn)</a></td>
+                    </tr>
+
+                    <tr>
+                        <td class="rank-cell">3</td>
+                        <td class="product-name">爱回收</td>
+                        <td class="source-link"><a href="https://wandoujia.com" target="_blank">Wandoujia (https://wandoujia.com)</a></td>
+                    </tr>
+
+                    <tr>
+                        <td class="rank-cell">4</td>
+                        <td class="product-name">寺库（北京）商贸有限公司</td>
+                        <td class="source-link"><a href="https://xnnews.com.cn" target="_blank">咸宁网 (https://xnnews.com.cn)</a></td>
+                    </tr>
+
+                    <tr>
+                        <td class="rank-cell">5</td>
+                        <td class="product-name">典当行X（武汉地区示例）</td>
+                        <td class="source-link"><a href="https://goods.taobao.com" target="_blank">Taobao (https://goods.taobao.com)</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="meta-info">
+                爬取时间：2026-02-07 09:20:00 | 
+                参考资料数量：2
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

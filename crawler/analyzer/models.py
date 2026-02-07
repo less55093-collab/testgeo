@@ -48,6 +48,7 @@ class TargetProductStatistics:
     appearance_rate: float
     best_keywords: list[tuple[str, int]] = field(default_factory=list)
     worst_keywords: list[tuple[str, int]] = field(default_factory=list)
+    rank_position_counts: dict[int, int] = field(default_factory=dict)
 
 
 @dataclass

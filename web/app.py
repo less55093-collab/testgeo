@@ -6,6 +6,8 @@ import json
 import os
 import asyncio
 import threading
+import inspect
+import traceback
 from pathlib import Path
 from datetime import datetime
 
@@ -42,6 +44,16 @@ job_manager = JobManager()
 BASE_DIR = Path(__file__).parent.parent
 JOBS_DIR = BASE_DIR / 'jobs'
 CONFIG_PATH = BASE_DIR / 'config.json'
+
+DEFAULT_QUESTION_TEMPLATE = (
+    "你是资深市场调研顾问。请围绕关键词“{keyword}”分析目标品牌“{target_brand}”及其核心竞品，"
+    "给出可信度/口碑/服务能力的综合排名，至少列出5个品牌。"
+    "在回答里需要：\\n"
+    "1. 明确标出每个品牌的排名数字（1、2、3…）；\\n"
+    "2. 针对排名给出一句话理由或核心优势；\\n"
+    "3. 引用豆包自动匹配的参考资料；\\n"
+    "4. 如果目标品牌未出现在该场景，请说明原因。"
+)
 
 
 # ==================== Pages ====================
@@ -159,6 +171,34 @@ def delete_job(job_name):
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/api/jobs/<job_name>', methods=['PUT'])
+def update_job(job_name):
+    """Edit job keywords or target product"""
+    data = request.json or {}
+    keywords = data.get('keywords') or []
+    target_product = data.get('target_product')
+    try:
+        updated = job_manager.edit_job(job_name, keywords, target_product or None)
+        return jsonify({
+            'name': updated.job_name,
+            'keywords': updated.keywords,
+            'target_product': updated.target_product,
+            'total_keywords': updated.total_keywords,
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/api/jobs/<job_name>/end', methods=['POST'])
+def end_job_run(job_name):
+    """Force mark the latest run as completed"""
+    try:
+        latest_run = job_manager.end_latest_run(job_name)
+        return jsonify({'success': True, 'run': latest_run})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
 # ==================== Crawler API ====================
 
 @app.route('/api/crawler/status', methods=['GET'])
@@ -175,16 +215,17 @@ def start_crawler():
     if crawler_state['running']:
         return jsonify({'error': '爬虫正在运行中'}), 400
     
-    data = request.json
+    data = request.json or {}
     job_name = data.get('job_name')
     mode = data.get('mode', 'new')  # 'new', 'resume', 'rerun'
     provider = data.get('provider', 'deepseek')  # 'deepseek' or 'doubao'
-    
+    location = data.get('location') or None  # virtual city for geolocation spoofing
+
     if not job_name:
         return jsonify({'error': '请选择任务'}), 400
-    
+
     # Start crawler in background thread
-    thread = threading.Thread(target=run_crawler_async, args=(job_name, mode, provider))
+    thread = threading.Thread(target=run_crawler_async, args=(job_name, mode, provider, location))
     thread.daemon = True
     thread.start()
     
@@ -203,10 +244,10 @@ def stop_crawler():
     return jsonify({'success': True, 'message': '爬虫已停止'})
 
 
-def run_crawler_async(job_name, mode, provider='deepseek'):
+def run_crawler_async(job_name, mode, provider='deepseek', location=None):
     """Run crawler in background with selected AI provider"""
     global crawler_state
-    
+
     crawler_state['running'] = True
     crawler_state['current_job'] = job_name
     crawler_state['progress'] = 0
@@ -214,150 +255,212 @@ def run_crawler_async(job_name, mode, provider='deepseek'):
     crawler_state['fail_count'] = 0
     crawler_state['logs'] = []
     crawler_state['provider'] = provider
-    
+
     def log(message):
         timestamp = datetime.now().strftime('%H:%M:%S')
         log_entry = f"[{timestamp}] {message}"
+        print(log_entry)
         crawler_state['logs'].append(log_entry)
         if len(crawler_state['logs']) > 100:
             crawler_state['logs'] = crawler_state['logs'][-100:]
-        socketio.emit('log', {'message': log_entry})
-    
+        try:
+            with app.app_context():
+                socketio.emit('log', {'message': log_entry})
+        except Exception:
+            pass
+
     def update_progress(current, total, keyword, success, fail):
         crawler_state['progress'] = current
         crawler_state['total'] = total
         crawler_state['current_keyword'] = keyword
         crawler_state['success_count'] = success
         crawler_state['fail_count'] = fail
-        socketio.emit('progress', {
-            'current': current,
-            'total': total,
-            'keyword': keyword,
-            'success': success,
-            'fail': fail,
-            'percentage': int((current / total) * 100) if total > 0 else 0
-        })
-    
+        try:
+            with app.app_context():
+                socketio.emit('progress', {
+                    'current': current,
+                    'total': total,
+                    'keyword': keyword,
+                    'success': success,
+                    'fail': fail,
+                    'percentage': int((current / total) * 100) if total > 0 else 0
+                })
+        except Exception:
+            pass
+
+    async def _crawl_all(job_name, mode, provider, location):
+        """Inner async function that keeps the event loop alive for the entire
+        crawling session.  This prevents Playwright's WebSocket connection from
+        dropping between keywords."""
+        ai_provider = None
+        try:
+            log(f"开始爬取任务: {job_name}")
+            log(f"使用 AI 平台: {provider.upper()}")
+
+            # Load job metadata
+            metadata = job_manager.load_job(job_name)
+
+            # Determine keywords and run
+            if mode == 'new' or mode == 'rerun':
+                run_id = job_manager.start_run(job_name)
+                keywords_to_process = metadata.keywords
+            else:  # resume
+                if not metadata.runs:
+                    log("错误: 任务没有运行记录")
+                    return
+                current_run = metadata.runs[-1]
+                run_id = current_run['run_id']
+                keywords_to_process = job_manager.get_unprocessed_keywords(job_name, run_id)
+
+            crawler_state['current_run'] = run_id
+            log(f"运行ID: {run_id}")
+            log(f"待处理关键词: {len(keywords_to_process)} 个")
+
+            # Import provider based on selection
+            from provider.core.types import CallParams
+
+            if provider == 'doubao':
+                from provider.providers.doubao import Doubao
+                ai_provider = Doubao(str(CONFIG_PATH), location=location)
+                loc_msg = f" (虚拟地点: {location})" if location else ""
+                log(f"✓ 豆包浏览器爬虫已初始化 (Playwright){loc_msg}")
+            else:
+                from provider.providers.deepseek import DeepSeek
+                ai_provider = DeepSeek(str(CONFIG_PATH))
+                log("✓ DeepSeek AI 已初始化")
+
+            total = len(keywords_to_process)
+            success_count = 0
+            fail_count = 0
+
+            for i, keyword in enumerate(keywords_to_process):
+                if not crawler_state['running']:
+                    log("爬虫已停止")
+                    job_manager.update_run_status(job_name, run_id, status='paused')
+                    break
+
+                update_progress(i + 1, total, keyword, success_count, fail_count)
+                log(f"正在处理: {keyword}")
+
+                retry_count = 0
+                while True:
+                    if not crawler_state['running']:
+                        break
+                    try:
+                        # Create call params with job context
+                        extra = {
+                            "target_brand": metadata.target_product,
+                            "all_keywords": metadata.keywords,
+                        }
+                        params = CallParams(
+                            messages=keyword,
+                            enable_thinking=False,
+                            enable_search=True,
+                            extra=extra,
+                        )
+
+                        # Make API call (await keeps the event loop alive)
+                        result = await ai_provider.call(params)
+
+                        # Save result
+                        job_manager.save_keyword_result(
+                            job_name, run_id, keyword,
+                            success=True,
+                            content=result.content,
+                            rankings=result.rankings,
+                            sources=result.sources
+                        )
+
+                        # Log reference count for Doubao result
+                        if result.sources:
+                            log(f"  → 获取到 {len(result.sources)} 条参考资料")
+
+                        success_count += 1
+                        log(f"✓ 成功: {keyword}")
+                        break  # success, exit retry loop
+
+                    except Exception as e:
+                        if type(e).__name__ == 'NoAccountAvailable':
+                            retry_count += 1
+                            if retry_count % 10 == 1:
+                                log(f"  ⏳ 等待账号可用 (已等待 {retry_count} 秒)...")
+                            await asyncio.sleep(1)
+                            # continue retry loop
+                        else:
+                            fail_count += 1
+                            log(f"✗ 失败: {keyword} - {str(e)}")
+                            log(traceback.format_exc())
+                            job_manager.save_keyword_result(
+                                job_name, run_id, keyword,
+                                success=False,
+                                error=str(e)
+                            )
+                            break  # failed, exit retry loop
+
+            # Update final status
+            if crawler_state['running']:
+                job_manager.update_run_status(job_name, run_id, status='completed')
+                log(f"爬取完成! 成功: {success_count}, 失败: {fail_count}")
+
+                # Auto-run analyzer
+                log("正在生成分析报告...")
+                try:
+                    from crawler.analyzer import (
+                        ResultLoader,
+                        StatisticsCalculator,
+                        ReportGenerator,
+                    )
+
+                    loader = ResultLoader()
+                    results = loader.load_run_results(job_name, run_id)
+
+                    calculator = StatisticsCalculator()
+                    stats = calculator.calculate(results, metadata.target_product)
+                    stats.job_name = job_name
+                    stats.run_id = run_id
+                    stats.analyzed_at = datetime.now().isoformat()
+
+                    run_dir = JOBS_DIR / job_name / 'runs' / run_id
+                    generator = ReportGenerator(stats, run_dir)
+                    generator.save_json()
+                    generator.save_html()
+                    generator.save_text()
+
+                    log("✓ 报告生成完成")
+                except Exception as e:
+                    log(f"报告生成失败: {str(e)}")
+
+        except Exception as e:
+            log(f"爬虫错误: {str(e)}")
+            log(traceback.format_exc())
+        finally:
+            if ai_provider:
+                close_method = getattr(ai_provider, "close", None)
+                if close_method:
+                    try:
+                        result = close_method()
+                        if inspect.isawaitable(result):
+                            await result
+                    except Exception as close_error:
+                        log(f"关闭AI提供器失败: {close_error}")
+
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     try:
-        log(f"开始爬取任务: {job_name}")
-        log(f"使用 AI 平台: {provider.upper()}")
-        
-        # Load job metadata
-        metadata = job_manager.load_job(job_name)
-        
-        # Determine keywords and run
-        if mode == 'new' or mode == 'rerun':
-            run_id = job_manager.start_run(job_name)
-            keywords_to_process = metadata.keywords
-        else:  # resume
-            if not metadata.runs:
-                log("错误: 任务没有运行记录")
-                return
-            current_run = metadata.runs[-1]
-            run_id = current_run['run_id']
-            keywords_to_process = job_manager.get_unprocessed_keywords(job_name, run_id)
-        
-        crawler_state['current_run'] = run_id
-        log(f"运行ID: {run_id}")
-        log(f"待处理关键词: {len(keywords_to_process)} 个")
-        
-        # Import provider based on selection
-        from provider.core.types import CallParams
-        
-        if provider == 'doubao':
-            from provider.providers.doubao import Doubao
-            ai_provider = Doubao(str(CONFIG_PATH))
-            log("✓ 豆包 AI 已初始化 (支持联网搜索)")
-        else:
-            from provider.providers.deepseek import DeepSeek
-            ai_provider = DeepSeek(str(CONFIG_PATH))
-            log("✓ DeepSeek AI 已初始化")
-        
-        total = len(keywords_to_process)
-        success_count = 0
-        fail_count = 0
-        
-        for i, keyword in enumerate(keywords_to_process):
-            if not crawler_state['running']:
-                log("爬虫已停止")
-                job_manager.update_run_status(job_name, run_id, status='paused')
-                break
-            
-            update_progress(i + 1, total, keyword, success_count, fail_count)
-            log(f"正在处理: {keyword}")
-            
-            try:
-                # Create call params
-                params = CallParams(
-                    messages=[{"role": "user", "content": keyword}],
-                    enable_thinking=False,
-                    enable_search=True,
-                )
-                
-                # Make API call
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-                result = loop.run_until_complete(ai_provider.call(params))
-                loop.close()
-                
-                # Save result
-                job_manager.save_keyword_result(
-                    job_name, run_id, keyword,
-                    success=True,
-                    content=result.content,
-                    rankings=result.rankings,
-                    sources=result.sources
-                )
-                
-                # Log source count for search results
-                if result.sources:
-                    log(f"  → 获取到 {len(result.sources)} 个搜索来源")
-                
-                success_count += 1
-                log(f"✓ 成功: {keyword}")
-                
-            except Exception as e:
-                fail_count += 1
-                log(f"✗ 失败: {keyword} - {str(e)}")
-                job_manager.save_keyword_result(
-                    job_name, run_id, keyword,
-                    success=False,
-                    error=str(e)
-                )
-        
-        # Update final status
-        if crawler_state['running']:
-            job_manager.update_run_status(job_name, run_id, status='completed')
-            log(f"爬取完成! 成功: {success_count}, 失败: {fail_count}")
-            
-            # Auto-run analyzer
-            log("正在生成分析报告...")
-            try:
-                from crawler.analyzer import ResultLoader, StatisticsCalculator, ReportGenerator
-                
-                loader = ResultLoader()
-                results = loader.load_run_results(job_name, run_id)
-                
-                calculator = StatisticsCalculator()
-                stats = calculator.calculate(results, metadata.target_product)
-                stats.job_name = job_name
-                stats.run_id = run_id
-                stats.analyzed_at = datetime.now().isoformat()
-                
-                run_dir = JOBS_DIR / job_name / 'runs' / run_id
-                generator = ReportGenerator(stats, run_dir)
-                generator.save_json()
-                generator.save_html()
-                
-                log("✓ 报告生成完成")
-            except Exception as e:
-                log(f"报告生成失败: {str(e)}")
-        
-    except Exception as e:
-        log(f"爬虫错误: {str(e)}")
+        loop.run_until_complete(_crawl_all(job_name, mode, provider, location))
     finally:
+        try:
+            loop.run_until_complete(loop.shutdown_asyncgens())
+        except Exception:
+            pass
+        loop.close()
+        asyncio.set_event_loop(None)
         crawler_state['running'] = False
-        socketio.emit('crawler_finished', {'job': job_name})
+        try:
+            with app.app_context():
+                socketio.emit('crawler_finished', {'job': job_name})
+        except Exception:
+            pass
 
 
 # ==================== Report API ====================
@@ -409,8 +512,21 @@ def get_config():
     # Sanitize sensitive data
     providers = {}
     for name, provider_config in config.get('providers', {}).items():
+        accounts = provider_config.get('accounts', []) or []
+        has_accounts = False
+        for account in accounts:
+            if any(
+                (
+                    account.get('api_key'),
+                    account.get('password'),
+                    account.get('token'),
+                    (account.get('cookies') or '').strip(),
+                )
+            ):
+                has_accounts = True
+                break
         providers[name] = {
-            'has_accounts': len(provider_config.get('accounts', [])) > 0,
+            'has_accounts': has_accounts,
             'rate_limit': provider_config.get('rate_limit', {})
         }
     
@@ -453,38 +569,46 @@ def save_provider_config():
         password = data.get('password', '')
         rate_limit = data.get('rate_limit', 1)
         rate_period = data.get('rate_period', 60)
-        
+        min_delay = data.get('min_delay_between_requests', 60)
+        max_retries = data.get('max_retries', 3)
+        token_storage_path = data.get('token_storage_path', 'data/deepseek_tokens.json')
+        wasm_path = data.get('wasm_path', 'sha3_wasm_bg.7b9ca65ddd.wasm')
+
         # Determine if email or mobile
         account_obj = {'password': password}
         if '@' in account:
             account_obj['email'] = account
         else:
             account_obj['mobile'] = account
-        
+
         config['providers']['deepseek'] = {
             'accounts': [account_obj],
             'rate_limit': {
                 'max_requests_per_period': rate_limit,
-                'period_seconds': rate_period
-            }
+                'period_seconds': rate_period,
+                'min_delay_between_requests': min_delay
+            },
+            'max_retries': max_retries,
+            'token_storage_path': token_storage_path,
+            'wasm_path': wasm_path
         }
     
     elif provider == 'doubao':
-        api_key = data.get('api_key', '')
-        model = data.get('model', 'doubao-pro-32k')
-        endpoint_id = data.get('endpoint_id', '')
-        rate_limit = data.get('rate_limit', 60)
-        rate_period = data.get('rate_period', 60)
+        cookies = (data.get('cookies') or '').strip()
+        chat_url = data.get('chat_url') or 'https://www.doubao.com/chat/'
+        headless = bool(data.get('headless', False))
+        reference_pages = max(1, int(data.get('reference_pages', 5)))
+        question_template = data.get('question_template') or DEFAULT_QUESTION_TEMPLATE
+        
+        if not cookies:
+            return jsonify({'error': '请粘贴豆包登录 Cookie'}), 400
         
         config['providers']['doubao'] = {
-            'accounts': [{'api_key': api_key}],
-            'model': model,
-            'endpoint_id': endpoint_id,
-            'base_url': 'https://ark.cn-beijing.volces.com/api/v3/',
-            'rate_limit': {
-                'max_requests_per_period': rate_limit,
-                'period_seconds': rate_period
-            }
+            'accounts': [{'cookies': cookies}],
+            'chat_url': chat_url,
+            'headless': headless,
+            'reference_pages': reference_pages,
+            'question_template': question_template,
         }
     
     # Save config
@@ -502,21 +626,25 @@ def save_llm_config():
     base_url = data.get('base_url', '')
     api_key = data.get('api_key', '')
     model = data.get('model', '')
-    
+    timeout = data.get('timeout', 60)
+    max_retries = data.get('max_retries', 2)
+
     if not base_url or not api_key or not model:
         return jsonify({'error': '缺少必要参数'}), 400
-    
+
     # Load existing config
     if CONFIG_PATH.exists():
         with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
             config = json.load(f)
     else:
         config = {'providers': {}, 'llm': []}
-    
+
     config['llm'] = [{
         'base_url': base_url,
         'api_key': api_key,
-        'model': model
+        'model': model,
+        'timeout': timeout,
+        'max_retries': max_retries
     }]
     
     # Save config
@@ -539,12 +667,18 @@ def test_provider_connection(provider):
         if provider not in config.get('providers', {}):
             return jsonify({'success': False, 'error': f'{provider} 未配置'})
         
-        # For now just check if config exists
         provider_config = config['providers'][provider]
-        if provider_config.get('accounts'):
+        accounts = provider_config.get('accounts', []) or []
+        
+        if provider == 'doubao':
+            has_cookie = any((acc.get('cookies') or '').strip() for acc in accounts)
+            if has_cookie:
+                return jsonify({'success': True, 'message': '豆包 Cookie 已配置'})
+            return jsonify({'success': False, 'error': '请粘贴豆包 Cookie'})
+        
+        if accounts:
             return jsonify({'success': True, 'message': '配置有效'})
-        else:
-            return jsonify({'success': False, 'error': '未配置账号'})
+        return jsonify({'success': False, 'error': '未配置账号'})
     
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
@@ -559,4 +693,12 @@ def handle_connect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    # Flask-SocketIO blocks running on Werkzeug by default (newer versions).
+    # This project uses it for local development, so explicitly allow it here.
+    socketio.run(
+        app,
+        host='0.0.0.0',
+        port=5000,
+        debug=True,
+        allow_unsafe_werkzeug=True,
+    )

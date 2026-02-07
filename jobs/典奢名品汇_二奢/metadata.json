@@ -110,6 +110,70 @@
       "status": "paused",
       "processed_keywords": 0,
       "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260206_232920",
+      "started_at": "2026-02-06T23:29:20.870973",
+      "completed_at": "2026-02-06T23:36:09.216264",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_143836",
+      "started_at": "2026-02-07T14:38:36.875599",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_143921",
+      "started_at": "2026-02-07T14:39:21.951239",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_143936",
+      "started_at": "2026-02-07T14:39:36.989423",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_144155",
+      "started_at": "2026-02-07T14:41:55.715747",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_144551",
+      "started_at": "2026-02-07T14:45:51.425290",
+      "completed_at": "2026-02-07T15:17:46.566955",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_182041",
+      "started_at": "2026-02-07T18:20:41.602627",
+      "completed_at": "2026-02-07T18:33:45.895502",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_201833",
+      "started_at": "2026-02-07T20:18:33.842013",
+      "completed_at": "2026-02-07T20:37:35.936917",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
     }
   ]
 }

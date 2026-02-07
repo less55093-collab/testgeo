@@ -9,7 +9,11 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from crawler.analyzer import ResultLoader, StatisticsCalculator, ReportGenerator
+from crawler.analyzer import (
+    ResultLoader,
+    StatisticsCalculator,
+    ReportGenerator,
+)
 
 
 def parse_args():
@@ -22,9 +26,15 @@ def parse_args():
     )
     parser.add_argument(
         "--export",
-        choices=["json", "html", "all"],
+        choices=["json", "html", "txt", "all"],
         default="all",
         help="Export format (default: all)",
+    )
+    parser.add_argument(
+        "--provider",
+        choices=["auto", "deepseek", "doubao"],
+        default="auto",
+        help="(Deprecated) Provider type for analysis (default: auto)",
     )
 
     return parser.parse_args()
@@ -66,7 +76,7 @@ def main():
 
     print(f"加载了 {len(results)} 个关键词结果")
 
-    # Calculate statistics
+    # Calculate statistics (provider-agnostic)
     calculator = StatisticsCalculator()
     stats = calculator.calculate(results, metadata.get("target_product"))
 
@@ -86,6 +96,10 @@ def main():
     if args.export in ["html", "all"]:
         generator.save_html()
         print("✓ 已生成 report.html")
+
+    if args.export in ["txt", "all"]:
+        generator.save_text()
+        print("✓ 已生成 report.txt")
 
     # Display summary
     print(generator.generate_console_summary())

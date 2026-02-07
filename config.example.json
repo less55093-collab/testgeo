@@ -1,0 +1,40 @@
+{
+    "providers": {
+        "deepseek": {
+            "accounts": [
+                {
+                    "mobile": "YOUR_MOBILE_NUMBER",
+                    "password": "YOUR_PASSWORD",
+                    "token": null
+                }
+            ],
+            "rate_limit": {
+                "max_requests_per_period": 1,
+                "period_seconds": 60.0,
+                "min_delay_between_requests": 60
+            },
+            "token_storage_path": "data/deepseek_tokens.json",
+            "wasm_path": "sha3_wasm_bg.7b9ca65ddd.wasm"
+        },
+        "doubao": {
+            "accounts": [
+                {
+                    "cookies": "YOUR_COOKIES_HERE"
+                }
+            ],
+            "chat_url": "https://www.doubao.com/chat/",
+            "headless": false,
+            "reference_pages": 5,
+            "question_template": "你是资深市场调研顾问。请围绕关键词\"{keyword}\"分析目标品牌\"{target_brand}\"及其核心竞品，给出可信度/口碑/服务能力的综合排名，至少列出5个品牌。\\n1. 明确标出每个品牌的排名数字；\\n2. 针对排名给出一句话理由；\\n3. 引用豆包自动匹配的参考资料；\\n4. 如果目标品牌未出现请解释原因。"
+        }
+    },
+    "llm": [
+        {
+            "base_url": "https://api.deepseek.com/v1",
+            "api_key": "YOUR_API_KEY_HERE",
+            "model": "deepseek-chat",
+            "timeout": 60.0,
+            "max_retries": 2
+        }
+    ]
+}

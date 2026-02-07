@@ -1,0 +1,60 @@
+{
+  "job_name": "黄金回收test",
+  "created_at": "2026-02-07T21:15:16.304271",
+  "keywords": [
+    "黄金上门回收",
+    "二奢上门回收"
+  ],
+  "target_product": "金豆豆",
+  "total_keywords": 2,
+  "runs": [
+    {
+      "run_id": "run_20260207_211531",
+      "started_at": "2026-02-07T21:15:31.779006",
+      "completed_at": null,
+      "status": "running",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_213807",
+      "started_at": "2026-02-07T21:38:07.528107",
+      "completed_at": "2026-02-07T21:40:44.917922",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_220751",
+      "started_at": "2026-02-07T22:07:51.878614",
+      "completed_at": "2026-02-07T22:08:30.629894",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_221840",
+      "started_at": "2026-02-07T22:18:40.011213",
+      "completed_at": "2026-02-07T22:19:21.449121",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_222253",
+      "started_at": "2026-02-07T22:22:53.366161",
+      "completed_at": "2026-02-07T22:23:39.168827",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    },
+    {
+      "run_id": "run_20260207_222445",
+      "started_at": "2026-02-07T22:24:45.661505",
+      "completed_at": "2026-02-07T22:26:53.477168",
+      "status": "completed",
+      "processed_keywords": 0,
+      "failed_keywords": 0
+    }
+  ]
+}

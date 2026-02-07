@@ -1,0 +1,50 @@
+[
+  {
+    "keyword": "二手奢侈品上门回收",
+    "crawl_time": "2026-02-07 09:20:00",
+    "products": [
+      {
+        "rank": 1,
+        "name": "小萌芦（深圳）互联网有限公司",
+        "source": "咸宁网",
+        "source_url": "https://xnnews.com.cn"
+      },
+      {
+        "rank": 2,
+        "name": "胖虎（北京）科技有限公司",
+        "source": "咸宁网",
+        "source_url": "https://xnnews.com.cn"
+      },
+      {
+        "rank": 3,
+        "name": "爱回收",
+        "source": "Wandoujia",
+        "source_url": "https://wandoujia.com"
+      },
+      {
+        "rank": 4,
+        "name": "寺库（北京）商贸有限公司",
+        "source": "咸宁网",
+        "source_url": "https://xnnews.com.cn"
+      },
+      {
+        "rank": 5,
+        "name": "典当行X（武汉地区示例）",
+        "source": "Taobao",
+        "source_url": "https://goods.taobao.com"
+      }
+    ],
+    "references": [
+      {
+        "title": "上海二手奢侈品回收指南",
+        "url": "https://xnnews.com.cn/xxx",
+        "source": "咸宁网"
+      },
+      {
+        "title": "二手奢侈品回收平台推荐",
+        "url": "https://wandoujia.com/xxx",
+        "source": "豌豆荚"
+      }
+    ]
+  }
+]

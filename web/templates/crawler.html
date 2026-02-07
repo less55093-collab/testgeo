@@ -30,7 +30,7 @@
                         <div class="provider-option" data-provider="doubao" onclick="selectProvider('doubao')">
                             <i class="bi bi-lightning-charge" style="color: #10b981;"></i>
                             <div class="name">豆包</div>
-                            <div class="desc">联网搜索<span class="feature-badge"><i class="bi bi-globe"></i>实时</span></div>
+                            <div class="desc">浏览器采集<span class="feature-badge"><i class="bi bi-display"></i>Playwright</span></div>
                         </div>
                     </div>
                 </div>
@@ -48,6 +48,25 @@
                         <option value="resume">▶️ 恢复运行 (继续未完成的)</option>
                         <option value="rerun">🔄 重新运行 (重新处理所有)</option>
                     </select>
+                </div>
+                <div class="mb-4" id="location-group" style="display: none;">
+                    <label class="form-label">虚拟地点</label>
+                    <select class="form-select" id="location-select">
+                        <option value="">不设置 (使用默认)</option>
+                        <option value="上海">上海</option>
+                        <option value="北京">北京</option>
+                        <option value="广州">广州</option>
+                        <option value="深圳">深圳</option>
+                        <option value="杭州">杭州</option>
+                        <option value="成都">成都</option>
+                        <option value="武汉">武汉</option>
+                        <option value="南京">南京</option>
+                        <option value="重庆">重庆</option>
+                        <option value="西安">西安</option>
+                        <option value="苏州">苏州</option>
+                        <option value="天津">天津</option>
+                    </select>
+                    <div class="form-text">通过 Playwright 地理位置欺骗，使豆包返回对应城市的本地化结果</div>
                 </div>
                 <div class="d-grid gap-3">
                     <button class="btn btn-success btn-lg" id="start-btn">
@@ -155,6 +174,8 @@
             opt.classList.remove('selected');
         });
         document.querySelector(`[data-provider="${provider}"]`).classList.add('selected');
+        // Show location dropdown only for doubao
+        document.getElementById('location-group').style.display = provider === 'doubao' ? 'block' : 'none';
     }
 
     // Load jobs for select
@@ -183,6 +204,7 @@
         document.getElementById('stop-btn').disabled = !running;
         document.getElementById('job-select').disabled = running;
         document.getElementById('mode-select').disabled = running;
+        document.getElementById('location-select').disabled = running;
 
         const statusBadge = document.getElementById('status-badge');
         if (running) {
@@ -211,17 +233,19 @@
         }
 
         // Update current provider display
-        const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包 (联网搜索)' };
+        const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包 (Playwright)' };
         document.getElementById('current-provider').textContent = providerNames[selectedProvider] || selectedProvider;
 
         try {
+            const location = document.getElementById('location-select').value || null;
             const res = await fetch('/api/crawler/start', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     job_name: jobName,
                     mode: mode,
-                    provider: selectedProvider
+                    provider: selectedProvider,
+                    location: location
                 })
             });
 
@@ -291,7 +315,7 @@
             document.getElementById('progress-percentage').textContent = percentage + '%';
 
             if (data.provider) {
-                const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包' };
+                const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包 (Playwright)' };
                 document.getElementById('current-provider').textContent = providerNames[data.provider] || data.provider;
             }
         }
@@ -325,7 +349,7 @@
             if (data.running) {
                 document.getElementById('current-job').textContent = data.current_job || '-';
                 if (data.provider) {
-                    const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包' };
+                    const providerNames = { 'deepseek': 'DeepSeek', 'doubao': '豆包 (Playwright)' };
                     document.getElementById('current-provider').textContent = providerNames[data.provider] || data.provider;
                 }
             }
